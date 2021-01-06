@@ -2,12 +2,12 @@ import React, { useState, createContext, useContext } from "react";
 
 import { classNames } from "css-hash";
 
-import { mainMenuClass } from "./style";
+import { navigationClass } from "./style";
 
 const NavigationContext = createContext();
 
 function Item(props) {
-  const { icon = "", title = "", children, menu_id } = props;
+  const { icon = "", title = "", children, menu_id, type = "" } = props;
 
   const { onClickMenu = () => {}, activeId } = useContext(NavigationContext);
 
@@ -18,6 +18,10 @@ function Item(props) {
   }
 
   const isActive = activeId === menu_id;
+
+  if (type === "navigation-title") {
+    return <li className="title">{title}</li>;
+  }
   return (
     <li
       onClick={(e) => {
@@ -28,7 +32,7 @@ function Item(props) {
     >
       <a>
         <i className={icon} />
-        <span className="title">{title}</span>
+        <span>{title}</span>
       </a>
     </li>
   );
@@ -54,7 +58,7 @@ function MultiItem(props) {
   }
   return (
     <li
-      className={classNames("has-sub", isActive && "active")}
+      className={classNames("has-child", isActive && "active")}
       onClick={(e) => {
         e.stopPropagation();
         onClickMenu(clickProps);
@@ -62,10 +66,10 @@ function MultiItem(props) {
     >
       <a>
         <i className={icon} />
-        <span className="title">{title}</span>
+        <span>{title}</span>
       </a>
       {showSubMenu && (
-        <ul className="nav">
+        <ul>
           {children.map((item, index) => (
             <React.Fragment key={index}>
               <Item {...item} />
@@ -116,7 +120,7 @@ export default function Navigation(props) {
     <NavigationContext.Provider
       value={{ onClickMenu, activeMenuId, activeId, collapsed }}
     >
-      <ul className={mainMenuClass}>
+      <ul className={navigationClass}>
         {menusWithMenuId.map((item, index) => {
           return (
             <React.Fragment key={index}>

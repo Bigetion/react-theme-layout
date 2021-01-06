@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import { classNames } from "css-hash";
 
 import {
+  layoutClass,
+  pageHeaderClass,
+  pageHeaderLogoClass,
   pageContainerClass,
-  sidebarCollapsedClass,
-  mainContentClass,
-  mainHeaderClass,
-  mainContainerClass,
+  pageSidebarClass,
+  pageSidebarCollapsedClass,
+  pageContentClass,
   mobileWidth,
 } from "./style";
 
-import Sidebar from "./Sidebar";
+import Navigation from "./Navigation";
 
 import menus from "./menus";
 
@@ -30,10 +32,9 @@ export default function Layout(props) {
   useEffect(() => {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
-      if (windowWidth <= mobileWidth) {
-        setCollapsed(false);
-      }
+      setCollapsed(windowWidth < mobileWidth);
     };
+    resizeListener();
     window.addEventListener("resize", resizeListener);
     return () => {
       window.removeEventListener("resize", resizeListener);
@@ -43,24 +44,29 @@ export default function Layout(props) {
   return (
     <div
       className={classNames(
-        pageContainerClass,
-        collapsed && sidebarCollapsedClass
+        layoutClass,
+        collapsed && pageSidebarCollapsedClass
       )}
     >
-      <Sidebar collapsed={collapsed} menus={menus} />
-      <div className={mainContainerClass}>
-        <div className={mainHeaderClass}>
-          <div
-            className={`${mainHeaderClass}-collapse-menu`}
+      <div className={pageHeaderClass}>
+        <div className={pageHeaderLogoClass}>
+          <span>APP LOGO</span>
+          <span
+            className={`${pageHeaderLogoClass}-collapse-menu`}
             onClick={() => {
               setCollapsed(!collapsed);
             }}
           >
-            <i className="fa fa-bars" />
-          </div>
-          <div className={`${mainHeaderClass}-content`}></div>
+            <i className={`fa fa-${collapsed ? "bars" : "ellipsis-v"}`} />
+          </span>
         </div>
-        <div className={mainContentClass}>{children}</div>
+        <div className=""></div>
+      </div>
+      <div className={pageContainerClass}>
+        <div className={pageSidebarClass}>
+          <Navigation menus={menus} />
+        </div>
+        <div className={pageContentClass}>{children}</div>
       </div>
     </div>
   );

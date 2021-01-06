@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { pageSidebarClass, siteHeaderClass, mobileWidth } from "./style";
 
 import Navigation from "./Navigation";
 
 export default function Sidebar(props) {
+  const [collapsed, setCollapsed] = useState(false);
+
   const getWindowWidth = () => {
     return (
       window.innerWidth ||
@@ -12,8 +14,6 @@ export default function Sidebar(props) {
       document.body.clientWidth
     );
   };
-
-  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const resizeListener = () => {
