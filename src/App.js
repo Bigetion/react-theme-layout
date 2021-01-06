@@ -13,7 +13,7 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
           height: 500,
-          background: "rgba(0, 0, 0, 0.2)",
+          background: "rgba(0, 0, 0, 0.1)",
         }}
       >
         Main Content

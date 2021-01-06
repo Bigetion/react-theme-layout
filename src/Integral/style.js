@@ -18,7 +18,7 @@ const mainHeaderHeight = 60;
 const mainHeaderBorderBottom = "solid 1px #E3E1E1";
 const mainHeaderContentPadding = "0 20px";
 
-const mainContentPadding = "20px";
+const mainContentPadding = "0px";
 
 const mobileMenuBgHover = "#F0F0F0";
 const collapseMenuBgHover = "#F8F8F8";
