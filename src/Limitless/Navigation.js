@@ -20,7 +20,11 @@ function Item(props) {
   const isActive = activeId === menu_id;
 
   if (type === 'navigation-header') {
-    return <li className="title">{title}</li>;
+    return (
+      <li className="navigation-header">
+        <span>{title}</span> <i className={icon} title={title} />
+      </li>
+    );
   }
   return (
     <li
@@ -58,13 +62,13 @@ function MultiItem(props) {
   }
   return (
     <li
-      className={classNames('has-child', isActive && 'active')}
+      className={classNames(isActive && 'active')}
       onClick={(e) => {
         e.stopPropagation();
         onClickMenu(clickProps);
       }}
     >
-      <a>
+      <a className="has-ul">
         <i className={icon} />
         <span>{title}</span>
       </a>

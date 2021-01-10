@@ -8,8 +8,11 @@ const pageSidebarWidth = 280;
 const pageSidebarBg = '#F8F8F8';
 const pageSidebarColor = '#252525';
 const pageSidebarZIndex = 101;
+const pageSidebarCollapsedWidth = 66;
 
 const siteHeaderHeight = 60;
+const siteHeaderBg = '#222D32';
+const siteHeaderColor = '#FFFFFF';
 const siteHeaderBorderBottom = 'solid 1px #E3E1E1';
 const siteHeaderContentPadding = '0 20px';
 const siteHeaderZIndex = 101;
@@ -90,6 +93,8 @@ export const pageSidebarClass = cssHash(
 export const siteHeaderClass = cssHash(
   (className) => `
     .${className} {
+      background-color: ${siteHeaderBg};
+      color: ${siteHeaderColor};
       overflow: hidden;
       position: relative;
       z-index: ${siteHeaderZIndex};
@@ -277,7 +282,7 @@ export const mainMenuClass = cssHash(
 export const sidebarCollapsedClass = cssHash(
   (className) => `
     .${className} .${pageSidebarClass} {
-      width: 66px;
+      width: ${pageSidebarCollapsedWidth}px;
     }
     .${className} .${siteHeaderClass}-content {
       display: none;
@@ -285,7 +290,7 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} .${mainMenuClass} > li > a > span.title {
       background-color: ${primaryColor};
       display: block;
-      left: 66px;
+      left: ${pageSidebarCollapsedWidth}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
@@ -322,7 +327,7 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} .${mainMenuClass} > li > ul {
       display: block;
       height: 0;
-      left: 66px;
+      left: ${pageSidebarCollapsedWidth}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
