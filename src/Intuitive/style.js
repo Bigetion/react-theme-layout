@@ -1,6 +1,7 @@
-import { cssHash } from "css-hash";
+import { cssHash } from 'css-hash';
 
 const pageSidebarWidth = 300;
+const pageSidebarMinimizedWidth = 55;
 const pageHeaderHeight = 55;
 
 const pagePaddingBottom = 40;
@@ -18,7 +19,7 @@ export const layoutClass = cssHash(
       visibility: visible !important;
       overflow-x: hidden;
     }
-  `
+  `,
 );
 
 export const pageHeaderClass = cssHash(
@@ -43,7 +44,7 @@ export const pageHeaderClass = cssHash(
         float: left;
       }
     }  
-  `
+  `,
 );
 
 export const pageHeaderLogoClass = cssHash(
@@ -105,7 +106,7 @@ export const pageHeaderLogoClass = cssHash(
         background: #324259;
       }
     }  
-  `
+  `,
 );
 
 export const pageContainerClass = cssHash(
@@ -128,7 +129,7 @@ export const pageContainerClass = cssHash(
         padding-bottom: ${pagePaddingBottom}px;
       }
     }
-  `
+  `,
 );
 
 export const pageSidebarClass = cssHash(
@@ -152,7 +153,25 @@ export const pageSidebarClass = cssHash(
         padding-bottom: 0px;
       }
     }
-  `
+  `,
+);
+
+export const pageSidebarMinimizedClass = cssHash(
+  (className) => `
+    .${layoutClass}.${className} .${pageContainerClass} .${pageSidebarClass} {
+      width: ${pageSidebarMinimizedWidth}px;
+    }
+  `,
+);
+
+export const pageSidebarCollapsedClass = cssHash(
+  (className) => `
+    .${layoutClass}.${className} .${pageContainerClass} .${pageSidebarClass} {
+      width: 0px;
+      overflow: hidden;
+    }
+    
+  `,
 );
 
 export const pageContentClass = cssHash(
@@ -166,6 +185,14 @@ export const pageContentClass = cssHash(
       padding-left: ${pageSidebarWidth}px;
       padding-bottom: ${pagePaddingBottom}px;
     }
+    .${layoutClass}.${pageSidebarMinimizedClass} .${pageContainerClass} .${className} {
+      padding-left: ${pageSidebarMinimizedWidth}px;
+      width: calc(100% - ${pageSidebarMinimizedWidth}px);
+    }
+    .${layoutClass}.${pageSidebarCollapsedClass} .${pageContainerClass} .${className} {
+      width: 100%;
+      padding-left: 0px;
+    }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${pageContainerClass} .${className} {
         width: 100%;
@@ -173,31 +200,7 @@ export const pageContentClass = cssHash(
         float: left;
       }
     }
-  `
-);
-
-export const pageSidebarMinimizedClass = cssHash(
-  (className) => `
-    .${layoutClass}.${className} .${pageContainerClass} .${pageSidebarClass} {
-      width: 55px;
-    }
-    .${layoutClass}.${className} .${pageContainerClass} .${pageContentClass} {
-      padding-left: 55px;
-    }
-  `
-);
-
-export const pageSidebarCollapsedClass = cssHash(
-  (className) => `
-    .${layoutClass}.${className} .${pageContainerClass} .${pageSidebarClass} {
-      width: 0px;
-      overflow: hidden;
-    }
-    .${layoutClass}.${className} .${pageContainerClass} .${pageContentClass} {
-      width: 100%;
-      padding-left: 0px;
-    }
-  `
+  `,
 );
 
 export const navigationClass = cssHash(
@@ -236,11 +239,6 @@ export const navigationClass = cssHash(
       padding-left: 45px;
       white-space: nowrap;
       position: relative;
-      -webkit-transition: background-color 100ms linear;
-      -moz-transition: background-color 100ms linear;
-      -o-transition: background-color 100ms linear;
-      -ms-transition: background-color 100ms linear;
-      transition: background-color 100ms linear;
     }
     .${className} > li > a .fa {
       position: absolute;
@@ -545,5 +543,5 @@ export const navigationClass = cssHash(
     .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li.has-child > a:before {
       display: none;
     }
-  `
+  `,
 );

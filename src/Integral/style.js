@@ -1,30 +1,30 @@
-import { cssHash } from "css-hash";
+import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
 
-const mainContainerBg = "#FFFFFF";
+const mainContainerBg = '#FFFFFF';
 
 const pageSidebarWidth = 280;
-const pageSidebarBg = "#F8F8F8";
-const pageSidebarColor = "#252525";
+const pageSidebarBg = '#F8F8F8';
+const pageSidebarColor = '#252525';
 const pageSidebarZIndex = 101;
 
 const siteHeaderHeight = 60;
-const siteHeaderBorderBottom = "solid 1px #E3E1E1";
-const siteHeaderContentPadding = "0 20px";
+const siteHeaderBorderBottom = 'solid 1px #E3E1E1';
+const siteHeaderContentPadding = '0 20px';
 const siteHeaderZIndex = 101;
 
 const mainHeaderHeight = 60;
-const mainHeaderBorderBottom = "solid 1px #E3E1E1";
-const mainHeaderContentPadding = "0 20px";
+const mainHeaderBorderBottom = 'solid 1px #E3E1E1';
+const mainHeaderContentPadding = '0 20px';
 
-const mainContentPadding = "0px";
+const mainContentPadding = '0px';
 
-const mobileMenuBgHover = "#F0F0F0";
-const collapseMenuBgHover = "#F8F8F8";
+const mobileMenuBgHover = '#F0F0F0';
+const collapseMenuBgHover = '#F8F8F8';
 
-const primaryColor = "#6059EE";
-const secondaryColor = "#EC407A";
+const primaryColor = '#6059EE';
+const secondaryColor = '#EC407A';
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -41,7 +41,7 @@ export const pageContainerClass = cssHash(
         height: auto;
       }
     }
-  `
+  `,
 );
 
 export const mainContainerClass = cssHash(
@@ -59,7 +59,7 @@ export const mainContainerClass = cssHash(
         height: auto;
       }
     }
-  `
+  `,
 );
 
 export const pageSidebarClass = cssHash(
@@ -84,7 +84,7 @@ export const pageSidebarClass = cssHash(
         height: auto;
       }
     }
-  `
+  `,
 );
 
 export const siteHeaderClass = cssHash(
@@ -116,7 +116,7 @@ export const siteHeaderClass = cssHash(
         background-color: ${mobileMenuBgHover};
       }
     }
-  `
+  `,
 );
 
 export const mainHeaderClass = cssHash(
@@ -145,7 +145,7 @@ export const mainHeaderClass = cssHash(
         display: none;
       }
     }
-  `
+  `,
 );
 
 export const mainContentClass = cssHash(
@@ -153,7 +153,7 @@ export const mainContentClass = cssHash(
     .${className} {
       padding: ${mainContentPadding};
     }
-  `
+  `,
 );
 
 export const mainMenuClass = cssHash(
@@ -271,7 +271,7 @@ export const mainMenuClass = cssHash(
       }
     }
     
-  `
+  `,
 );
 
 export const sidebarCollapsedClass = cssHash(
@@ -360,5 +360,5 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul:before {
       display: none;
     }
-  `
+  `,
 );

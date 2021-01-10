@@ -1,19 +1,19 @@
-import Layout from "./Intuitive";
+import Layout from './Intuitive';
 
-import "font-awesome/css/font-awesome.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 
-import "./app.css";
+import './app.css';
 
 function App() {
   return (
     <Layout>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           height: 500,
-          background: "rgba(0, 0, 0, 0.1)",
+          background: 'rgba(0, 0, 0, 0.1)',
         }}
       >
         Main Content

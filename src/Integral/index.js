@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { classNames } from "css-hash";
+import React, { useState, useEffect } from 'react';
+import { classNames } from 'css-hash';
 
 import {
   pageContainerClass,
@@ -8,11 +8,11 @@ import {
   mainHeaderClass,
   mainContainerClass,
   mobileWidth,
-} from "./style";
+} from './style';
 
-import Sidebar from "./Sidebar";
+import Sidebar from './Sidebar';
 
-import menus from "./menus";
+import menus from './menus';
 
 export default function Layout(props) {
   const { children } = props;
@@ -34,9 +34,9 @@ export default function Layout(props) {
         setCollapsed(false);
       }
     };
-    window.addEventListener("resize", resizeListener);
+    window.addEventListener('resize', resizeListener);
     return () => {
-      window.removeEventListener("resize", resizeListener);
+      window.removeEventListener('resize', resizeListener);
     };
   }, []);
 
@@ -44,7 +44,7 @@ export default function Layout(props) {
     <div
       className={classNames(
         pageContainerClass,
-        collapsed && sidebarCollapsedClass
+        collapsed && sidebarCollapsedClass,
       )}
     >
       <Sidebar collapsed={collapsed} menus={menus} />

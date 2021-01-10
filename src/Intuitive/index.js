@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { classNames } from "css-hash";
+import React, { useState, useEffect } from 'react';
+import { classNames } from 'css-hash';
 
 import {
   layoutClass,
@@ -10,11 +10,11 @@ import {
   pageSidebarCollapsedClass,
   pageContentClass,
   mobileWidth,
-} from "./style";
+} from './style';
 
-import Navigation from "./Navigation";
+import Navigation from './Navigation';
 
-import menus from "./menus";
+import menus from './menus';
 
 export default function Layout(props) {
   const { children } = props;
@@ -35,9 +35,9 @@ export default function Layout(props) {
       setCollapsed(windowWidth < mobileWidth);
     };
     resizeListener();
-    window.addEventListener("resize", resizeListener);
+    window.addEventListener('resize', resizeListener);
     return () => {
-      window.removeEventListener("resize", resizeListener);
+      window.removeEventListener('resize', resizeListener);
     };
   }, []);
 
@@ -45,7 +45,7 @@ export default function Layout(props) {
     <div
       className={classNames(
         layoutClass,
-        collapsed && pageSidebarCollapsedClass
+        collapsed && pageSidebarCollapsedClass,
       )}
     >
       <div className={pageHeaderClass}>
@@ -57,7 +57,7 @@ export default function Layout(props) {
               setCollapsed(!collapsed);
             }}
           >
-            <i className={`fa fa-${collapsed ? "bars" : "ellipsis-v"}`} />
+            <i className={`fa fa-${collapsed ? 'bars' : 'ellipsis-v'}`} />
           </span>
         </div>
         <div className=""></div>

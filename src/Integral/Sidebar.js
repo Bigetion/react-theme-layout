@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { pageSidebarClass, siteHeaderClass, mobileWidth } from "./style";
+import { pageSidebarClass, siteHeaderClass, mobileWidth } from './style';
 
-import Navigation from "./Navigation";
+import Navigation from './Navigation';
 
 export default function Sidebar(props) {
   const [collapsed, setCollapsed] = useState(false);
@@ -21,9 +21,9 @@ export default function Sidebar(props) {
       setCollapsed(windowWidth > mobileWidth);
     };
     resizeListener();
-    window.addEventListener("resize", resizeListener);
+    window.addEventListener('resize', resizeListener);
     return () => {
-      window.removeEventListener("resize", resizeListener);
+      window.removeEventListener('resize', resizeListener);
     };
   }, []);
 
@@ -42,7 +42,7 @@ export default function Sidebar(props) {
           <i className="fa fa-bars" />
         </div>
       </header>
-      <div style={{ display: collapsed ? "" : "none" }}>
+      <div style={{ display: collapsed ? '' : 'none' }}>
         <Navigation
           {...props}
           onChange={(item) => {
