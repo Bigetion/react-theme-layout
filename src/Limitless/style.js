@@ -184,9 +184,6 @@ export const navigationClass = cssHash(
     .${className} li a {
       color: rgba(255, 255, 255, 0.75);
       display: block;
-      -webkit-transition: background 0.15s linear, color 0.15s linear;
-      -o-transition: background 0.15s linear, color 0.15s linear;
-      transition: background 0.15s linear, color 0.15s linear;
       text-decoration: none;
       cursor: pointer;
       font-size: 14px;
@@ -201,9 +198,6 @@ export const navigationClass = cssHash(
       top: 0;
       margin-top: 2px;
       margin-right: 15px;
-      -webkit-transition: opacity 0.2s ease-in-out;
-      -o-transition: opacity 0.2s ease-in-out;
-      transition: opacity 0.2s ease-in-out;
     }
     .${className} li a > i.pull-right {
       margin-right: 0;
@@ -270,9 +264,6 @@ export const navigationClass = cssHash(
       background-color: transparent;
       border-color: transparent;
       color: #fff;
-      -webkit-transition: background-color ease-in-out 0.2s;
-      -o-transition: background-color ease-in-out 0.2s;
-      transition: background-color ease-in-out 0.2s;
     }
     .${className} > li ul {
       list-style: none;

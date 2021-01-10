@@ -215,9 +215,6 @@ export const mainMenuClass = cssHash(
       left: 30px;
       position: absolute;
       top: 13px;
-      -webkit-transition: all 0.4s ease 0s;
-      -o-transition: all 0.4s ease 0s;
-      transition: all 0.4s ease 0s;
       width: 3px;
       z-index: 2;
     }
