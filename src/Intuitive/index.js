@@ -64,7 +64,12 @@ export default function Layout(props) {
       </div>
       <div className={pageContainerClass}>
         <div className={pageSidebarClass}>
-          <Navigation menus={menus} />
+          <Navigation
+            menus={menus}
+            onChange={(item) => {
+              console.log(item);
+            }}
+          />
         </div>
         <div className={pageContentClass}>{children}</div>
       </div>

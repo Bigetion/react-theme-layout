@@ -4,8 +4,6 @@ const pageSidebarWidth = 300;
 const pageSidebarMinimizedWidth = 55;
 const pageHeaderHeight = 55;
 
-const pagePaddingBottom = 40;
-
 export const mobileWidth = 992;
 
 export const layoutClass = cssHash(
@@ -116,8 +114,8 @@ export const pageContainerClass = cssHash(
       z-index: 4;
       float: left;
       width: 100%;
-      height: calc(100% - ${pageHeaderHeight + pagePaddingBottom}px);
-      min-height: calc(100% - ${pageHeaderHeight + pagePaddingBottom}px);
+      height: calc(100% - ${pageHeaderHeight}px);
+      min-height: calc(100% - ${pageHeaderHeight}px);
       padding-top: ${pageHeaderHeight}px;
     }
     @media all and (max-width: ${mobileWidth}px) {
@@ -126,7 +124,6 @@ export const pageContainerClass = cssHash(
         width: 100%;
         padding-top: 0px;
         height: auto;
-        padding-bottom: ${pagePaddingBottom}px;
       }
     }
   `,
@@ -142,7 +139,6 @@ export const pageSidebarClass = cssHash(
       width: ${pageSidebarWidth}px;
       background: #304056;
       color: #f0f4f6;
-      padding-bottom: ${pagePaddingBottom}px;
     }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${pageContainerClass} .${className} {
@@ -183,7 +179,6 @@ export const pageContentClass = cssHash(
       height: 100%;
       min-height: 100%;
       padding-left: ${pageSidebarWidth}px;
-      padding-bottom: ${pagePaddingBottom}px;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${pageContainerClass} .${className} {
       padding-left: ${pageSidebarMinimizedWidth}px;

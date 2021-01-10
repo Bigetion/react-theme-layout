@@ -23,11 +23,8 @@ const mainHeaderContentPadding = '0 20px';
 
 const mainContentPadding = '0px';
 
-const mobileMenuBgHover = '#F0F0F0';
+const mobileMenuBgHover = '#1F282D';
 const collapseMenuBgHover = '#F8F8F8';
-
-const primaryColor = '#6059EE';
-const secondaryColor = '#EC407A';
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -167,7 +164,6 @@ export const navigationClass = cssHash(
       margin: 0;
       padding: 10px 0;
       list-style: none;
-      font-size: 13px;
       position: relative;
     }
     .${className} * {
@@ -193,6 +189,7 @@ export const navigationClass = cssHash(
       transition: background 0.15s linear, color 0.15s linear;
       text-decoration: none;
       cursor: pointer;
+      font-size: 14px;
     }
     .${className} li a:focus,
     .${className} li a:hover {
@@ -256,7 +253,7 @@ export const navigationClass = cssHash(
     }
     .${className} > li > a {
       padding: 12px 20px;
-      min-height: 44px;
+      height: 44px;
       font-weight: 500;
     }
     .${className} > li.active > a,
@@ -287,7 +284,7 @@ export const navigationClass = cssHash(
     }
     .${className} > li ul li a {
       padding: 10px 20px 10px 51px;
-      min-height: 40px;
+      height: 44px;
     }
     .${className} > li ul .navigation-header {
       padding-left: 51px;
@@ -313,7 +310,7 @@ export const navigationClass = cssHash(
       color: #fff;
     }
     .${className} .navigation-header {
-      min-height: 30px;
+      height: 30px;
       padding: 10px 20px;
       border-bottom: 0;
       text-transform: uppercase;
@@ -372,7 +369,7 @@ export const navigationClass = cssHash(
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     .${className}-bordered > li:last-child {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0);
     }
     .${className}-bordered > li.navigation-header {
       background-color: rgba(0, 0, 0, 0.1);
@@ -385,30 +382,30 @@ export const navigationClass = cssHash(
     .${className}-lg > li > a > span {
       padding-top: 14px;
       padding-bottom: 14px;
-      min-height: 48px;
+      height: 48px;
     }
     .${className}-lg > li ul li a,
     .${className}-sm > li > a,
     .${className}-sm > li > a > span {
       padding-top: 10px;
       padding-bottom: 10px;
-      min-height: 40px;
+      height: 44px;
     }
     .${className}-sm > li ul li a {
       padding-top: 6px;
       padding-bottom: 6px;
-      min-height: 32px;
+      height: 32px;
     }
     .${className}-xs > li > a,
     .${className}-xs > li > a > span {
       padding-top: 8px;
       padding-bottom: 8px;
-      min-height: 36px;
+      height: 36px;
     }
     .${className}-xs > li ul li a {
       padding-top: 6px;
       padding-bottom: 6px;
-      min-height: 32px;
+      height: 32px;
     }
   `,
 );
@@ -441,6 +438,7 @@ export const navigationCollapsedClass = cssHash(
       cursor: pointer;
       border-bottom-right-radius: 3px;
       border-top-right-radius: 3px;
+      height: 44px;
     }
     .${className} .${navigationClass} > li > a > span .badge,
     .${className} .${navigationClass} > li > a > span .label {
@@ -461,7 +459,6 @@ export const navigationCollapsedClass = cssHash(
     }
     .${className} .${navigationClass} > li .has-ul > span {
       border-radius: 0 3px 0 0;
-      cursor: default;
     }
     .${className} .${navigationClass} > li.active > ul,
     .${className} .${navigationClass} > li.disabled:hover > a > span,
@@ -481,7 +478,7 @@ export const navigationCollapsedClass = cssHash(
     .${className} .${navigationClass} > li > ul {
       position: absolute;
       right: -260px;
-      top: 40px;
+      top: 44px;
       width: 260px;
       display: none;
       background-color: #263238;

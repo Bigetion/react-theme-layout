@@ -9,6 +9,7 @@ const menus = [
         title: 'Menu Level 2.2',
         children: [{ title: 'Menu Level 3.1' }, { title: 'Menu Level 3.2' }],
       },
+      { title: 'Menu Level 2.3' },
     ],
   },
   {
@@ -20,6 +21,7 @@ const menus = [
         title: 'Menu Level 2.2',
         children: [{ title: 'Menu Level 3.1' }, { title: 'Menu Level 3.2' }],
       },
+      { title: 'Menu Level 2.3' },
     ],
   },
 ];
