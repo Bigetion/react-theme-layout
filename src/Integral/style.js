@@ -5,15 +5,14 @@ export const mobileWidth = 767;
 const mainContainerBg = '#FFFFFF';
 
 const pageSidebarWidth = 280;
-const pageSidebarBg = '#F8F8F8';
-const pageSidebarColor = '#252525';
+const pageSidebarBg = '#2C365A';
 const pageSidebarZIndex = 101;
 const pageSidebarCollapsedWidth = 66;
 
 const siteHeaderHeight = 60;
-const siteHeaderBg = '#F8F8F8';
-const siteHeaderColor = '#000000';
-const siteHeaderBorderBottom = 'solid 1px #E3E1E1';
+const siteHeaderBg = '#2C365A';
+const siteHeaderColor = '#FFFFFF';
+const siteHeaderBorderBottom = '1px solid #212B4F';
 const siteHeaderContentPadding = '0 20px';
 const siteHeaderZIndex = 101;
 
@@ -23,11 +22,15 @@ const mainHeaderContentPadding = '0 20px';
 
 const mainContentPadding = '0px';
 
-const mobileMenuBgHover = '#F0F0F0';
+const mobileMenuBgHover = '#212B4F';
 const collapseMenuBgHover = '#F8F8F8';
 
-const primaryColor = '#6059EE';
-const secondaryColor = '#EC407A';
+const primaryBg = '#424C70';
+const primaryColor = '#FFFFFF';
+const primaryHoverColor = '#FFFFFF';
+
+const secondaryBg = '#212B4F';
+const secondaryColor = '#FFC502';
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -69,7 +72,6 @@ export const pageSidebarClass = cssHash(
   (className) => `
     .${className} {
       background-color: ${pageSidebarBg};
-      color: ${pageSidebarColor};
       display: table-cell;
       height: 100%;
       position: relative;
@@ -174,24 +176,24 @@ export const navigationClass = cssHash(
       cursor: pointer;
     }
     ul.${className} li a {
-      color: #252525;
+      color: ${primaryColor};
       display: block;
       padding: 15px 20px;
       text-decoration: none;
     }
     ul.${className} > li.active > a, ul.${className} > li > a:hover, ul.${className} > li > a:focus {
-      background-color: ${primaryColor};
-      color: #FFFFFF;
+      background-color: ${primaryBg};
+      color: ${primaryHoverColor};
     }
     ul.${className} > li:hover > a {
-      color: #FFFFFF;
+      color: ${primaryHoverColor};
     }
     ul.${className} .nav > li > a:hover, ul.${className} .nav > li > a:focus, ul.${className} .nav > li.has-sub.active > a {
       background-color: transparent;
       color: ${secondaryColor};
     }
     ul.${className} .nav > li > a {
-      color: #252525;
+      color: ${primaryColor};
     }
     ul.${className} li i {
       margin-right: 16px;
@@ -203,12 +205,11 @@ export const navigationClass = cssHash(
       padding: 0;
       position: relative;
       z-index: 1;
-      background-color: #FFFFFF;
+      background-color: ${secondaryBg};
       overflow: hidden;
     }
     ul.${className} > li > ul > li:before {
       background-color: transparent;
-      color: #2f2e2e;
       content: "";
       font-weight: 400;
       height: 18px;
@@ -240,7 +241,7 @@ export const navigationClass = cssHash(
       padding-left: 116px;
     }
     ul.${className} li.has-sub > a:before {
-      color: #252525;
+      color: ${primaryColor};
       content: "\\f105";
       display: inline-block;
       float: right;
@@ -285,7 +286,7 @@ export const sidebarCollapsedClass = cssHash(
       display: none;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
-      background-color: ${primaryColor};
+      background-color: ${primaryBg};
       display: block;
       left: ${pageSidebarCollapsedWidth}px;
       zoom: 1;
@@ -311,7 +312,7 @@ export const sidebarCollapsedClass = cssHash(
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a {
-      background-color: ${primaryColor};
+      background-color: ${primaryBg};
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a > span.title,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a > span.title,

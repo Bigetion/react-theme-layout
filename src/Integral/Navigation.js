@@ -49,7 +49,6 @@ function MultiItem(props) {
   if (collapsed) {
     if (level_index === 1) {
       showSubMenu = true;
-      isActive = false;
     }
   }
   return (
