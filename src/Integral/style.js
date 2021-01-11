@@ -11,8 +11,8 @@ const pageSidebarZIndex = 101;
 const pageSidebarCollapsedWidth = 66;
 
 const siteHeaderHeight = 60;
-const siteHeaderBg = '#222D32';
-const siteHeaderColor = '#FFFFFF';
+const siteHeaderBg = '#F8F8F8';
+const siteHeaderColor = '#000000';
 const siteHeaderBorderBottom = 'solid 1px #E3E1E1';
 const siteHeaderContentPadding = '0 20px';
 const siteHeaderZIndex = 101;
@@ -161,7 +161,7 @@ export const mainContentClass = cssHash(
   `,
 );
 
-export const mainMenuClass = cssHash(
+export const navigationClass = cssHash(
   (className) => `
     ul.${className} {
       font-size: 14px;
@@ -284,7 +284,7 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${siteHeaderClass}-content {
       display: none;
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li > a > span.title {
+    .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
       background-color: ${primaryColor};
       display: block;
       left: ${pageSidebarCollapsedWidth}px;
@@ -300,7 +300,7 @@ export const sidebarCollapsedClass = cssHash(
       -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li > a > span.label {
+    .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
       left: 240px;
       zoom: 1;
       opacity: 0;
@@ -309,19 +309,19 @@ export const sidebarCollapsedClass = cssHash(
       top: 15px;
       visibility: hidden;
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li.has-sub:hover > a,
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li:hover > a {
+    .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a,
+    .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a {
       background-color: ${primaryColor};
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li.has-sub:hover > a > span.title,
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li:hover > a > span.title,
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li:hover > a > span.label {
+    .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a > span.title,
+    .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a > span.title,
+    .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a > span.label {
       visibility: visible;
       zoom: 1;
       opacity: 1;
       filter: alpha(opacity=100);
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li > ul {
+    .${className} .${pageSidebarClass} .${navigationClass} > li > ul {
       display: block;
       height: 0;
       left: ${pageSidebarCollapsedWidth}px;
@@ -333,8 +333,8 @@ export const sidebarCollapsedClass = cssHash(
       visibility: hidden;
       width: 240px;
     }
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li.has-sub:hover > ul,
-    .${className} .${pageSidebarClass} .${mainMenuClass} > li:hover > ul {
+    .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > ul,
+    .${className} .${pageSidebarClass} .${navigationClass} > li:hover > ul {
       visibility: visible;
       zoom: 1;
       opacity: 1;
@@ -344,22 +344,22 @@ export const sidebarCollapsedClass = cssHash(
       -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     }
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} > li > ul > li > a {
+    .${className} .${pageSidebarClass} ul.${navigationClass} > li > ul > li > a {
       padding-left: 20px;
     }
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul > li > ul > li > a {
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul > li > ul > li > a {
       padding-left: 40px;
     }
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul > li > ul > li > ul > li > a {
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul > li > ul > li > ul > li > a {
       padding-left: 60px;
     }
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul > li > ul > li > ul > li > ul > li > a {
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul > li > ul > li > ul > li > ul > li > a {
       padding-left: 80px;
     }
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} > li.has-sub > a:before,
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul li:before,
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul li:after,
-    .${className} .${pageSidebarClass} ul.${mainMenuClass} li ul:before {
+    .${className} .${pageSidebarClass} ul.${navigationClass} > li.has-sub > a:before,
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul li:before,
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul li:after,
+    .${className} .${pageSidebarClass} ul.${navigationClass} li ul:before {
       display: none;
     }
   `,

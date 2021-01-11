@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from 'react';
 
 import { classNames } from 'css-hash';
 
-import { mainMenuClass } from './style';
+import { navigationClass } from './style';
 
 const NavigationContext = createContext();
 
@@ -121,7 +121,7 @@ export default function Navigation(props) {
     <NavigationContext.Provider
       value={{ onClickMenu, activeMenuId, activeId, collapsed }}
     >
-      <ul className={mainMenuClass}>
+      <ul className={navigationClass}>
         {menusWithMenuId.map((item, index) => {
           return (
             <React.Fragment key={index}>

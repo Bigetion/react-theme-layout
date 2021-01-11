@@ -1,4 +1,4 @@
-import Layout from './Limitless';
+import Layout from './Integral';
 
 import 'font-awesome/css/font-awesome.min.css';
 
