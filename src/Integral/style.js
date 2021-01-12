@@ -25,14 +25,13 @@ const mainContentPadding = '0px';
 const mobileMenuBgHover = '#212B4F';
 const collapseMenuBgHover = '#F8F8F8';
 
-const primaryBg = '#424C70';
-const primaryColor = '#FFFFFF';
-
-const secondaryBg = '#212B4F';
-const secondaryColor = '#FFC502';
-
+const navigationItemBg = '#424C70';
+const navigationItemColor = '#FFFFFF';
+const navigationSubItemBg = '#212B4F';
+const navigationSubItemColor = '#FFC502';
 const navigationItemBorderBottom = '0px solid #252F54';
 const navigationSubItemBorderTop = '0px solid #252F54';
+const navigationSubItemLeftPadWidth = 3;
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -181,24 +180,24 @@ export const navigationClass = cssHash(
       border-bottom: ${navigationItemBorderBottom};
     }
     ul.${className} li a {
-      color: ${primaryColor};
+      color: ${navigationItemColor};
       display: block;
       padding: 15px 20px;
       text-decoration: none;
     }
     ul.${className} > li.active > a, ul.${className} > li > a:hover, ul.${className} > li > a:focus {
-      background-color: ${primaryBg};
-      color: ${primaryColor};
+      background-color: ${navigationItemBg};
+      color: ${navigationItemColor};
     }
     ul.${className} > li:hover > a {
-      color: ${primaryColor};
+      color: ${navigationItemColor};
     }
     ul.${className} .nav > li > a:hover, ul.${className} .nav > li > a:focus, ul.${className} .nav > li.has-sub.active > a {
       background-color: transparent;
-      color: ${secondaryColor};
+      color: ${navigationSubItemColor};
     }
     ul.${className} .nav > li > a {
-      color: ${primaryColor};
+      color: ${navigationItemColor};
     }
     ul.${className} li i {
       margin-right: 16px;
@@ -210,7 +209,7 @@ export const navigationClass = cssHash(
       padding: 0;
       position: relative;
       z-index: 1;
-      background-color: ${secondaryBg};
+      background-color: ${navigationSubItemBg};
       overflow: hidden;
     }
     ul.${className} li ul li {
@@ -224,17 +223,17 @@ export const navigationClass = cssHash(
       left: 30px;
       position: absolute;
       top: 13px;
-      width: 3px;
+      width: ${navigationSubItemLeftPadWidth}px;
       z-index: 2;
     }
     ul.${className} li ul li.active span.title {
       font-weight: 500;
     }
     ul.${className} li ul li.active:before, ul.${className} li ul li:hover:before {
-      background-color: ${secondaryColor};
+      background-color: ${navigationSubItemColor};
     }
     ul.${className} li ul li.active > a, ul.${className} li ul li.has-sub.active > a:before, ul.${className} li ul li.has-sub:hover > a:before, ul.${className} li ul li.has-sub > a:focus:before {
-      color: ${secondaryColor};
+      color: ${navigationSubItemColor};
     }
     ul.${className} li ul > li > a {
       padding-left: 56px;
@@ -249,7 +248,7 @@ export const navigationClass = cssHash(
       padding-left: 116px;
     }
     ul.${className} li.has-sub > a:before {
-      color: ${primaryColor};
+      color: ${navigationItemColor};
       content: "\\f105";
       display: inline-block;
       float: right;
@@ -294,7 +293,7 @@ export const sidebarCollapsedClass = cssHash(
       display: none;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
-      background-color: ${primaryBg};
+      background-color: ${navigationItemBg};
       display: block;
       left: ${pageSidebarCollapsedWidth}px;
       zoom: 1;
@@ -320,7 +319,7 @@ export const sidebarCollapsedClass = cssHash(
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a {
-      background-color: ${primaryBg};
+      background-color: ${navigationItemBg};
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a > span.title,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a > span.title,
