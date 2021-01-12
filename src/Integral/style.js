@@ -28,7 +28,7 @@ const collapseMenuBgHover = '#F8F8F8';
 const navigationItemBg = '#424C70';
 const navigationItemColor = '#FFFFFF';
 const navigationSubItemBg = '#212B4F';
-const navigationSubItemColor = '#FFC502';
+const navigationSubItemColorHoverActive = '#FFC502';
 const navigationItemBorderBottom = '0px solid #252F54';
 const navigationSubItemBorderTop = '0px solid #252F54';
 const navigationSubItemLeftPadWidth = 3;
@@ -79,9 +79,9 @@ export const pageSidebarClass = cssHash(
       vertical-align: top;
       width: ${pageSidebarWidth}px;
       z-index: ${pageSidebarZIndex};
-      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
@@ -185,16 +185,20 @@ export const navigationClass = cssHash(
       padding: 15px 20px;
       text-decoration: none;
     }
-    ul.${className} > li.active > a, ul.${className} > li > a:hover, ul.${className} > li > a:focus {
+    ul.${className} > li.active > a,
+    ul.${className} > li > a:hover,
+    ul.${className} > li > a:focus {
       background-color: ${navigationItemBg};
       color: ${navigationItemColor};
     }
     ul.${className} > li:hover > a {
       color: ${navigationItemColor};
     }
-    ul.${className} .nav > li > a:hover, ul.${className} .nav > li > a:focus, ul.${className} .nav > li.has-sub.active > a {
+    ul.${className} .nav > li > a:hover,
+    ul.${className} .nav > li > a:focus,
+    ul.${className} .nav > li.has-sub.active > a {
       background-color: transparent;
-      color: ${navigationSubItemColor};
+      color: ${navigationSubItemColorHoverActive};
     }
     ul.${className} .nav > li > a {
       color: ${navigationItemColor};
@@ -229,11 +233,15 @@ export const navigationClass = cssHash(
     ul.${className} li ul li.active span.title {
       font-weight: 500;
     }
-    ul.${className} li ul li.active:before, ul.${className} li ul li:hover:before {
-      background-color: ${navigationSubItemColor};
+    ul.${className} li ul li.active:before,
+    ul.${className} li ul li:hover:before {
+      background-color: ${navigationSubItemColorHoverActive};
     }
-    ul.${className} li ul li.active > a, ul.${className} li ul li.has-sub.active > a:before, ul.${className} li ul li.has-sub:hover > a:before, ul.${className} li ul li.has-sub > a:focus:before {
-      color: ${navigationSubItemColor};
+    ul.${className} li ul li.active > a,
+    ul.${className} li ul li.has-sub.active > a:before,
+    ul.${className} li ul li.has-sub:hover > a:before,
+    ul.${className} li ul li.has-sub > a:focus:before {
+      color: ${navigationSubItemColorHoverActive};
     }
     ul.${className} li ul > li > a {
       padding-left: 56px;
@@ -268,7 +276,8 @@ export const navigationClass = cssHash(
       transform: rotate(90deg);
       color: #FFFFFF;
     }
-    ul.${className} li.has-sub > a:hover:before, ul.${className} > li > a:focus:before {
+    ul.${className} li.has-sub > a:hover:before,
+    ul.${className} > li > a:focus:before {
       color: #FFFFFF;
     }
     @media screen and (max-width: ${mobileWidth}px) {
@@ -304,9 +313,9 @@ export const sidebarCollapsedClass = cssHash(
       top: 0;
       visibility: hidden;
       width: 200px;
-      -moz-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
-      -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
-      box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
+      -webkit-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
+      box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
       left: 240px;
@@ -348,9 +357,9 @@ export const sidebarCollapsedClass = cssHash(
       opacity: 1;
       filter: alpha(opacity=100);
       height: auto;
-      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
     }
     .${className} .${pageSidebarClass} ul.${navigationClass} > li > ul > li > a {
       padding-left: 20px;
