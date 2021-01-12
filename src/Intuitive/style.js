@@ -1,10 +1,10 @@
 import { cssHash } from 'css-hash';
 
-const pageSidebarWidth = 300;
-const pageSidebarMinimizedWidth = 55;
-const pageHeaderHeight = 55;
+export const mobileWidth = 767;
 
-export const mobileWidth = 992;
+const pageSidebarWidth = 280;
+const pageSidebarMinimizedWidth = 60;
+const pageHeaderHeight = 55;
 
 export const layoutClass = cssHash(
   (className) => `
@@ -42,6 +42,36 @@ export const pageHeaderClass = cssHash(
         float: left;
       }
     }  
+  `,
+);
+
+export const pageHeaderMenuClass = cssHash(
+  (className) => `
+    .${layoutClass} .${className} {
+      float: left;
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+      margin-right: 10px;
+    }
+    .${layoutClass} .${className}.pull-right {
+      float: right;
+    }
+    .${layoutClass} .${className} > li {
+      height: ${pageHeaderHeight}px;
+      display: block;
+      float: left;
+      position: relative;
+    }
+    .${layoutClass} .${className} > li > span {
+      display: block;
+      line-height: ${pageHeaderHeight}px;
+      padding: 0px 10px;
+      text-align: center;
+    }
+    .${layoutClass} .${className} > li > span.menu {
+      
+    }
   `,
 );
 

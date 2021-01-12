@@ -4,6 +4,7 @@ import { classNames } from 'css-hash';
 import {
   layoutClass,
   pageHeaderClass,
+  pageHeaderMenuClass,
   pageHeaderLogoClass,
   pageContainerClass,
   pageSidebarClass,
@@ -60,7 +61,7 @@ export default function Layout(props) {
             <i className={`fa fa-${collapsed ? 'bars' : 'ellipsis-v'}`} />
           </span>
         </div>
-        <div className=""></div>
+        <ul className={classNames(pageHeaderMenuClass, 'pull-right')}></ul>
       </div>
       <div className={pageContainerClass}>
         <div className={pageSidebarClass}>

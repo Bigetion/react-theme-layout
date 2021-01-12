@@ -1,4 +1,4 @@
-import Layout from './Integral';
+import Layout from './Intuitive';
 
 import 'font-awesome/css/font-awesome.min.css';
 
