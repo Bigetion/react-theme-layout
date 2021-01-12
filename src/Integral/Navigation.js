@@ -64,7 +64,7 @@ function MultiItem(props) {
         <span className="title">{title}</span>
       </a>
       {showSubMenu && (
-        <ul className="nav">
+        <ul>
           {children.map((item, index) => (
             <React.Fragment key={index}>
               <Item {...item} />

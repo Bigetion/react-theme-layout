@@ -194,13 +194,13 @@ export const navigationClass = cssHash(
     ul.${className} > li:hover > a {
       color: ${navigationItemColor};
     }
-    ul.${className} .nav > li > a:hover,
-    ul.${className} .nav > li > a:focus,
-    ul.${className} .nav > li.has-sub.active > a {
+    ul.${className} ul > li > a:hover,
+    ul.${className} ul > li > a:focus,
+    ul.${className} ul > li.has-sub.active > a {
       background-color: transparent;
       color: ${navigationSubItemColorHoverActive};
     }
-    ul.${className} .nav > li > a {
+    ul.${className} ul > li > a {
       color: ${navigationItemColor};
     }
     ul.${className} li i {
