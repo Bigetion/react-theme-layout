@@ -7,12 +7,12 @@ const mainContainerBg = '#FFFFFF';
 const pageSidebarWidth = 280;
 const pageSidebarBg = '#2C365A';
 const pageSidebarZIndex = 101;
-const pageSidebarCollapsedWidth = 66;
+const pageSidebarCollapsedWidth = 60;
 
 const siteHeaderHeight = 60;
 const siteHeaderBg = '#2C365A';
 const siteHeaderColor = '#FFFFFF';
-const siteHeaderBorderBottom = '1px solid #212B4F';
+const siteHeaderBorderBottom = '1px solid #252F54';
 const siteHeaderContentPadding = '0 20px';
 const siteHeaderZIndex = 101;
 
@@ -27,10 +27,12 @@ const collapseMenuBgHover = '#F8F8F8';
 
 const primaryBg = '#424C70';
 const primaryColor = '#FFFFFF';
-const primaryHoverColor = '#FFFFFF';
 
 const secondaryBg = '#212B4F';
 const secondaryColor = '#FFC502';
+
+const navigationItemBorderBottom = '0px solid #252F54';
+const navigationSubItemBorderTop = '0px solid #252F54';
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -175,6 +177,9 @@ export const navigationClass = cssHash(
       position: relative;
       cursor: pointer;
     }
+    ul.${className} > li {
+      border-bottom: ${navigationItemBorderBottom};
+    }
     ul.${className} li a {
       color: ${primaryColor};
       display: block;
@@ -183,10 +188,10 @@ export const navigationClass = cssHash(
     }
     ul.${className} > li.active > a, ul.${className} > li > a:hover, ul.${className} > li > a:focus {
       background-color: ${primaryBg};
-      color: ${primaryHoverColor};
+      color: ${primaryColor};
     }
     ul.${className} > li:hover > a {
-      color: ${primaryHoverColor};
+      color: ${primaryColor};
     }
     ul.${className} .nav > li > a:hover, ul.${className} .nav > li > a:focus, ul.${className} .nav > li.has-sub.active > a {
       background-color: transparent;
@@ -207,6 +212,9 @@ export const navigationClass = cssHash(
       z-index: 1;
       background-color: ${secondaryBg};
       overflow: hidden;
+    }
+    ul.${className} li ul li {
+      border-top: ${navigationSubItemBorderTop};
     }
     ul.${className} > li > ul > li:before {
       background-color: transparent;
