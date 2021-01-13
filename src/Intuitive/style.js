@@ -299,7 +299,6 @@ export const navigationClass = cssHash(
       left: 0px;
       top: 0px;
       width: 45px;
-      height: 55px;
       line-height: 45px;
       text-align: center;
       font-size: 14px;
