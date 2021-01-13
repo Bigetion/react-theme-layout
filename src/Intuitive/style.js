@@ -4,7 +4,42 @@ export const mobileWidth = 767;
 
 const pageSidebarWidth = 280;
 const pageSidebarMinimizedWidth = 60;
+
 const pageHeaderHeight = 55;
+const pageHeaderBg = '#FFFFFF';
+const pageHeaderColor = '#263C46';
+const pageHeaderZIndex = 5;
+
+const pageHeaderLogoBg = '#364760';
+const pageHeaderLogoColor = '#FFFFFF';
+
+const pageHeaderCollapsedMenuBg = '#FFFFFF';
+const pageHeaderCollapsedMenuBgHover = '#FAFAFA';
+const pageHeaderCollapsedMenuColor = '#000000';
+const pageHeaderMobileMenuBg = '#364760';
+const pageHeaderMobileMenuBgHover = '#324259';
+const pageHeaderMobileMenuColor = '#F0F4F6';
+
+const pageContainerZIndex = 4;
+
+const pageSidebarBg = '#304056';
+const pageSidebarColor = '#F0F4F6';
+const pageSidebarZIndex = 3;
+
+const pageContentZIndex = 2;
+
+const navigationItemBg = '#2D3B50';
+const navigationItemColor = '#F0F4F6';
+const navigationItemBgHoverActive = '#293649';
+const navigationItemIconColor = '#6382A9';
+const navigationItemHeaderColor = '#6382A9';
+
+const navigationSubItemBg = '#253143';
+const navigationSubItemColor = '#D7DDE2';
+const navigationSubItemBgHoverActive = '#222C3C';
+
+const navigationSubItemPadBg = '#293649';
+const navigationSubItemPadBgHoverActive = '#304056';
 
 export const layoutClass = cssHash(
   (className) => `
@@ -25,12 +60,12 @@ export const pageHeaderClass = cssHash(
     .${layoutClass} .${className} {
       width: 100%;
       height: ${pageHeaderHeight}px;
-      background: #ffffff;
-      color: #263c46;
+      background: ${pageHeaderBg};
+      color: ${pageHeaderColor};
       position: absolute;
       left: 0px;
       top: 0px;
-      z-index: 5;
+      z-index: ${pageHeaderZIndex};
       -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
       -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -69,9 +104,6 @@ export const pageHeaderMenuClass = cssHash(
       padding: 0px 10px;
       text-align: center;
     }
-    .${layoutClass} .${className} > li > span.menu {
-      
-    }
   `,
 );
 
@@ -82,8 +114,8 @@ export const pageHeaderLogoClass = cssHash(
       width: ${pageSidebarWidth}px;
       height: ${pageHeaderHeight}px;
       line-height: ${pageHeaderHeight}px;
-      background: #364760;
-      color: #ffffff;
+      background: ${pageHeaderLogoBg};
+      color: ${pageHeaderLogoColor};
       text-align: center;
       position: relative;
       margin-right: 55px;
@@ -93,24 +125,21 @@ export const pageHeaderLogoClass = cssHash(
       display: block;
       height: ${pageHeaderHeight}px;
       overflow: hidden;
-      color: #ffffff;
-    }
-    .${layoutClass} .${pageHeaderClass} .${className} a:hover {
-      background-color: #3a4c67;
+      color: ${pageHeaderLogoColor};
     }
     .${layoutClass} .${pageHeaderClass} .${className} .${className}-collapse-menu {
       position: absolute;
       top: 0px;
-      color: #000000;
-      background: #ffffff;
-      height: 55px;
-      width: 55px;
+      background: ${pageHeaderCollapsedMenuBg};
+      color: ${pageHeaderCollapsedMenuColor};
+      height: ${pageHeaderHeight}px;
+      width: ${pageHeaderHeight}px;
       text-decoration: none;
-      right: -55px;
+      right: -${pageHeaderHeight}px;
       cursor: pointer;
     }
     .${layoutClass} .${pageHeaderClass} .${className} .${className}-collapse-menu:hover {
-      background: #fafafa;
+      background: ${pageHeaderCollapsedMenuBgHover};
     }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${pageHeaderClass} {
@@ -127,11 +156,11 @@ export const pageHeaderLogoClass = cssHash(
       }
       .${layoutClass} .${pageHeaderClass} .${className} .${className}-collapse-menu {
         right: 0px;
-        color: #f0f4f6;
-        background: #364760;
+        background: ${pageHeaderMobileMenuBg};
+        color: ${pageHeaderMobileMenuColor};
       }
       .${layoutClass} .${pageHeaderClass} .${className} .${className}-collapse-menu:hover {
-        background: #324259;
+        background: ${pageHeaderMobileMenuBgHover};
       }
     }  
   `,
@@ -141,7 +170,7 @@ export const pageContainerClass = cssHash(
   (className) => `
     .${layoutClass} .${className} {
       position: relative;
-      z-index: 4;
+      z-index: ${pageContainerZIndex};
       float: left;
       width: 100%;
       height: calc(100% - ${pageHeaderHeight}px);
@@ -163,12 +192,12 @@ export const pageSidebarClass = cssHash(
   (className) => `
     .${layoutClass} .${pageContainerClass} .${className} {
       position: absolute;
-      z-index: 3;
+      z-index: ${pageSidebarZIndex};
       height: auto;
       min-height: calc(100% - ${pageHeaderHeight}px);
       width: ${pageSidebarWidth}px;
-      background: #304056;
-      color: #f0f4f6;
+      background: ${pageSidebarBg};
+      color: ${pageSidebarColor};
     }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${pageContainerClass} .${className} {
@@ -204,7 +233,7 @@ export const pageContentClass = cssHash(
   (className) => `
     .${layoutClass} .${pageContainerClass} .${className} {
       position: relative;
-      z-index: 2;
+      z-index: ${pageContentZIndex};
       width: calc(100% - ${pageSidebarWidth}px);
       height: 100%;
       min-height: 100%;
@@ -255,8 +284,8 @@ export const navigationClass = cssHash(
       display: block;
       float: left;
       width: 100%;
-      background-color: #2d3b50;
-      color: #f0f4f6;
+      background-color: ${navigationItemBg};
+      color: ${navigationItemColor};
       font-size: 13px;
       font-weight: 500;
       line-height: 45px;
@@ -274,22 +303,22 @@ export const navigationClass = cssHash(
       line-height: 45px;
       text-align: center;
       font-size: 14px;
-      color: #6382a9;
+      color: ${navigationItemIconColor};
     }
     .${className} > li.active > a {
-      background-color: #293649;
+      background-color: ${navigationItemBgHoverActive};
     }
     .${className} > li.active > a .fa {
-      background-color: #293649;
+      background-color: ${navigationItemBgHoverActive};
     }
     .${className} > li:hover > a {
-      background-color: #293649;
+      background-color: ${navigationItemBgHoverActive};
     }
     .${className} > li.title {
       font-size: 11px;
       text-transform: uppercase;
       padding: 15px 10px 10px;
-      color: #6382a9;
+      color: ${navigationItemHeaderColor};
       cursor: default;
     }
     .${className} > li ul {
@@ -311,10 +340,10 @@ export const navigationClass = cssHash(
       width: 100%;
       line-height: 45px;
       font-size: 13px;
-      color: #d7dde2;
+      background-color: ${navigationSubItemBg};
+      color: ${navigationSubItemColor};
       font-weight: 300;
       text-decoration: none;
-      background-color: #253143;
       -webkit-transition: all 200ms ease;
       -moz-transition: all 200ms ease;
       -ms-transition: all 200ms ease;
@@ -325,7 +354,7 @@ export const navigationClass = cssHash(
       content: " ";
       width: 1px;
       height: 45px;
-      background-color: #293649;
+      background-color: ${navigationSubItemPadBg};
       position: absolute;
       left: 22.5px;
       top: 0px;
@@ -336,16 +365,16 @@ export const navigationClass = cssHash(
       transition: background-color 200ms linear;
     }
     .${className} > li ul li a:hover {
-      background-color: #222c3c;
+      background-color: ${navigationSubItemBgHoverActive};
     }
     .${className} > li ul li a:hover:after {
-      background-color: #304056;
+      background-color: ${navigationSubItemPadBgHoverActive};
     }
     .${className} > li ul li.active > a {
-      background-color: #222c3c;
+      background-color: ${navigationSubItemBgHoverActive};
     }
     .${className} > li ul li.active > a:after {
-      background-color: #364760;
+      background-color: ${navigationSubItemPadBgHoverActive};
     }
     .${className} > li ul li.has-child > a:before {
       line-height: 45px;
@@ -370,7 +399,7 @@ export const navigationClass = cssHash(
     }
     .${className} li.has-child > a:before {
       content: "\\f107";
-      font-family: FontAwesome;
+      font-family: "fontawesome";
       position: absolute;
       font-size: 14px;
       line-height: 45px;
@@ -387,19 +416,19 @@ export const navigationClass = cssHash(
       padding-right: 30px;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} {
-      width: 55px;
+      width: ${pageSidebarMinimizedWidth}px;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li {
-      width: 55px;
+      width: ${pageSidebarMinimizedWidth}px;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a {
-      padding-left: 55px;
-      width: 55px;
+      padding-left: ${pageSidebarMinimizedWidth}px;
+      width: ${pageSidebarMinimizedWidth}px;
       background-color: transparent;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a .fa {
-      width: 55px;
-      background-color: #2d3b50;
+      width: ${pageSidebarMinimizedWidth}px;
+      background-color: ${navigationItemBg};
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a span {
       -webkit-opacity: 0;
@@ -411,7 +440,7 @@ export const navigationClass = cssHash(
       filter: alpha(opacity = 0 * 100);
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a:hover .fa {
-      background-color: #293649;
+      background-color: ${navigationItemBgHoverActive};
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.title {
       overflow: hidden;
