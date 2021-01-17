@@ -275,7 +275,7 @@ export const navigationClass = cssHash(
     }
     .${className} > li ul li a {
       padding: 10px 20px 10px 51px;
-      height: 44px;
+      height: 40px;
     }
     .${className} > li ul .navigation-header {
       padding-left: 51px;
@@ -380,7 +380,7 @@ export const navigationClass = cssHash(
     .${className}-sm > li > a > span {
       padding-top: 10px;
       padding-bottom: 10px;
-      height: 44px;
+      height: 40px;
     }
     .${className}-sm > li ul li a {
       padding-top: 6px;

@@ -22,7 +22,7 @@ function Item(props) {
   if (type === 'navigation-header') {
     return (
       <li className="navigation-header">
-        <span>{title}</span> <i className={icon} title={title} />
+        <span>{title}</span> {icon && <i className={icon} title={title} />}
       </li>
     );
   }
@@ -35,7 +35,7 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        <i className={icon} />
+        {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
     </li>
@@ -68,7 +68,7 @@ function MultiItem(props) {
       }}
     >
       <a className="has-ul">
-        <i className={icon} />
+        {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
       {showSubMenu && (

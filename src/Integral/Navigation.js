@@ -27,7 +27,7 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        <i className={icon} />
+        {icon && <i className={icon} />}
         <span className="title">{title}</span>
       </a>
     </li>
@@ -60,7 +60,7 @@ function MultiItem(props) {
       }}
     >
       <a>
-        <i className={icon} />
+        {icon && <i className={icon} />}
         <span className="title">{title}</span>
       </a>
       {showSubMenu && (
