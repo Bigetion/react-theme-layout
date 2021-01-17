@@ -225,7 +225,6 @@ export const pageSidebarCollapsedClass = cssHash(
       width: 0px;
       overflow: hidden;
     }
-    
   `,
 );
 
