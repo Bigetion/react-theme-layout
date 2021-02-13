@@ -312,7 +312,7 @@ export const sidebarCollapsedClass = cssHash(
       position: absolute;
       top: 0;
       visibility: hidden;
-      width: 200px;
+      width: ${pageSidebarWidth - pageSidebarCollapsedWidth - 20}px;
       -moz-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
       -webkit-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
       box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
