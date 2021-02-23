@@ -54,7 +54,7 @@ export const sidebarClass = cssHash(
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
-    .${layoutClass}-toggled .${className} {
+    .${layoutClass}-collapsed .${className} {
       position: fixed;
       left: -${sidebarWidth}px;
     }
@@ -72,7 +72,7 @@ export const sidebarClass = cssHash(
         -o-transition: all 0.2s ease;
         transition: all 0.2s ease;
       }
-      .${layoutClass}-toggled .${className} {
+      .${layoutClass}-collapsed .${className} {
         position: fixed;
 	      top: 0px;
         left: 0px;
@@ -95,7 +95,7 @@ export const contentClass = cssHash(
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
-    .${layoutClass}-toggled .${className} {
+    .${layoutClass}-collapsed .${className} {
       margin-left: 0;
     }
     @media only screen and (max-width: ${mobileWidth}px) {
@@ -165,7 +165,7 @@ export const headerClass = cssHash(
       background-color: ${toggleMenuHoverBg};
       color: ${toggleMenuHoverColor};
     }
-    .${layoutClass}-toggled .${className}-mobile-menu {
+    .${layoutClass}-collapsed .${className}-mobile-menu {
       margin-left: 10px;
     }
     @media only screen and (max-width: ${mobileWidth}px) {
@@ -196,7 +196,7 @@ export const footerClass = cssHash(
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease; 
     }
-    .${layoutClass}-toggled .${className} {
+    .${layoutClass}-collapsed .${className} {
       position: absolute;
       left: 0px;
     }
@@ -212,7 +212,7 @@ export const footerClass = cssHash(
 export const overlayClass = cssHash(
   (className) => `
     @media only screen and (max-width: ${mobileWidth}px) {
-      .${layoutClass}-toggled .${className} {
+      .${layoutClass}-collapsed .${className} {
         position: fixed;
         top: 0;
         right: 0;

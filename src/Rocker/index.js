@@ -44,7 +44,10 @@ export default function Layout(props) {
 
   return (
     <div
-      className={classNames(layoutClass, showMenu && `${layoutClass}-toggled`)}
+      className={classNames(
+        layoutClass,
+        showMenu && `${layoutClass}-collapsed`,
+      )}
     >
       <div className={classNames(sidebarClass)}>
         <div className={classNames(brandLogoClass)}>
