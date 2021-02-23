@@ -66,9 +66,9 @@ export const pageHeaderClass = cssHash(
       left: 0px;
       top: 0px;
       z-index: ${pageHeaderZIndex};
-      -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-      -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${className} {

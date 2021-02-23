@@ -270,6 +270,7 @@ export const navigationClass = cssHash(
       margin: 0;
       padding: 0;
       background-color: rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
       -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
     }
@@ -366,6 +367,7 @@ export const navigationClass = cssHash(
       background-color: rgba(0, 0, 0, 0.1);
     }
     .${className}-bordered > li ul {
+      -moz-box-shadow: none;
       -webkit-box-shadow: none;
       box-shadow: none;
     }

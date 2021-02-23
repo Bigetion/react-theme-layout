@@ -79,9 +79,9 @@ export const pageSidebarClass = cssHash(
       vertical-align: top;
       width: ${pageSidebarWidth}px;
       z-index: ${pageSidebarZIndex};
-      -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-      -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
@@ -313,9 +313,9 @@ export const sidebarCollapsedClass = cssHash(
       top: 0;
       visibility: hidden;
       width: ${pageSidebarWidth - pageSidebarCollapsedWidth - 20}px;
-      -moz-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
-      -webkit-box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
-      box-shadow: 5px 0 5px -5px rgba(0,0,0,0.25);
+      -moz-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
+      box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
       left: 240px;
@@ -357,9 +357,9 @@ export const sidebarCollapsedClass = cssHash(
       opacity: 1;
       filter: alpha(opacity=100);
       height: auto;
-      -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-      -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     }
     .${className} .${pageSidebarClass} ul.${navigationClass} > li > ul > li > a {
       padding-left: 20px;

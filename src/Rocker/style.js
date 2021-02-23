@@ -13,7 +13,7 @@ const toggleMenuHoverColor = '#223035';
 const sidebarWidth = 280;
 const sidebarBg = '#2C365A';
 
-const contentPadding = 10;
+const contentPadding = 0;
 
 const brandLogoBg = '#2C365A';
 const brandLogoColor = '#FFFFFF';
@@ -134,8 +134,9 @@ export const headerClass = cssHash(
       z-index: 999;
       position: fixed;
       top: 0;
-      -webkit-box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 0px 6px 0 rgba(206, 206, 238, 0.54);
-      box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 0px 6px 0 rgba(206, 206, 238, 0.54);
+      -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
       display: flex;
       justify-content: space-between;
       align-items: center;
