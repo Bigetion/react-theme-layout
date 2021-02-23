@@ -1,4 +1,4 @@
-import Layout from './Rocker';
+import Layout from './Integral';
 
 import 'font-awesome/css/font-awesome.min.css';
 

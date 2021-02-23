@@ -148,7 +148,7 @@ export const headerClass = cssHash(
       padding-left: 0;
       list-style: none;
     }
-    .${className}-toggle-menu {
+    .${className}-mobile-menu {
       margin-left: ${sidebarWidth + 10}px;
       font-size: 14px;
       font-weight: 600;
@@ -161,15 +161,15 @@ export const headerClass = cssHash(
       transition: all 0.3s ease;
       padding: 10px;
     }
-    .${className}-toggle-menu:hover {
+    .${className}-mobile-menu:hover {
       background-color: ${toggleMenuHoverBg};
       color: ${toggleMenuHoverColor};
     }
-    .${layoutClass}-toggled .${className}-toggle-menu {
+    .${layoutClass}-toggled .${className}-mobile-menu {
       margin-left: 10px;
     }
     @media only screen and (max-width: ${mobileWidth}px) {
-      .${className}-toggle-menu {
+      .${className}-mobile-menu {
         margin-left: 5px;
       }
       .${className} {

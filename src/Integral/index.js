@@ -7,10 +7,12 @@ import {
   mainContentClass,
   mainHeaderClass,
   mainContainerClass,
+  pageSidebarClass,
+  siteHeaderClass,
   mobileWidth,
 } from './style';
 
-import Sidebar from './Sidebar';
+import Navigation from './Navigation';
 
 import menus from './menus';
 
@@ -18,6 +20,7 @@ export default function Layout(props) {
   const { children } = props;
 
   const [collapsed, setCollapsed] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const getWindowWidth = () => {
     return (
@@ -33,12 +36,16 @@ export default function Layout(props) {
       if (windowWidth <= mobileWidth) {
         setCollapsed(false);
       }
+      setShowMenu(windowWidth > mobileWidth);
     };
+    resizeListener();
     window.addEventListener('resize', resizeListener);
     return () => {
       window.removeEventListener('resize', resizeListener);
     };
   }, []);
+
+  console.log(showMenu);
 
   return (
     <div
@@ -47,7 +54,30 @@ export default function Layout(props) {
         collapsed && sidebarCollapsedClass,
       )}
     >
-      <Sidebar collapsed={collapsed} menus={menus} />
+      <div className={pageSidebarClass}>
+        <header className={siteHeaderClass}>
+          <div className={`${siteHeaderClass}-content`}>
+            <h3>APP LOGO</h3>
+          </div>
+          <div
+            className={`${siteHeaderClass}-mobile-menu`}
+            onClick={() => {
+              setShowMenu(!showMenu);
+            }}
+          >
+            <i className="fa fa-bars" />
+          </div>
+        </header>
+        <div style={{ display: showMenu ? '' : 'none' }}>
+          <Navigation
+            collapsed={collapsed}
+            menus={menus}
+            onChange={(item) => {
+              console.log(item);
+            }}
+          />
+        </div>
+      </div>
       <div className={mainContainerClass}>
         <div className={mainHeaderClass}>
           <div

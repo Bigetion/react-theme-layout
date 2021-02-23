@@ -18,7 +18,7 @@ import menus from './menus';
 export default function Layout(props) {
   const { children } = props;
 
-  const [toggled, setToggled] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const getWindowWidth = () => {
     return (
@@ -32,7 +32,7 @@ export default function Layout(props) {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
       if (windowWidth <= mobileWidth) {
-        setToggled(false);
+        setShowMenu(false);
       }
     };
     resizeListener();
@@ -44,7 +44,7 @@ export default function Layout(props) {
 
   return (
     <div
-      className={classNames(layoutClass, toggled && `${layoutClass}-toggled`)}
+      className={classNames(layoutClass, showMenu && `${layoutClass}-toggled`)}
     >
       <div className={classNames(sidebarClass)}>
         <div className={classNames(brandLogoClass)}>
@@ -56,9 +56,9 @@ export default function Layout(props) {
         <ul>
           <li>
             <span
-              className={classNames(`${headerClass}-toggle-menu`)}
+              className={classNames(`${headerClass}-mobile-menu`)}
               onClick={() => {
-                setToggled(!toggled);
+                setShowMenu(!showMenu);
               }}
             >
               <i className="fa fa-bars" />
@@ -70,7 +70,7 @@ export default function Layout(props) {
       <div
         className={classNames(overlayClass)}
         onClick={() => {
-          setToggled(!toggled);
+          setShowMenu(!showMenu);
         }}
       ></div>
     </div>
