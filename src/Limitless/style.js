@@ -212,11 +212,11 @@ export const navigationClass = cssHash(
       opacity: 0.3;
       filter: alpha(opacity=30);
     }
-    .${className} li > .has-ul {
+    .${className} li > .has-sub {
       position: relative;
       padding-right: 36px;
     }
-    .${className} li > .has-ul:after {
+    .${className} li > .has-sub:after {
       content: "\\f105";
       font-family: "fontawesome";
       font-size: 16px;
@@ -234,7 +234,7 @@ export const navigationClass = cssHash(
       -o-transition: -webkit-transform 0.2s ease-in-out;
       transition: -webkit-transform 0.2s ease-in-out;
     }
-    .${className} li.active > .has-ul:after {
+    .${className} li.active > .has-sub:after {
       -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       -o-transform: rotate(90deg);
@@ -344,7 +344,7 @@ export const navigationClass = cssHash(
       float: right;
     }
     .${className}-icons-right > li > a,
-    .${className}-icons-right > li > a.has-ul {
+    .${className}-icons-right > li > a.has-sub {
       padding-right: 20px;
     }
     .${className}-icons-right > li > a > i {
@@ -352,8 +352,8 @@ export const navigationClass = cssHash(
       margin-right: 0;
       margin-left: 15px;
     }
-    .${className}-icons-right > li.active > .has-ul:after,
-    .${className}-icons-right > li > a.has-ul:after {
+    .${className}-icons-right > li.active > .has-sub:after,
+    .${className}-icons-right > li > a.has-sub:after {
       content: none;
     }
     .${className}-bordered > li {
@@ -444,11 +444,11 @@ export const navigationCollapsedClass = cssHash(
       display: block;
       float: none;
     }
-    .${className} .${navigationClass} > li.active > .has-ul:after,
-    .${className} .${navigationClass} > li > .has-ul:after {
+    .${className} .${navigationClass} > li.active > .has-sub:after,
+    .${className} .${navigationClass} > li > .has-sub:after {
       content: none;
     }
-    .${className} .${navigationClass} > li .has-ul > span {
+    .${className} .${navigationClass} > li .has-sub > span {
       border-radius: 0 3px 0 0;
     }
     .${className} .${navigationClass} > li.active > ul,

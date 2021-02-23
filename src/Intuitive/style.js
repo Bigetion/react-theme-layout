@@ -374,7 +374,7 @@ export const navigationClass = cssHash(
     .${className} > li ul li.active > a:after {
       background-color: ${navigationSubItemPadBgHoverActive};
     }
-    .${className} > li ul li.has-child > a:before {
+    .${className} > li ul li.has-sub > a:before {
       line-height: 45px;
       height: 45px;
     }
@@ -395,7 +395,7 @@ export const navigationClass = cssHash(
     .${className} > li > ul > li > ul > li.active > a {
       padding-left: 85px;
     }
-    .${className} li.has-child > a:before {
+    .${className} li.has-sub > a:before {
       content: "\\f107";
       font-family: "fontawesome";
       position: absolute;
@@ -407,10 +407,10 @@ export const navigationClass = cssHash(
       right: 0px;
       top: 0px;
     }
-    .${className} li.has-child.active > a:before {
+    .${className} li.has-sub.active > a:before {
       content: "\\f106";
     }
-    .${className} li.has-child > a {
+    .${className} li.has-sub > a {
       padding-right: 30px;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} {
@@ -534,16 +534,16 @@ export const navigationClass = cssHash(
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.active > a .fa {
       background-color: #293649;
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.has-child > a:before {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.has-sub > a:before {
       display: none;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.active > ul {
       display: block;
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.active.has-child > a:before {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.active.has-sub > a:before {
       content: "\\f104";
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.has-child > a:before {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.has-sub > a:before {
       content: "\\f105";
     }
     .${layoutClass}.${pageSidebarMinimizedClass}.dev-page-sidebar-right .${className} > li ul {
@@ -592,7 +592,7 @@ export const navigationClass = cssHash(
       opacity: 0;
       filter: alpha(opacity = 0 * 100);
     }
-    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li.has-child > a:before {
+    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li.has-sub > a:before {
       display: none;
     }
   `,

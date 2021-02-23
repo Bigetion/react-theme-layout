@@ -26,7 +26,7 @@ function Item(props) {
       }}
       className={classNames(isActive && 'active')}
     >
-      <a>
+      <a href={() => false}>
         {icon && <i className={icon} />}
         <span className="title">{title}</span>
       </a>
@@ -59,7 +59,7 @@ function MultiItem(props) {
         onClickMenu(clickProps);
       }}
     >
-      <a>
+      <a href={() => false}>
         {icon && <i className={icon} />}
         <span className="title">{title}</span>
       </a>
