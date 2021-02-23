@@ -3,12 +3,23 @@ import { cssHash } from 'css-hash';
 export const mobileWidth = 767;
 
 const headerHeight = 60;
+const headerBg = '#FFFFFF';
+
+const toggleMenuBg = '#FFFFFF';
+const toggleMenuColor = '#223035';
+const toggleMenuHoverBg = '#F1F1F1';
+const toggleMenuHoverColor = '#223035';
+
 const sidebarWidth = 280;
 const sidebarBg = '#2C365A';
 
+const contentPadding = 10;
+
 const brandLogoBg = '#2C365A';
 const brandLogoColor = '#FFFFFF';
-const brandLogoBorderBottom = '1px solid #3D4666';
+const brandLogoBorderBottom = '1px solid #212B4F';
+
+const footerBg = '#F9F9F9';
 
 const navigationItemBg = '#424C70';
 const navigationItemColor = '#FFFFFF';
@@ -30,7 +41,7 @@ export const layoutClass = cssHash(
 export const sidebarClass = cssHash(
   (className) => `
     .${className} {
-      background: ${sidebarBg};
+      background-color: ${sidebarBg};
       position: fixed;
       top: 0px;
       left: 0px;
@@ -42,7 +53,6 @@ export const sidebarClass = cssHash(
       -moz-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
     }
     .${layoutClass}-toggled .${className} {
       position: fixed;
@@ -61,13 +71,11 @@ export const sidebarClass = cssHash(
         -moz-transition: all 0.2s ease;
         -o-transition: all 0.2s ease;
         transition: all 0.2s ease;
-        box-shadow: none;
       }
       .${layoutClass}-toggled .${className} {
         position: fixed;
 	      top: 0px;
         left: 0px;
-	      box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
       }
     }
   `,
@@ -77,10 +85,10 @@ export const contentClass = cssHash(
   (className) => `
     .${className} {
       margin-left: ${sidebarWidth}px;
-      padding-top: ${headerHeight + 10}px;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding-bottom: ${headerHeight + 10}px;
+      padding-top: ${headerHeight + contentPadding}px;
+      padding-left: ${contentPadding}px;
+      padding-right: ${contentPadding}px;
+      padding-bottom: ${headerHeight + contentPadding}px;
       overflow-x: hidden;
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -93,8 +101,6 @@ export const contentClass = cssHash(
     @media only screen and (max-width: ${mobileWidth}px) {
       .${className} {
         margin-left: 0px;
-        padding-left: 5px;
-        padding-right: 5px;
       }
     }
   `,
@@ -103,7 +109,7 @@ export const contentClass = cssHash(
 export const brandLogoClass = cssHash(
   (className) => `
     .${className} {
-      background: ${brandLogoBg};
+      background-color: ${brandLogoBg};
       color: ${brandLogoColor};
       border-bottom: ${brandLogoBorderBottom};
       width: 100%;
@@ -124,7 +130,7 @@ export const headerClass = cssHash(
     .${className} {
       width: 100%;
       height: ${headerHeight}px;
-      background: #fffFFF;
+      background-color: ${headerBg};
       z-index: 999;
       position: fixed;
       top: 0;
@@ -145,7 +151,8 @@ export const headerClass = cssHash(
       margin-left: ${sidebarWidth + 10}px;
       font-size: 14px;
       font-weight: 600;
-      color: #223035;
+      background-color: ${toggleMenuBg};
+      color: ${toggleMenuColor};
       cursor: pointer;
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -154,14 +161,15 @@ export const headerClass = cssHash(
       padding: 10px;
     }
     .${className}-toggle-menu:hover {
-      background-color: #DCDCDC;
+      background-color: ${toggleMenuHoverBg};
+      color: ${toggleMenuHoverColor};
     }
     .${layoutClass}-toggled .${className}-toggle-menu {
       margin-left: 10px;
     }
     @media only screen and (max-width: ${mobileWidth}px) {
       .${className}-toggle-menu {
-        margin-left: 10px;
+        margin-left: 5px;
       }
       .${className} {
         padding: 0px 10px 0 5px;
@@ -180,7 +188,7 @@ export const footerClass = cssHash(
       position: absolute;
       right: 0;
       left: 240px;
-      background-color: #f9f9f9;
+      background-color: ${footerBg};
       border-top: 1px solid rgb(223, 223, 255);
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -210,7 +218,7 @@ export const overlayClass = cssHash(
         bottom: 0;
         left: 0;
         z-index: 1000;
-        background: #000;
+        background-color: #000000;
         opacity: 0.4;
         z-index: 999;
         display: block;
