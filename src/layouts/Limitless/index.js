@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
+import Collapse from 'components/Collapse';
+
 import {
   pageContainerClass,
   navigationCollapsedClass,
@@ -66,15 +68,19 @@ export default function Layout(props) {
             <i className="fa fa-bars" />
           </div>
         </header>
-        <div style={{ display: showMenu ? '' : 'none' }}>
-          <Navigation
-            collapsed={collapsed}
-            menus={menus}
-            onChange={(item) => {
-              console.log(item);
-            }}
-          />
-        </div>
+        <Collapse open={showMenu}>
+          {(collapseProps) => (
+            <div {...collapseProps}>
+              <Navigation
+                collapsed={collapsed}
+                menus={menus}
+                onChange={(item) => {
+                  console.log(item);
+                }}
+              />
+            </div>
+          )}
+        </Collapse>
       </div>
       <div className={mainContainerClass}>
         <div className={mainHeaderClass}>
