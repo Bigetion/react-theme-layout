@@ -1,5 +1,4 @@
 import React, { useState, createContext, useContext } from 'react';
-
 import { classNames } from 'css-hash';
 
 import { navigationClass } from './style';

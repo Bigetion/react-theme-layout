@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext } from 'react';
-
 import { classNames } from 'css-hash';
+
+import Collapse from 'components/Collapse';
 
 import { navigationClass } from './style';
 
@@ -67,15 +68,17 @@ function MultiItem(props) {
         {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
-      {showSubMenu && (
-        <ul>
-          {children.map((item, index) => (
-            <React.Fragment key={index}>
-              <Item {...item} />
-            </React.Fragment>
-          ))}
-        </ul>
-      )}
+      <Collapse open={showSubMenu}>
+        {(collapseProps) => (
+          <ul {...collapseProps}>
+            {children.map((item, index) => (
+              <React.Fragment key={index}>
+                <Item {...item} />
+              </React.Fragment>
+            ))}
+          </ul>
+        )}
+      </Collapse>
     </li>
   );
 }
