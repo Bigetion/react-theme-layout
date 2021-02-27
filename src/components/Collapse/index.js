@@ -4,6 +4,9 @@ import cssAnimation from 'css-animation';
 
 const collapseClass = cssHash(
   (collapseClass) => `
+    .${collapseClass} {
+      overflow: hidden;
+    }
     .${collapseClass}-active {
       -webkit-transition: height 200ms ease-out;
       -o-transition: height 200ms ease-out;
@@ -34,6 +37,23 @@ function toggle(node, show, transitionName) {
   });
 }
 
+const useCompareEffect = (callback, dependencies) => {
+  const prevDependencies = useRef(dependencies);
+  useEffect(
+    () => {
+      if (
+        JSON.stringify(prevDependencies.current) !==
+        JSON.stringify(dependencies)
+      ) {
+        callback();
+      }
+      prevDependencies.current = dependencies;
+    },
+    // eslint-disable-next-line
+    dependencies,
+  );
+};
+
 function Collapse(props) {
   const { children, open } = props;
 
@@ -51,9 +71,10 @@ function Collapse(props) {
     [],
   );
 
-  useEffect(
+  useCompareEffect(
     () => {
       if (componentDidMount) {
+        console.log(open);
         toggle(collapseRef.current, open, collapseClass);
       }
     },
@@ -61,7 +82,7 @@ function Collapse(props) {
     [open],
   );
 
-  return children(collapseRef, collapseClass);
+  return children({ ref: collapseRef, className: collapseClass });
 }
 
 export default Collapse;

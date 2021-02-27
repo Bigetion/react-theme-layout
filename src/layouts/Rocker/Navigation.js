@@ -66,8 +66,8 @@ function MultiItem(props) {
         <span className="title">{title}</span>
       </a>
       <Collapse open={showSubMenu}>
-        {(ref, className) => (
-          <ul ref={ref} className={className}>
+        {(collapseProps) => (
+          <ul {...collapseProps}>
             {children.map((item, index) => (
               <React.Fragment key={index}>
                 <Item {...item} />
