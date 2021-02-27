@@ -396,19 +396,23 @@ export const navigationClass = cssHash(
       padding-left: 85px;
     }
     .${className} li.has-sub > a:before {
-      content: "\\f107";
+      content: "\\f105";
+      display: inline-block;
+      float: right;
       font-family: "fontawesome";
-      position: absolute;
-      font-size: 14px;
-      line-height: 45px;
-      width: 30px;
-      height: 55px;
-      text-align: center;
-      right: 0px;
-      top: 0px;
+      font-size: 15px;
+      margin-left: 10px;
+      position: relative;
+      -webkit-transition: all 300ms ease-in-out;
+      -o-transition: all 300ms ease-in-out;
+      transition: all 300ms ease-in-out;
+      font-weight: normal;
     }
     .${className} li.has-sub.active > a:before {
-      content: "\\f106";
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg);
     }
     .${className} li.has-sub > a {
       padding-right: 30px;
