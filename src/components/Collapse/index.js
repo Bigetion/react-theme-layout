@@ -15,7 +15,7 @@ const collapseClass = cssHash(
   `,
 );
 
-function toggle(node, show, transitionName) {
+function collapseAnimation(node, show, transitionName) {
   node.style.display = '';
   let height;
   return cssAnimation(node, transitionName, {
@@ -37,20 +37,6 @@ function toggle(node, show, transitionName) {
   });
 }
 
-const useCompareEffect = (callback, dependencies) => {
-  const prevDependencies = useRef(dependencies);
-  useEffect(
-    () => {
-      if (prevDependencies.current !== dependencies) {
-        callback();
-      }
-      prevDependencies.current = dependencies;
-    },
-    // eslint-disable-next-line
-    dependencies,
-  );
-};
-
 function Collapse(props) {
   const { children, open } = props;
 
@@ -68,11 +54,10 @@ function Collapse(props) {
     [],
   );
 
-  useCompareEffect(
+  useEffect(
     () => {
       if (componentDidMount) {
-        console.log(open);
-        toggle(collapseRef.current, open, collapseClass);
+        collapseAnimation(collapseRef.current, open, collapseClass);
       }
     },
     // eslint-disable-next-line
