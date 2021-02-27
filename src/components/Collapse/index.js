@@ -38,7 +38,7 @@ function collapseAnimation(node, show, transitionName) {
 }
 
 function Collapse(props) {
-  const { children, open } = props;
+  const { children, open, disableAnimation } = props;
 
   const collapseRef = useRef();
 
@@ -57,7 +57,9 @@ function Collapse(props) {
   useEffect(
     () => {
       if (componentDidMount) {
-        collapseAnimation(collapseRef.current, open, collapseClass);
+        if (!disableAnimation) {
+          collapseAnimation(collapseRef.current, open, collapseClass);
+        }
       }
     },
     // eslint-disable-next-line
