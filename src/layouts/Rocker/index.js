@@ -53,7 +53,12 @@ export default function Layout(props) {
         <div className={classNames(brandLogoClass)}>
           <h3 style={{ paddingLeft: 20 }}>APP LOGO</h3>
         </div>
-        <Navigation menus={menus} />
+        <Navigation
+          menus={menus}
+          onChange={(item) => {
+            console.log(item);
+          }}
+        />
       </div>
       <header className={classNames(headerClass)}>
         <ul>

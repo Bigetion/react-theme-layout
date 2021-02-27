@@ -45,8 +45,6 @@ export default function Layout(props) {
     };
   }, []);
 
-  console.log(showMenu);
-
   return (
     <div
       className={classNames(
