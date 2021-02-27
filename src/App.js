@@ -1,6 +1,6 @@
-import Layout from './Rocker';
-
 import 'font-awesome/css/font-awesome.min.css';
+
+import Layout from 'layouts/Rocker';
 
 import './app.css';
 

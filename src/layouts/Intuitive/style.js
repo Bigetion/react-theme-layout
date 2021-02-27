@@ -458,8 +458,8 @@ export const navigationClass = cssHash(
       z-index: 999;
       overflow-y: visible;
       display: none;
-      -webkit-animation-duration: 100ms;
-      animation-duration: 100ms;
+      -webkit-animation-duration: 200ms;
+      animation-duration: 200ms;
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
       -webkit-animation-name: zoomIn;
