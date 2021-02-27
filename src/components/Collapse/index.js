@@ -59,6 +59,8 @@ function Collapse(props) {
       if (componentDidMount) {
         if (!disableAnimation) {
           collapseAnimation(collapseRef.current, open, collapseClass);
+        } else {
+          collapseRef.current.style.display = open ? '' : 'none';
         }
       }
     },
