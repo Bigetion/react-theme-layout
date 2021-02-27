@@ -41,10 +41,7 @@ const useCompareEffect = (callback, dependencies) => {
   const prevDependencies = useRef(dependencies);
   useEffect(
     () => {
-      if (
-        JSON.stringify(prevDependencies.current) !==
-        JSON.stringify(dependencies)
-      ) {
+      if (prevDependencies.current !== dependencies) {
         callback();
       }
       prevDependencies.current = dependencies;
