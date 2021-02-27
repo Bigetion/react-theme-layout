@@ -1,6 +1,8 @@
 import React, { useState, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
 
+import Collapse from 'components/Collapse';
+
 import { navigationClass } from './style';
 
 const NavigationContext = createContext();
@@ -40,9 +42,12 @@ function Item(props) {
 function MultiItem(props) {
   const { icon, title, children = [], level_index, menu_id } = props;
 
-  const { onClickMenu = () => {}, activeMenuId, collapsed } = useContext(
-    NavigationContext,
-  );
+  const {
+    onClickMenu = () => {},
+    clickedMenuId,
+    activeMenuId,
+    collapsed,
+  } = useContext(NavigationContext);
 
   const clickProps = Object.assign({}, props);
 
@@ -66,15 +71,17 @@ function MultiItem(props) {
         {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
-      {showSubMenu && (
-        <ul>
-          {children.map((item, index) => (
-            <React.Fragment key={index}>
-              <Item {...item} />
-            </React.Fragment>
-          ))}
-        </ul>
-      )}
+      <Collapse open={showSubMenu} disableAnimation={menu_id !== clickedMenuId}>
+        {(collapseProps) => (
+          <ul {...collapseProps}>
+            {children.map((item, index) => (
+              <React.Fragment key={index}>
+                <Item {...item} />
+              </React.Fragment>
+            ))}
+          </ul>
+        )}
+      </Collapse>
     </li>
   );
 }
@@ -82,10 +89,12 @@ function MultiItem(props) {
 export default function Navigation(props) {
   const { collapsed, menus = [], onChange = () => {} } = props;
 
+  const [clickedMenuId, setClickedMenuId] = useState('');
   const [activeMenuId, setActiveMenuId] = useState('');
   const [activeId, setActivePath] = useState('');
 
   const onClickMenu = (item) => {
+    setClickedMenuId(item.menu_id);
     if (item.children) {
       if (
         item.menu_id === activeMenuId ||
@@ -121,7 +130,7 @@ export default function Navigation(props) {
 
   return (
     <NavigationContext.Provider
-      value={{ onClickMenu, activeMenuId, activeId, collapsed }}
+      value={{ onClickMenu, clickedMenuId, activeMenuId, activeId, collapsed }}
     >
       <ul className={navigationClass}>
         {menusWithMenuId.map((item, index) => {
