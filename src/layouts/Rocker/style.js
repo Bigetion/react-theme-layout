@@ -149,7 +149,10 @@ export const headerClass = cssHash(
       list-style: none;
     }
     .${className}-mobile-menu {
-      margin-left: ${sidebarWidth + 10}px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: ${sidebarWidth}px;
       font-size: 14px;
       font-weight: 600;
       background-color: ${toggleMenuBg};
@@ -159,21 +162,19 @@ export const headerClass = cssHash(
       -moz-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
-      padding: 10px;
+      height: ${headerHeight}px;
+      padding: 0 20px;
     }
     .${className}-mobile-menu:hover {
       background-color: ${toggleMenuHoverBg};
       color: ${toggleMenuHoverColor};
     }
     .${layoutClass}-collapsed .${className}-mobile-menu {
-      margin-left: 10px;
+      margin-left: 0px;
     }
     @media only screen and (max-width: ${mobileWidth}px) {
       .${className}-mobile-menu {
-        margin-left: 5px;
-      }
-      .${className} {
-        padding: 0px 10px 0 5px;
+        margin-left: 0px;
       }
     }
   `,

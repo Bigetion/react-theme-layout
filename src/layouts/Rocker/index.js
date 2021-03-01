@@ -63,14 +63,14 @@ export default function Layout(props) {
       <header className={classNames(headerClass)}>
         <ul>
           <li>
-            <span
+            <div
               className={classNames(`${headerClass}-mobile-menu`)}
               onClick={() => {
                 setShowMenu(!showMenu);
               }}
             >
-              <i className="fa fa-bars" />
-            </span>
+              <i className="fa fa-bars" style={{ margin: 'o auto' }} />
+            </div>
           </li>
         </ul>
       </header>
