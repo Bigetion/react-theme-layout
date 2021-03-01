@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
 
 import Collapse from 'components/Collapse';
@@ -40,20 +40,33 @@ function MultiItem(props) {
 
   const {
     onClickMenu = () => {},
-    clickedMenuId,
     activeMenuId,
     collapsed,
+    clickedMenuId,
+    lastClickedMenuId,
   } = useContext(NavigationContext);
 
   const clickProps = Object.assign({}, props);
 
-  let isActive = activeMenuId.indexOf(menu_id) >= 0;
-
+  const isActive = activeMenuId.indexOf(menu_id) >= 0;
   let showSubMenu = isActive;
   if (collapsed) {
     if (level_index === 1) {
       showSubMenu = true;
     }
+  }
+
+  let isDisableAnimation = false;
+  if ([clickedMenuId, lastClickedMenuId].indexOf(menu_id) < 0) {
+    isDisableAnimation = true;
+  }
+  if (
+    [
+      clickedMenuId.indexOf(menu_id) >= 0,
+      lastClickedMenuId.indexOf(menu_id) >= 0,
+    ].indexOf(true) >= 0
+  ) {
+    isDisableAnimation = false;
   }
   return (
     <li
@@ -67,7 +80,7 @@ function MultiItem(props) {
         {icon && <i className={icon} />}
         <span className="title">{title}</span>
       </a>
-      <Collapse open={showSubMenu} disableAnimation={menu_id !== clickedMenuId}>
+      <Collapse open={showSubMenu} disableAnimation={isDisableAnimation}>
         {(collapseProps) => (
           <ul {...collapseProps}>
             {children.map((item, index) => (
@@ -85,12 +98,12 @@ function MultiItem(props) {
 export default function Navigation(props) {
   const { collapsed, menus = [], onChange = () => {} } = props;
 
-  const [clickedMenuId, setClickedMenuId] = useState('');
   const [activeMenuId, setActiveMenuId] = useState('');
   const [activeId, setActivePath] = useState('');
+  const [clickedMenuId, setClickedMenuId] = useState('');
+  const [lastClickedMenuId, setLastClickedMenuId] = useState('');
 
   const onClickMenu = (item) => {
-    setClickedMenuId(item.menu_id);
     if (item.children) {
       if (
         item.menu_id === activeMenuId ||
@@ -100,6 +113,8 @@ export default function Navigation(props) {
       } else {
         setActiveMenuId(item.menu_id);
       }
+      setLastClickedMenuId(clickedMenuId);
+      setClickedMenuId(item.menu_id);
     } else {
       setActivePath(item.menu_id);
       setActiveMenuId(item.parent_id);
@@ -122,11 +137,23 @@ export default function Navigation(props) {
     });
   };
 
+  useEffect(() => {
+    setLastClickedMenuId('');
+    setClickedMenuId('');
+  }, [collapsed]);
+
   const menusWithMenuId = addMenuIndex('MENU', 1, menus);
 
   return (
     <NavigationContext.Provider
-      value={{ onClickMenu, clickedMenuId, activeMenuId, activeId, collapsed }}
+      value={{
+        onClickMenu,
+        activeMenuId,
+        activeId,
+        collapsed,
+        clickedMenuId,
+        lastClickedMenuId,
+      }}
     >
       <ul className={navigationClass}>
         {menusWithMenuId.map((item, index) => {

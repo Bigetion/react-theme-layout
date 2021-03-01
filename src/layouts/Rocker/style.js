@@ -153,7 +153,7 @@ export const headerClass = cssHash(
       align-items: center;
       justify-content: center;
       margin-left: ${sidebarWidth}px;
-      font-size: 14px;
+      font-size: inherit;
       font-weight: 600;
       background-color: ${toggleMenuBg};
       color: ${toggleMenuColor};

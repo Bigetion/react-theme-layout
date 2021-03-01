@@ -68,7 +68,11 @@ function Collapse(props) {
     [open],
   );
 
-  return children({ ref: collapseRef, className: collapseClass });
+  return children({
+    ref: collapseRef,
+    className: collapseClass,
+    style: { display: 'none' },
+  });
 }
 
 export default Collapse;
