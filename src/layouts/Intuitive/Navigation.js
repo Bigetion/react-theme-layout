@@ -100,7 +100,13 @@ function MultiItem(props) {
 }
 
 export default function Navigation(props) {
-  const { collapsed, menus = [], onChange = () => {} } = props;
+  const {
+    collapsed,
+    menus = [],
+    onChange = () => {},
+    pathname,
+    pathkey,
+  } = props;
 
   const [activeMenuId, setActiveMenuId] = useState('');
   const [activeId, setActivePath] = useState('');
@@ -126,7 +132,7 @@ export default function Navigation(props) {
     }
   };
 
-  const addMenuIndex = (parentId = '', levelIndex, items = []) => {
+  const addMenuIndex = (parentId = '', levelIndex, items = [], callback) => {
     return items.map((item, index) => {
       const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}`;
       const newItem = Object.assign({}, item, {
@@ -135,16 +141,34 @@ export default function Navigation(props) {
         menu_id,
       });
       if (item.children) {
-        newItem.children = addMenuIndex(menu_id, levelIndex + 1, item.children);
+        newItem.children = addMenuIndex(
+          menu_id,
+          levelIndex + 1,
+          item.children,
+          callback,
+        );
+      }
+      if (callback) {
+        callback(newItem);
       }
       return newItem;
     });
   };
 
-  useEffect(() => {
-    setLastClickedMenuId('');
-    setClickedMenuId('');
-  }, [collapsed]);
+  useEffect(
+    () => {
+      addMenuIndex('MENU', 1, menus, (item) => {
+        if (item[pathkey] === pathname) {
+          onClickMenu(item);
+        } else {
+          setLastClickedMenuId('');
+          setClickedMenuId('');
+        }
+      });
+    },
+    // eslint-disable-next-line
+    [collapsed, pathname],
+  );
 
   const menusWithMenuId = addMenuIndex('MENU', 1, menus);
 
