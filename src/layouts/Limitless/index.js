@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
+import { useParams, useHistory } from 'react-router-dom';
+
 import Collapse from './Collapse';
 
 import {
@@ -20,6 +22,9 @@ import menus from './menus';
 
 export default function Layout(props) {
   const { children } = props;
+
+  const history = useHistory();
+  const { pathname } = useParams();
 
   const [collapsed, setCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -73,9 +78,11 @@ export default function Layout(props) {
             <div {...collapseProps}>
               <Navigation
                 collapsed={collapsed}
+                pathname={pathname}
+                pathkey="menu_id"
                 menus={menus}
                 onChange={(item) => {
-                  console.log(item);
+                  history.push(`/${item.menu_id}`);
                 }}
               />
             </div>
