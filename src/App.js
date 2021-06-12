@@ -1,10 +1,12 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import 'font-awesome/css/font-awesome.min.css';
 
 import Layout from 'layouts/Rocker';
 
 import './app.css';
 
-function App() {
+function PageLayout() {
   return (
     <Layout>
       <div
@@ -19,6 +21,17 @@ function App() {
         Main Content
       </div>
     </Layout>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path={'/'} component={PageLayout} exact />
+        <Route path={'/:pathname'} component={PageLayout} exact />
+      </Switch>
+    </Router>
   );
 }
 

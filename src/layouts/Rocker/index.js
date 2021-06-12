@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
+import { useParams, useHistory } from 'react-router-dom';
+
 import {
   layoutClass,
   sidebarClass,
@@ -17,6 +19,9 @@ import menus from './menus';
 
 export default function Layout(props) {
   const { children } = props;
+
+  const history = useHistory();
+  const { pathname } = useParams();
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -54,9 +59,11 @@ export default function Layout(props) {
           <h3 style={{ paddingLeft: 20 }}>APP LOGO</h3>
         </div>
         <Navigation
+          pathname={pathname}
+          pathkey="menu_id"
           menus={menus}
           onChange={(item) => {
-            console.log(item);
+            history.push(`/${item.menu_id}`);
           }}
         />
       </div>
