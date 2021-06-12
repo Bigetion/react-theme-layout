@@ -57,12 +57,6 @@ function MultiItem(props) {
   const clickProps = Object.assign({}, props);
 
   const isActive = activeMenuId.indexOf(menu_id) >= 0;
-  let showSubMenu = isActive;
-  if (collapsed) {
-    if (level_index === 1) {
-      showSubMenu = true;
-    }
-  }
 
   let isDisableAnimation = false;
   if ([clickedMenuId, lastClickedMenuId].indexOf(menu_id) < 0) {
@@ -76,6 +70,21 @@ function MultiItem(props) {
   ) {
     isDisableAnimation = false;
   }
+
+  const renderCollapse = (open) => (
+    <Collapse open={open} disableAnimation={isDisableAnimation}>
+      {(collapseProps) => (
+        <ul {...collapseProps}>
+          {children.map((item, index) => (
+            <React.Fragment key={index}>
+              <Item {...item} />
+            </React.Fragment>
+          ))}
+        </ul>
+      )}
+    </Collapse>
+  );
+
   return (
     <li
       className={classNames(isActive && 'active')}
@@ -88,17 +97,8 @@ function MultiItem(props) {
         {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
-      <Collapse open={showSubMenu} disableAnimation={isDisableAnimation}>
-        {(collapseProps) => (
-          <ul {...collapseProps}>
-            {children.map((item, index) => (
-              <React.Fragment key={index}>
-                <Item {...item} />
-              </React.Fragment>
-            ))}
-          </ul>
-        )}
-      </Collapse>
+      {!collapsed && renderCollapse(isActive)}
+      {collapsed && renderCollapse(isActive || level_index === 1)}
     </li>
   );
 }
