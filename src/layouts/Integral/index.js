@@ -28,6 +28,7 @@ export default function Layout(props) {
 
   const [collapsed, setCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const getWindowWidth = () => {
     return (
@@ -43,6 +44,7 @@ export default function Layout(props) {
       if (windowWidth <= mobileWidth) {
         setCollapsed(false);
       }
+      setIsMobile(windowWidth <= mobileWidth);
       setShowMenu(windowWidth > mobileWidth);
     };
     resizeListener();
@@ -51,6 +53,29 @@ export default function Layout(props) {
       window.removeEventListener('resize', resizeListener);
     };
   }, []);
+
+  const renderCollapse = (disableAnimation) => (
+    <Collapse open={showMenu} disableAnimation={disableAnimation}>
+      {(collapseProps) => (
+        <div
+          {...collapseProps}
+          style={Object.assign(collapseProps.style, {
+            overflow: !isMobile && collapsed ? 'initial' : 'hidden',
+          })}
+        >
+          <Navigation
+            collapsed={collapsed}
+            pathname={pathname}
+            pathkey="menu_id"
+            menus={menus}
+            onChange={(item) => {
+              history.push(`/${item.menu_id}`);
+            }}
+          />
+        </div>
+      )}
+    </Collapse>
+  );
 
   return (
     <div
@@ -73,21 +98,8 @@ export default function Layout(props) {
             <i className="fa fa-bars" />
           </div>
         </header>
-        <Collapse open={showMenu}>
-          {(collapseProps) => (
-            <div {...collapseProps}>
-              <Navigation
-                collapsed={collapsed}
-                pathname={pathname}
-                pathkey="menu_id"
-                menus={menus}
-                onChange={(item) => {
-                  history.push(`/${item.menu_id}`);
-                }}
-              />
-            </div>
-          )}
-        </Collapse>
+        {!isMobile && renderCollapse(true)}
+        {isMobile && renderCollapse(false)}
       </div>
       <div className={mainContainerClass}>
         <div className={mainHeaderClass}>
