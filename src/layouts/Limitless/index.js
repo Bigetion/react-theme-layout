@@ -26,7 +26,7 @@ export default function Layout(props) {
   const history = useHistory();
   const { pathname } = useParams();
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [sidebar, toggleSidebar] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -42,7 +42,7 @@ export default function Layout(props) {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
       if (windowWidth <= mobileWidth) {
-        setCollapsed(false);
+        toggleSidebar(true);
       }
       setIsMobile(windowWidth <= mobileWidth);
       setShowMenu(windowWidth > mobileWidth);
@@ -60,11 +60,11 @@ export default function Layout(props) {
         <div
           {...collapseProps}
           style={Object.assign(collapseProps.style, {
-            overflow: !isMobile && collapsed ? 'initial' : 'hidden',
+            overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
           })}
         >
           <Navigation
-            collapsed={collapsed}
+            collapsed={!sidebar}
             pathname={pathname}
             pathkey="menu_id"
             menus={menus}
@@ -81,7 +81,7 @@ export default function Layout(props) {
     <div
       className={classNames(
         pageContainerClass,
-        collapsed && navigationCollapsedClass,
+        !sidebar && navigationCollapsedClass,
       )}
     >
       <div className={pageSidebarClass}>
@@ -106,7 +106,7 @@ export default function Layout(props) {
           <div
             className={`${mainHeaderClass}-collapse-menu`}
             onClick={() => {
-              setCollapsed(!collapsed);
+              toggleSidebar(!sidebar);
             }}
           >
             <i className="fa fa-bars" />
