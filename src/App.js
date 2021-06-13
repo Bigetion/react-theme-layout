@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
-import Layout from 'layouts/Rocker';
+import Layout from 'layouts/Integral';
 
 import './app.css';
 

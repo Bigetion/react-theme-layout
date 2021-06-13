@@ -3,27 +3,27 @@ import { cssHash } from 'css-hash';
 export const mobileWidth = 767;
 
 const headerHeight = 60;
-const headerBg = '#FFFFFF';
+const headerBgColor = '#FFFFFF';
 
-const toggleMenuBg = '#FFFFFF';
+const toggleMenuBgColor = '#FFFFFF';
 const toggleMenuColor = '#223035';
-const toggleMenuHoverBg = '#F1F1F1';
+const toggleMenuHoverBgColor = '#F1F1F1';
 const toggleMenuHoverColor = '#223035';
 
 const sidebarWidth = 280;
-const sidebarBg = '#2C365A';
+const sidebarBgColor = '#2C365A';
 
 const contentPadding = 0;
 
-const brandLogoBg = '#2C365A';
+const brandLogoBgColor = '#2C365A';
 const brandLogoColor = '#FFFFFF';
 const brandLogoBorderBottom = '1px solid #212B4F';
 
-const footerBg = '#F9F9F9';
+const footerBgColor = '#F9F9F9';
 
-const navigationItemBg = '#424C70';
+const navigationItemBgColor = '#424C70';
 const navigationItemColor = '#FFFFFF';
-const navigationSubItemBg = '#212B4F';
+const navigationSubItemBgColor = '#212B4F';
 const navigationSubItemColorHoverActive = '#FFC502';
 const navigationItemBorderBottom = '0px solid #252F54';
 const navigationSubItemBorderTop = '0px solid #252F54';
@@ -41,7 +41,7 @@ export const layoutClass = cssHash(
 export const sidebarClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${sidebarBg};
+      background-color: ${sidebarBgColor};
       position: fixed;
       top: 0px;
       left: 0px;
@@ -109,7 +109,7 @@ export const contentClass = cssHash(
 export const brandLogoClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${brandLogoBg};
+      background-color: ${brandLogoBgColor};
       color: ${brandLogoColor};
       border-bottom: ${brandLogoBorderBottom};
       width: 100%;
@@ -130,7 +130,7 @@ export const headerClass = cssHash(
     .${className} {
       width: 100%;
       height: ${headerHeight}px;
-      background-color: ${headerBg};
+      background-color: ${headerBgColor};
       z-index: 999;
       position: fixed;
       top: 0;
@@ -155,7 +155,7 @@ export const headerClass = cssHash(
       margin-left: ${sidebarWidth}px;
       font-size: inherit;
       font-weight: 600;
-      background-color: ${toggleMenuBg};
+      background-color: ${toggleMenuBgColor};
       color: ${toggleMenuColor};
       cursor: pointer;
       -webkit-transition: all 0.3s ease;
@@ -166,7 +166,7 @@ export const headerClass = cssHash(
       padding: 0 20px;
     }
     .${className}-mobile-menu:hover {
-      background-color: ${toggleMenuHoverBg};
+      background-color: ${toggleMenuHoverBgColor};
       color: ${toggleMenuHoverColor};
     }
     .${layoutClass}-collapsed .${className}-mobile-menu {
@@ -190,7 +190,7 @@ export const footerClass = cssHash(
       position: absolute;
       right: 0;
       left: 240px;
-      background-color: ${footerBg};
+      background-color: ${footerBgColor};
       border-top: 1px solid rgb(223, 223, 255);
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -253,7 +253,7 @@ export const navigationClass = cssHash(
     ul.${className} > li.active > a,
     ul.${className} > li > a:hover,
     ul.${className} > li > a:focus {
-      background-color: ${navigationItemBg};
+      background-color: ${navigationItemBgColor};
       color: ${navigationItemColor};
     }
     ul.${className} > li:hover > a {
@@ -278,7 +278,7 @@ export const navigationClass = cssHash(
       padding: 0;
       position: relative;
       z-index: 1;
-      background-color: ${navigationSubItemBg};
+      background-color: ${navigationSubItemBgColor};
       overflow: hidden;
     }
     ul.${className} li ul li {

@@ -2,16 +2,16 @@ import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
 
-const mainContainerBg = '#FFFFFF';
+const mainContainerBgColor = '#FFFFFF';
 
 const pageSidebarWidth = 280;
-const pageSidebarBg = '#263238';
+const pageSidebarBgColor = '#263238';
 const pageSidebarColor = '#FFFFFF';
 const pageSidebarZIndex = 101;
 const pageSidebarCollapsedWidth = 66;
 
 const siteHeaderHeight = 60;
-const siteHeaderBg = '#222D32';
+const siteHeaderBgColor = '#222D32';
 const siteHeaderColor = '#FFFFFF';
 const siteHeaderBorderBottom = 'solid 1px #364044';
 const siteHeaderContentPadding = '0 20px';
@@ -47,7 +47,7 @@ export const pageContainerClass = cssHash(
 export const mainContainerClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${mainContainerBg};
+      background-color: ${mainContainerBgColor};
       position: relative;
       display: table-cell;
       width: 100%;
@@ -65,7 +65,7 @@ export const mainContainerClass = cssHash(
 export const pageSidebarClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${pageSidebarBg};
+      background-color: ${pageSidebarBgColor};
       color: ${pageSidebarColor};
       display: table-cell;
       height: 100%;
@@ -97,7 +97,7 @@ export const siteHeaderClass = cssHash(
       justify-content: space-between;
       border-bottom: ${siteHeaderBorderBottom};
       height: ${siteHeaderHeight}px;
-      background-color: ${siteHeaderBg};
+      background-color: ${siteHeaderBgColor};
       color: ${siteHeaderColor};
     }
     .${className}-mobile-menu {

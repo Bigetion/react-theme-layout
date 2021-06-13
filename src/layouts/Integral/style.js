@@ -2,15 +2,15 @@ import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
 
-const mainContainerBg = '#FFFFFF';
+const mainContainerBgColor = '#FFFFFF';
 
 const pageSidebarWidth = 280;
-const pageSidebarBg = '#2C365A';
+const pageSidebarBgColor = '#2C365A';
 const pageSidebarZIndex = 101;
 const pageSidebarCollapsedWidth = 60;
 
 const siteHeaderHeight = 60;
-const siteHeaderBg = '#2C365A';
+const siteHeaderBgColor = '#2C365A';
 const siteHeaderColor = '#FFFFFF';
 const siteHeaderBorderBottom = '1px solid #252F54';
 const siteHeaderContentPadding = '0 20px';
@@ -54,7 +54,7 @@ export const pageContainerClass = cssHash(
 export const mainContainerClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${mainContainerBg};
+      background-color: ${mainContainerBgColor};
       position: relative;
       display: table-cell;
       width: 100%;
@@ -72,7 +72,7 @@ export const mainContainerClass = cssHash(
 export const pageSidebarClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${pageSidebarBg};
+      background-color: ${pageSidebarBgColor};
       display: table-cell;
       height: 100%;
       position: relative;
@@ -96,7 +96,7 @@ export const pageSidebarClass = cssHash(
 export const siteHeaderClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${siteHeaderBg};
+      background-color: ${siteHeaderBgColor};
       color: ${siteHeaderColor};
       overflow: hidden;
       position: relative;
