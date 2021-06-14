@@ -72,7 +72,7 @@ function MultiItem(props) {
   }
 
   const renderCollapse = (open) => (
-    <Collapse open={open} disableAnimation={isDisableAnimation}>
+    <Collapse open={open} disableAnimation={open && isDisableAnimation}>
       {(collapseProps) => (
         <ul {...collapseProps}>
           {children.map((item, index) => (

@@ -84,7 +84,10 @@ function MultiItem(props) {
         {icon && <i className={icon} />}
         <span>{title}</span>
       </a>
-      <Collapse open={showSubMenu} disableAnimation={isDisableAnimation}>
+      <Collapse
+        open={showSubMenu}
+        disableAnimation={showSubMenu && isDisableAnimation}
+      >
         {(collapseProps) => (
           <ul {...collapseProps}>
             {children.map((item, index) => (
