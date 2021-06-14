@@ -23,7 +23,7 @@ function Item(props) {
     <li
       onClick={(e) => {
         e.stopPropagation();
-        onClickMenu(clickProps);
+        onClickMenu(clickProps, true);
       }}
       className={classNames(isActive && 'active')}
     >
@@ -73,7 +73,7 @@ function MultiItem(props) {
       className={classNames('has-sub', isActive && 'active')}
       onClick={(e) => {
         e.stopPropagation();
-        onClickMenu(clickProps);
+        onClickMenu(clickProps, true);
       }}
     >
       <a>
@@ -109,7 +109,7 @@ export default function Navigation(props) {
   const [clickedMenuId, setClickedMenuId] = useState('');
   const [lastClickedMenuId, setLastClickedMenuId] = useState('');
 
-  const onClickMenu = (item) => {
+  const onClickMenu = (item, isClickEvent) => {
     if (item.children) {
       if (
         item.menu_id === activeMenuId ||
@@ -124,7 +124,9 @@ export default function Navigation(props) {
     } else {
       setActivePath(item.menu_id);
       setActiveMenuId(item.parent_id);
-      onChange(item);
+      if (isClickEvent) {
+        onChange(item);
+      }
     }
   };
 
