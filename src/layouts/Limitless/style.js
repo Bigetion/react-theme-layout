@@ -26,6 +26,28 @@ const mainContentPadding = '0px';
 const mobileMenuBgHover = '#1F282D';
 const collapseMenuBgHover = '#F8F8F8';
 
+const linkBgColor = '#263238';
+const linkHoverBgColor = '#222D32';
+const linkActiveBgColor = '#26A69A';
+const linkSpanBgColor = '#26A69A';
+const linkDividerBgColor = 'rgba(255, 255, 255, 0.1)';
+
+const linkColor = '#FFFFFF';
+const linkHoverColor = '#FFFFFF';
+const linkActiveColor = '#FFFFFF';
+const linkSpanColor = '#FFFFFF';
+const linkTitleColor = 'rgba(255, 255, 255, 0.5)';
+const linkTitleHoverColor = '#FFFFFF';
+
+const subLinkMenuBgColor = '#202B30';
+const subLinkBgColor = '#202B30';
+const subLinkHoverBgColor = '#1D272B';
+const subLinkActiveBgColor = '#1D272B';
+
+const subLinkColor = 'rgba(255, 255, 255, 0.75)';
+const subLinkHoverColor = '#FFFFFF';
+const subLinkActiveColor = '#FFFFFF';
+
 export const pageContainerClass = cssHash(
   (className) => `
     .${className} {
@@ -182,7 +204,8 @@ export const navigationClass = cssHash(
       margin-top: 10px;
     }
     .${className} li a {
-      color: rgba(255, 255, 255, 0.75);
+      background-color: ${linkBgColor};
+      color: ${linkColor};
       display: block;
       text-decoration: none;
       cursor: pointer;
@@ -190,8 +213,8 @@ export const navigationClass = cssHash(
     }
     .${className} li a:focus,
     .${className} li a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #fff;
+      background-color: ${linkHoverBgColor};
+      color: ${linkHoverColor};
     }
     .${className} li a > i {
       float: left;
@@ -243,7 +266,7 @@ export const navigationClass = cssHash(
     .${className} li.navigation-divider {
       margin: 10px 0;
       height: 1px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: ${linkDividerBgColor};
     }
     .${className} > li > a {
       padding: 12px 20px;
@@ -253,30 +276,37 @@ export const navigationClass = cssHash(
     .${className} > li.active > a,
     .${className} > li.active > a:focus,
     .${className} > li.active > a:hover {
-      background-color: #26a69a;
-      color: #fff;
+      background-color: ${linkActiveBgColor};
+      color: ${linkActiveColor};
     }
     .${className} > li.active > a > [class*='text-'] {
-      color: #fff;
+      color: ${linkActiveColor};
     }
     .${className} > li.active > a .badge,
     .${className} > li.active > a .label {
       background-color: transparent;
       border-color: transparent;
-      color: #fff;
+      color: ${linkActiveColor};
     }
     .${className} > li ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: ${subLinkMenuBgColor};
       -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
       -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
     }
     .${className} > li ul li a {
+      background-color: ${subLinkBgColor};
+      color: ${subLinkColor};
       padding: 10px 20px 10px 51px;
       height: 40px;
+    }
+    .${className} > li ul li a:focus,
+    .${className} > li ul li a:hover {
+      background-color: ${subLinkHoverBgColor};
+      color: ${subLinkHoverColor};
     }
     .${className} > li ul .navigation-header {
       padding-left: 51px;
@@ -298,8 +328,8 @@ export const navigationClass = cssHash(
     .${className} > li > ul li.active > a,
     .${className} > li > ul li.active > a:focus,
     .${className} > li > ul li.active > a:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-      color: #fff;
+      background-color: ${subLinkActiveBgColor};
+      color: ${subLinkActiveColor};
     }
     .${className} .navigation-header {
       height: 30px;
@@ -325,7 +355,7 @@ export const navigationClass = cssHash(
     }
     .${className} .navigation-header,
     .${className} .navigation-header a {
-      color: rgba(255, 255, 255, 0.5);
+      color: ${linkTitleColor};
       font-weight: 400;
     }
     .multiselect-container > li > a.multiselect-all label,
@@ -334,7 +364,7 @@ export const navigationClass = cssHash(
     }
     .${className} .navigation-header a:focus,
     .${className} .navigation-header a:hover {
-      color: #fff;
+      color: ${linkTitleHoverColor};
     }
     .${className} .navigation-header a i {
       float: none;
@@ -422,12 +452,12 @@ export const navigationCollapsedClass = cssHash(
       position: absolute;
       top: 0;
       right: -260px;
-      background-color: #26a69a;
-      border: 1px solid #26a69a;
+      background-color: ${linkSpanBgColor};
+      color: ${linkSpanColor};
+      border: 1px solid ${linkSpanBgColor};
       padding: 11px 20px;
       width: 260px;
       text-align: left;
-      color: #fff;
       cursor: pointer;
       border-bottom-right-radius: 3px;
       border-top-right-radius: 3px;
@@ -437,7 +467,7 @@ export const navigationCollapsedClass = cssHash(
     .${className} .${navigationClass} > li > a > span .label {
       background-color: transparent;
       border-color: transparent;
-      color: #fff;
+      color: ${linkSpanColor};
       padding-left: 0;
       padding-right: 0;
     }
@@ -465,8 +495,8 @@ export const navigationCollapsedClass = cssHash(
       display: block;
     }
     .${className} .${navigationClass} > li:hover:not(.active) > a {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #fff;
+      background-color: ${linkHoverBgColor};
+      color: ${linkHoverColor};
     }
     .${className} .${navigationClass} > li > ul {
       position: absolute;
@@ -474,7 +504,7 @@ export const navigationCollapsedClass = cssHash(
       top: 44px;
       width: 260px;
       display: none;
-      background-color: #263238;
+      background-color: ${subLinkMenuBgColor};
       border-left: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 0 0 3px;
     }
