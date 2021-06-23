@@ -46,8 +46,8 @@ const subLinkActiveColor = '#FFC502';
 
 const linkBorderBottom = '0px solid #252F54';
 const subLinkItemBorderTop = '0px solid #252F54';
-const subLinkLeftPadWidth = 3;
 const subLinkLeftPadBgColor = '#FFC502';
+const subLinkLeftPadWidth = 3;
 
 export const pageContainerClass = cssHash(
   (className) => `
