@@ -2,28 +2,25 @@ import { cssHash } from 'css-hash';
 
 export const mobileWidth = 992;
 
-// const mainContainerBgColor = '#FFFFFF';
+const headerHeight = 64;
+const pageHeaderBgColor = '#FAFBFC';
 
-// const pageSidebarWidth = 280;
-// const pageSidebarBgColor = '#2C365A';
-// const pageSidebarZIndex = 101;
-// const pageSidebarCollapsedWidth = 60;
+const sidebarWidth = 280;
+const sidebarMiniWidth = 60;
+const sidebarBgColor = '#1F2937';
+const sidebarHeaderBgColor = '#232E3E';
 
-// const siteHeaderHeight = 60;
-// const siteHeaderBgColor = '#2C365A';
-// const siteHeaderColor = '#FFFFFF';
-// const siteHeaderBorderBottom = '1px solid #252F54';
-// const siteHeaderContentPadding = '0 20px';
-// const siteHeaderZIndex = 101;
+const collapseButtonBgColor = '#EBEEF2';
+const collapseButtonHoverBgColor = '#D4D6DA';
+const collapseButtonColor = '#000000';
+const collapseButtonHoverColor = '#000000';
 
-// const mainHeaderHeight = 60;
-// const mainHeaderBorderBottom = 'solid 1px #E3E1E1';
-// const mainHeaderContentPadding = '0 20px';
+const sidebarCloseButtonBgColor = '#283547';
+const sidebarCloseButtonHoverBgColor = '#161D27';
+const sidebarCloseButtonColor = '#FFFFFF';
+const sidebarCloseButtonHoverColor = '#FFFFFF';
 
-// const mainContentPadding = '0px';
-
-// const mobileMenuBgHover = '#212B4F';
-// const collapseMenuBgHover = '#F8F8F8';
+const mainContainerBgColor = '#FFFFFF';
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -36,10 +33,10 @@ export const pageContainerClass = cssHash(
     }
     @media screen and (min-width: ${mobileWidth}px) {
       .${className} {
-        padding-left: 240px;
+        padding-left: ${sidebarWidth}px;
       }
       .${className}-sidebar-mini {
-        padding-left: 60px;
+        padding-left: ${sidebarMiniWidth}px;
       }
     }
   `,
@@ -58,10 +55,10 @@ export const pageHeaderClass = cssHash(
     }
     @media screen and (min-width: ${mobileWidth}px) {
       .${className} {
-        padding-left: 240px;
+        padding-left: ${sidebarWidth}px;
       }
       .${pageContainerClass}-sidebar-mini .${className} {
-        padding-left: 60px;
+        padding-left: ${sidebarMiniWidth}px;
       }
     }
   `,
@@ -77,8 +74,7 @@ export const sidebarClass = cssHash(
       z-index: 1032;
       width: 100%;
       height: 100%;
-      color: #e9ecef;
-      background-color: #1f2937;
+      background-color: ${sidebarBgColor};
       overflow-x: hidden;
       overflow-y: auto;
       transform: translateX(-100%) translateY(0) translateZ(0);
@@ -86,18 +82,20 @@ export const sidebarClass = cssHash(
       will-change: transform;
       transition: transform 0.28s ease-out;
     }
-    .${className}-content-side {
-      height: calc(100% - 64px);
+    .${className}-content {
+      height: calc(100% - ${headerHeight}px);
       overflow-y: auto;
     }
     @media screen and (min-width: ${mobileWidth}px) {
       .${className} {
-        width: 240px;
+        width: ${sidebarWidth}px;
         transform: translateX(0) translateY(0) translateZ(0);
       }
       .${pageContainerClass}-sidebar-mini .${className} {
         overflow-x: hidden;
-        transform: translateX(-180px) translateY(0) translateZ(0);
+        transform: translateX(-${
+          sidebarWidth - sidebarMiniWidth
+        }px) translateY(0) translateZ(0);
         transition: transform 0.28s ease-out;
       }
       .${pageContainerClass}-sidebar-mini .${className}:hover {
@@ -119,15 +117,16 @@ export const contentHeaderClass = cssHash(
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      height: 64px;
+      height: ${headerHeight}px;
     }
     .${pageHeaderClass} .${className} {
-      background-color: #FAFBFC;
+      background-color: ${pageHeaderBgColor};
       padding-left: 16px;
       padding-right: 16px;
     }
     .${pageHeaderClass} .${className}-collapse-button {
-      background-color: #ebeef2;
+      background-color: ${collapseButtonBgColor};
+      color: ${collapseButtonColor};
       display: flex;
       justify-content: center;
       align-items: center;
@@ -136,15 +135,17 @@ export const contentHeaderClass = cssHash(
       border-radius: 5px;
     }
     .${pageHeaderClass} .${className}-collapse-button:hover {
-      background-color: #d4d6da;
+      background-color: ${collapseButtonHoverBgColor};
+      color: ${collapseButtonHoverColor};
     }
     .${sidebarClass} .${className} {
-      background-color: #232e3e;
+      background-color: ${sidebarHeaderBgColor};
       padding-left: 20px;
       padding-right: 20px;
     }
     .${sidebarClass} .${className}-close-button {
-      background-color: #283547;
+      background-color: ${sidebarCloseButtonBgColor};
+      color: ${sidebarCloseButtonColor};
       display: flex;
       justify-content: center;
       align-items: center;
@@ -153,13 +154,16 @@ export const contentHeaderClass = cssHash(
       border-radius: 5px;
     }
     .${sidebarClass} .${className}-close-button:hover {
-      background-color: #161D27;
+      background-color: ${sidebarCloseButtonHoverBgColor};
+      color: ${sidebarCloseButtonHoverColor};
     }
     @media screen and (min-width: ${mobileWidth}px) {
       .${className} {
         .${pageContainerClass}-sidebar-mini .${sidebarClass} .${className} {
-          width: 240px;
-          transform: translateX(180px) translateY(0) translateZ(0);
+          width: ${sidebarWidth}px;
+          transform: translateX(${
+            sidebarWidth - sidebarMiniWidth
+          }px) translateY(0) translateZ(0);
           transition: transform 0.28s ease-out;
           will-change: transform;
           position: relative;
@@ -181,7 +185,8 @@ export const mainContainerClass = cssHash(
       flex-direction: column;
       flex: 1 0 auto;
       max-width: 100%;
-      padding-top: 64px;
+      padding-top: ${headerHeight}px;
+      background-color: ${mainContainerBgColor};
     }
   `,
 );

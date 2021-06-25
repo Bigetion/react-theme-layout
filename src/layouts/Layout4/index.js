@@ -63,7 +63,7 @@ export default function Layout(props) {
             </div>
           )}
         </div>
-        <div className={`${sidebarClass}-content-side`}></div>
+        <div className={`${sidebarClass}-content`}></div>
       </div>
       <div className={pageHeaderClass}>
         <div className={contentHeaderClass}>
