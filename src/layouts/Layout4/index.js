@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
-import { mobileWidth } from './style';
+import {
+  pageContainerClass,
+  pageHeaderClass,
+  sidebarClass,
+  contentHeaderClass,
+  mainContainerClass,
+  mobileWidth,
+} from './style';
 
 export default function Layout(props) {
   const { children } = props;
@@ -37,19 +44,31 @@ export default function Layout(props) {
   return (
     <div
       className={classNames(
-        'page-container side-trans-enabled',
-        !sidebar && !isMobile && 'sidebar-mini',
-        showMenu && isMobile && 'sidebar-o-xs',
+        pageContainerClass,
+        !sidebar && !isMobile && `${pageContainerClass}-sidebar-mini`,
+        showMenu && isMobile && `${pageContainerClass}-sidebar-full`,
       )}
     >
-      <div className="sidebar">
-        <div className="content-header"></div>
-        <div className="content-side"></div>
+      <div className={sidebarClass}>
+        <div className={contentHeaderClass}>
+          <div></div>
+          {isMobile && showMenu && (
+            <div
+              className={`${contentHeaderClass}-close-button`}
+              onClick={() => {
+                setShowMenu(false);
+              }}
+            >
+              <i className="fa fa-close" />
+            </div>
+          )}
+        </div>
+        <div className={`${sidebarClass}-content-side`}></div>
       </div>
-      <div className="page-header">
-        <div className="content-header">
+      <div className={pageHeaderClass}>
+        <div className={contentHeaderClass}>
           <div
-            className="collapse-menu-button"
+            className={`${contentHeaderClass}-collapse-button`}
             onClick={() => {
               if (!isMobile) {
                 toggleSidebar(!sidebar);
@@ -62,7 +81,7 @@ export default function Layout(props) {
           </div>
         </div>
       </div>
-      <div className="main-container">{children}</div>
+      <div className={mainContainerClass}>{children}</div>
     </div>
   );
 }

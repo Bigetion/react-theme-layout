@@ -1,6 +1,6 @@
 import { cssHash } from 'css-hash';
 
-export const mobileWidth = 922;
+export const mobileWidth = 992;
 
 // const mainContainerBgColor = '#FFFFFF';
 
@@ -25,17 +25,29 @@ export const mobileWidth = 922;
 // const mobileMenuBgHover = '#212B4F';
 // const collapseMenuBgHover = '#F8F8F8';
 
-cssHash(
-  () => `
-    .page-container {
+export const pageContainerClass = cssHash(
+  (className) => `
+    .${className} {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
       max-width: 100%;
       min-height: 100vh;
     }
+    @media screen and (min-width: ${mobileWidth}px) {
+      .${className} {
+        padding-left: 240px;
+      }
+      .${className}-sidebar-mini {
+        padding-left: 60px;
+      }
+    }
+  `,
+);
 
-    .page-container .page-header {
+export const pageHeaderClass = cssHash(
+  (className) => `
+    .${className} {
       position: fixed;
       top: 0;
       right: 0;
@@ -44,29 +56,20 @@ cssHash(
       max-width: 100%;
       width: auto;
     }
-
-    .page-container .main-container {
-      padding-top: 64px;
+    @media screen and (min-width: ${mobileWidth}px) {
+      .${className} {
+        padding-left: 240px;
+      }
+      .${pageContainerClass}-sidebar-mini .${className} {
+        padding-left: 60px;
+      }
     }
+  `,
+);
 
-    .page-container .sidebar > .content-header {
-      background-color: #f6f7f9;
-    }
-
-    .page-container .sidebar {
-      color: #e9ecef;
-      background-color: #1f2937;
-    }
-
-    .page-container .sidebar > .content-header {
-      background-color: #232e3e;
-    }
-
-    .page-container .sidebar .content-side {
-      overflow-y: visible;
-    }
-
-    .sidebar {
+export const sidebarClass = cssHash(
+  (className) => `
+    .${className} {
       position: fixed;
       top: 0;
       bottom: 0;
@@ -74,49 +77,56 @@ cssHash(
       z-index: 1032;
       width: 100%;
       height: 100%;
-      background-color: #fff;
+      color: #e9ecef;
+      background-color: #1f2937;
       overflow-x: hidden;
       overflow-y: auto;
       transform: translateX(-100%) translateY(0) translateZ(0);
       -webkit-overflow-scrolling: touch;
       will-change: transform;
-    }
-
-    .sidebar .content-header {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .side-trans-enabled .sidebar {
       transition: transform 0.28s ease-out;
     }
-
-    .sidebar .content-side {
+    .${className}-content-side {
       height: calc(100% - 64px);
       overflow-y: auto;
     }
+    @media screen and (min-width: ${mobileWidth}px) {
+      .${className} {
+        width: 240px;
+        transform: translateX(0) translateY(0) translateZ(0);
+      }
+      .${pageContainerClass}-sidebar-mini .${className} {
+        overflow-x: hidden;
+        transform: translateX(-180px) translateY(0) translateZ(0);
+        transition: transform 0.28s ease-out;
+      }
+      .${pageContainerClass}-sidebar-mini .${className}:hover {
+        transform: translateX(0);
+      }
+    }
+    @media (max-width: ${mobileWidth - 0.02}px) {
+      .${pageContainerClass}-sidebar-full .${className} {
+        transform: translateX(0) translateY(0) translateZ(0);
+      }
+    }
+  `,
+);
 
-    .content-header {
+export const contentHeaderClass = cssHash(
+  (className) => `
+    .${className} {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
       height: 64px;
     }
-
-    .page-header .content-header {
+    .${pageHeaderClass} .${className} {
+      background-color: #FAFBFC;
       padding-left: 16px;
       padding-right: 16px;
     }
-
-    .page-header {
-      position: relative;
-      margin: 0 auto;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.75);
-    }
-
-    .collapse-menu-button {
+    .${pageHeaderClass} .${className}-collapse-button {
       background-color: #ebeef2;
       display: flex;
       justify-content: center;
@@ -125,61 +135,53 @@ cssHash(
       cursor: pointer;
       border-radius: 5px;
     }
-    .collapse-menu-button:hover {
+    .${pageHeaderClass} .${className}-collapse-button:hover {
       background-color: #d4d6da;
     }
+    .${sidebarClass} .${className} {
+      background-color: #232e3e;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .${sidebarClass} .${className}-close-button {
+      background-color: #283547;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .${sidebarClass} .${className}-close-button:hover {
+      background-color: #161D27;
+    }
+    @media screen and (min-width: ${mobileWidth}px) {
+      .${className} {
+        .${pageContainerClass}-sidebar-mini .${sidebarClass} .${className} {
+          width: 240px;
+          transform: translateX(180px) translateY(0) translateZ(0);
+          transition: transform 0.28s ease-out;
+          will-change: transform;
+          position: relative;
+          z-index: 1;
+        }
+        .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover,
+        .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover .${className} {
+          transform: translateX(0);
+        }
+      }
+    }
+  `,
+);
 
-    .main-container {
+export const mainContainerClass = cssHash(
+  (className) => `
+    .${className} {
       display: flex;
       flex-direction: column;
       flex: 1 0 auto;
       max-width: 100%;
-    }
-
-    @media (min-width: 992px) {
-      .page-container,
-      .page-container .page-header {
-        padding-left: 240px;
-      }
-
-      .page-container.sidebar-mini,
-      .page-container.sidebar-mini .page-header {
-        padding-left: 60px;
-      }
-
-      .sidebar {
-        width: 240px;
-        transform: translateX(0) translateY(0) translateZ(0);
-      }
-
-      .sidebar-mini .sidebar {
-        overflow-x: hidden;
-        transform: translateX(-180px) translateY(0) translateZ(0);
-        transition: transform 0.28s ease-out;
-      }
-
-      .sidebar-mini .sidebar .content-header {
-        width: 240px;
-        transform: translateX(180px) translateY(0) translateZ(0);
-        transition: transform 0.28s ease-out;
-        will-change: transform;
-      }
-
-      .sidebar-mini .sidebar .content-header {
-        position: relative;
-        z-index: 1;
-      }
-
-      .sidebar-mini .sidebar:hover,
-      .sidebar-mini .sidebar:hover .content-header {
-        transform: translateX(0);
-      }
-    }
-
-    @media (max-width: 991.98px) {
-      .sidebar-o-xs .sidebar {
-        transform: translateX(0) translateY(0) translateZ(0);
-      }
+      padding-top: 64px;
     }
   `,
 );
