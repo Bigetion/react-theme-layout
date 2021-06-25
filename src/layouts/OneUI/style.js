@@ -283,7 +283,6 @@ export const mainContainerClass = cssHash(
   `,
 );
 
-
 export const navigationClass = cssHash(
   (className) => `
     ul.${className} {

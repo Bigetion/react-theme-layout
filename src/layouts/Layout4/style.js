@@ -9,6 +9,7 @@ const sidebarWidth = 280;
 const sidebarMiniWidth = 60;
 const sidebarBgColor = '#1F2937';
 const sidebarHeaderBgColor = '#232E3E';
+const sidebarHeaderColor = '#FFFFFF';
 
 const collapseButtonBgColor = '#EBEEF2';
 const collapseButtonHoverBgColor = '#D4D6DA';
@@ -207,6 +208,7 @@ export const contentHeaderClass = cssHash(
     }
     .${sidebarClass} .${className} {
       background-color: ${sidebarHeaderBgColor};
+      color: ${sidebarHeaderColor};
       padding-left: 20px;
       padding-right: 20px;
     }
