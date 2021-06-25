@@ -63,7 +63,19 @@ export default function Layout(props) {
             </div>
           )}
         </div>
-        <div className={`${sidebarClass}-content`}></div>
+        <div className={`${sidebarClass}-js-sidebar-scroll`}>
+          <div className={`${sidebarClass}-simplebar-wrapper`}>
+            <div className={`${sidebarClass}-simplebar-mask`}>
+              <div className={`${sidebarClass}-simplebar-offset`}>
+                <div className={`${sidebarClass}-simplebar-content-wrapper`}>
+                  <div className={`${sidebarClass}-simplebar-content`}>
+                    <div className={`${sidebarClass}-content-side`}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className={pageHeaderClass}>
         <div className={contentHeaderClass}>
