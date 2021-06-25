@@ -44,8 +44,10 @@ const subLinkColor = '#E5E4EA';
 const subLinkHoverColor = '#FFC502';
 const subLinkActiveColor = '#FFC502';
 
+const linkActiveBorderLeft = '3px solid #FFFFFF';
+const linkActiveBorderRight = 'none';
 const linkBorderBottom = '0px solid #252F54';
-const subLinkItemBorderTop = '0px solid #252F54';
+const subLinkItemBorderTop = '1px solid #252F54';
 const subLinkLeftPadBgColor = '#FFC502';
 const subLinkLeftPadWidth = 3;
 
@@ -210,6 +212,8 @@ export const navigationClass = cssHash(
     ul.${className} > li.active > a {
       background-color: ${linkActiveBgColor};
       color: ${linkActiveColor};
+      border-left: ${linkActiveBorderLeft};
+      border-right: ${linkActiveBorderRight};
     }
     ul.${className} > li:hover > a {
       color: ${linkHoverColor};

@@ -51,6 +51,9 @@ const subLinkColor = '#D7DDE2';
 const subLinkHoverColor = '#D7DDE2';
 const subLinkActiveColor = '#D7DDE2';
 
+const linkActiveBorderLeft = '3px solid #FFFFFF';
+const linkActiveBorderRight = 'none';
+
 export const layoutClass = cssHash(
   (className) => `
     .${className} {
@@ -316,6 +319,8 @@ export const navigationClass = cssHash(
     .${className} > li.active > a {
       background-color: ${linkActiveBgColor};
       color: ${linkActiveColor};
+      border-left: ${linkActiveBorderLeft};
+      border-right: ${linkActiveBorderRight};
     }
     .${className} > li.active > a .fa {
       background-color: ${linkActiveBgColor};
