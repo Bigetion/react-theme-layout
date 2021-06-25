@@ -87,6 +87,7 @@ export const sidebarClass = cssHash(
       overflow-y: auto;
     }
     .${className}-simplebar-wrapper {
+      position: relative;
       overflow: hidden;
       width: inherit;
       height: inherit;
