@@ -37,36 +37,19 @@ export default function Layout(props) {
   return (
     <div
       className={classNames(
-        'page-container sidebar-o sidebar-dark enable-page-overlay side-scroll main-content-narrow side-trans-enabled',
+        'page-container side-trans-enabled',
         !sidebar && !isMobile && 'sidebar-mini',
         showMenu && isMobile && 'sidebar-o-xs',
       )}
     >
       <div className="sidebar">
         <div className="content-header"></div>
-        <div className="js-sidebar-scroll">
-          <div className="simplebar-wrapper">
-            <div className="simplebar-mask">
-              <div className="simplebar-offset">
-                <div className="simplebar-content-wrapper">
-                  <div className="simplebar-content">
-                    <div className="content-side"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="content-side"></div>
       </div>
       <div className="page-header">
         <div className="content-header">
           <div
-            style={{
-              padding: `5px 10px`,
-              background: '#EBEEF2',
-              borderRadius: 5,
-              cursor: 'pointer',
-            }}
+            className="collapse-menu-button"
             onClick={() => {
               if (!isMobile) {
                 toggleSidebar(!sidebar);
