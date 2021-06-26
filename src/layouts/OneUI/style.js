@@ -109,6 +109,7 @@ export const sidebarClass = cssHash(
     }
     .${className}-js-sidebar-scroll {
       height: calc(100% - ${headerHeight}px);
+      overflow-x: hidden;
       overflow-y: auto;
     }
     .${className}-content-side {
