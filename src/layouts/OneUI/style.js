@@ -117,7 +117,7 @@ export const sidebarClass = cssHash(
       width: inherit;
       height: inherit;
       max-width: inherit;
-      max-height: inherit
+      max-height: inherit;
     }
     .${className}-simplebar-mask {
       direction: inherit;
