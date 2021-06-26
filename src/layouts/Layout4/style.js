@@ -87,62 +87,9 @@ export const sidebarClass = cssHash(
       height: calc(100% - ${headerHeight}px);
       overflow-y: auto;
     }
-    .${className}-simplebar-wrapper {
-      position: relative;
-      overflow: hidden;
-      width: inherit;
-      height: inherit;
-      max-width: inherit;
-      max-height: inherit;
-    }
-    .${className}-simplebar-mask {
-      direction: inherit;
-      position: absolute;
-      overflow: hidden;
-      padding: 0;
-      margin: 0;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      width: auto !important;
-      height: auto !important;
-      z-index: 0;
-    }
-    .${className}-simplebar-offset {
-      direction: inherit !important;
-      box-sizing: inherit !important;
-      resize: none !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      padding: 0;
-      margin: 0;
-      -webkit-overflow-scrolling: touch;
-    }
-    .${className}-simplebar-content-wrapper {
-      direction: inherit;
-      box-sizing: border-box !important;
-      position: relative;
-      display: block;
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      max-height: 100%;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .${className}-simplebar-content:after,
-    .${className}-simplebar-content:before {
-      content: ' ';
-      display: table;
-    }
     .${className}-content-side {
       width: 100%;
       margin: 0 auto;
-      padding: 1.25rem 1.25rem 1px;
       overflow-x: hidden;
     }
     @media screen and (min-width: ${mobileWidth}px) {
@@ -157,10 +104,6 @@ export const sidebarClass = cssHash(
         }px) translateY(0) translateZ(0);
         transition: transform 0.28s ease-out;
       }
-      .${pageContainerClass}-sidebar-mini .${className}:hover,
-      .${pageContainerClass}-sidebar-mini .${className}:hover .${className}-content-side {
-        transform: translateX(0);
-      }
       .${pageContainerClass}-sidebar-mini .${className} .${className}-content-side {
           width: ${sidebarWidth}px;
           transform: translateX(${
@@ -168,6 +111,10 @@ export const sidebarClass = cssHash(
           }px) translateY(0) translateZ(0);
           transition: transform .28s ease-out;
           will-change: transform;
+      }
+      .${pageContainerClass}-sidebar-mini .${className}:hover,
+      .${pageContainerClass}-sidebar-mini .${className}:hover .${className}-content-side {
+        transform: translateX(0);
       }
     }
     @media (max-width: ${mobileWidth - 0.02}px) {
@@ -186,6 +133,8 @@ export const contentHeaderClass = cssHash(
       align-items: center;
       margin: 0 auto;
       height: ${headerHeight}px;
+      position: relative;
+      z-index: 1;
     }
     .${pageHeaderClass} .${className} {
       background-color: ${pageHeaderBgColor};
@@ -227,21 +176,22 @@ export const contentHeaderClass = cssHash(
       color: ${sidebarCloseButtonHoverColor};
     }
     @media screen and (min-width: ${mobileWidth}px) {
-      .${className} {
-        .${pageContainerClass}-sidebar-mini .${sidebarClass} .${className} {
-          width: ${sidebarWidth}px;
-          transform: translateX(${
-            sidebarWidth - sidebarMiniWidth
-          }px) translateY(0) translateZ(0);
-          transition: transform 0.28s ease-out;
-          will-change: transform;
-          position: relative;
-          z-index: 1;
-        }
-        .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover,
-        .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover .${className} {
-          transform: translateX(0);
-        }
+      .${pageContainerClass}-sidebar-mini .${sidebarClass} .${className} {
+        width: ${sidebarWidth}px;
+        transform: translateX(${
+          sidebarWidth - sidebarMiniWidth
+        }px) translateY(0) translateZ(0);
+        transition: transform 0.28s ease-out;
+        will-change: transform;
+      }
+      .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover .${className} {
+        transform: translateX(0);
+      }
+      .${pageContainerClass}-sidebar-mini .${sidebarClass} .${className}-logo {
+        display: none;
+      }
+      .${pageContainerClass}-sidebar-mini .${sidebarClass}:hover .${className}-logo {
+        display: initial;
       }
     }
   `,

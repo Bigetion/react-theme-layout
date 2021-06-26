@@ -51,7 +51,7 @@ export default function Layout(props) {
     >
       <div className={sidebarClass}>
         <div className={contentHeaderClass}>
-          <div>
+          <div className={`${contentHeaderClass}-logo`}>
             <h2>APP LOGO</h2>
           </div>
           {isMobile && showMenu && (
@@ -66,17 +66,7 @@ export default function Layout(props) {
           )}
         </div>
         <div className={`${sidebarClass}-js-sidebar-scroll`}>
-          <div className={`${sidebarClass}-simplebar-wrapper`}>
-            <div className={`${sidebarClass}-simplebar-mask`}>
-              <div className={`${sidebarClass}-simplebar-offset`}>
-                <div className={`${sidebarClass}-simplebar-content-wrapper`}>
-                  <div className={`${sidebarClass}-simplebar-content`}>
-                    <div className={`${sidebarClass}-content-side`}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className={`${sidebarClass}-content-side`}></div>
         </div>
       </div>
       <div className={pageHeaderClass}>
