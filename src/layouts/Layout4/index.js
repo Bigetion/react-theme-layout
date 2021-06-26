@@ -51,7 +51,9 @@ export default function Layout(props) {
     >
       <div className={sidebarClass}>
         <div className={contentHeaderClass}>
-          <div></div>
+          <div>
+            <h2>APP LOGO</h2>
+          </div>
           {isMobile && showMenu && (
             <div
               className={`${contentHeaderClass}-close-button`}
