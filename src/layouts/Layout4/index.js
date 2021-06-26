@@ -52,7 +52,7 @@ export default function Layout(props) {
       <div className={sidebarClass}>
         <div className={contentHeaderClass}>
           <div className={`${contentHeaderClass}-logo`}>
-            <h2>APP LOGO</h2>
+            <h3>APP LOGO</h3>
           </div>
           {isMobile && showMenu && (
             <div
