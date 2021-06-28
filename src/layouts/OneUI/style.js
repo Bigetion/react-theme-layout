@@ -1,6 +1,6 @@
 import { cssHash } from 'css-hash';
 
-export const mobileWidth = 992;
+export const mobileWidth = 767;
 
 const headerHeight = 64;
 const pageHeaderBgColor = '#FAFBFC';
