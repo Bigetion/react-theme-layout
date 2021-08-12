@@ -354,6 +354,7 @@ export const sidebarCollapsedClass = cssHash(
       -moz-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
+      box-sizing: content-box;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
       left: 240px;
