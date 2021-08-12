@@ -129,6 +129,9 @@ export const siteHeaderClass = cssHash(
     }
     .${className}-content {
       padding: ${siteHeaderContentPadding};
+      display: flex;
+      align-items: center;
+      width: 100%;
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className}-mobile-menu {

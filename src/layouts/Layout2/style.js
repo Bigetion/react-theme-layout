@@ -163,6 +163,7 @@ export const pageContainerClass = cssHash(
       height: calc(100% - ${pageHeaderHeight}px);
       min-height: calc(100% - ${pageHeaderHeight}px);
       padding-top: ${pageHeaderHeight}px;
+      box-sizing: content-box;
     }
     @media all and (max-width: ${mobileWidth}px) {
       .${layoutClass} .${className} {
@@ -224,6 +225,7 @@ export const pageContentClass = cssHash(
       height: 100%;
       min-height: 100%;
       padding-left: ${pageSidebarWidth}px;
+      box-sizing: content-box;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${pageContainerClass} .${className} {
       padding-left: ${pageSidebarMinimizedWidth}px;

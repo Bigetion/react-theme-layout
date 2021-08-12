@@ -108,6 +108,9 @@ export const siteHeaderClass = cssHash(
     }
     .${className}-content {
       padding: ${siteHeaderContentPadding};
+      display: flex;
+      align-items: center;
+      width: 100%;
     }
     .${pageContainerClass}-collapsed .${className}-content {
       display: none;
