@@ -15,7 +15,7 @@ function PageLayout() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: 500,
+          height: 2048,
           background: 'rgba(0, 0, 0, 0.1)',
         }}
       >

@@ -186,7 +186,6 @@ export const pageContainerClass = cssHash(
       z-index: ${pageContainerZIndex};
       float: left;
       width: 100%;
-      height: calc(100% - ${pageHeaderHeight}px);
       min-height: calc(100% - ${pageHeaderHeight}px);
       padding-top: ${pageHeaderHeight}px;
       box-sizing: content-box;
@@ -207,7 +206,6 @@ export const pageSidebarClass = cssHash(
     .${layoutClass} .${pageContainerClass} .${className} {
       position: absolute;
       z-index: ${pageSidebarZIndex};
-      height: auto;
       min-height: calc(100% - ${pageHeaderHeight}px);
       width: ${pageSidebarWidth}px;
       background: ${pageSidebarBg};
