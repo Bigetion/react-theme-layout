@@ -44,19 +44,6 @@ export default function Layout(props) {
     };
   }, []);
 
-  const renderCollapse = (disableAnimation) => (
-    <Collapse open={showMenu} disableAnimation={disableAnimation}>
-      {(collapseProps) => (
-        <div
-          {...collapseProps}
-          style={Object.assign(collapseProps.style, {
-            overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
-          })}
-        ></div>
-      )}
-    </Collapse>
-  );
-
   return (
     <div
       className={classNames(
@@ -78,8 +65,16 @@ export default function Layout(props) {
             <i className="fa fa-bars" />
           </div>
         </header>
-        {!isMobile && renderCollapse(true)}
-        {isMobile && renderCollapse(false)}
+        <Collapse open={showMenu} disableAnimation={!isMobile}>
+          {(collapseProps) => (
+            <div
+              {...collapseProps}
+              style={Object.assign(collapseProps.style, {
+                overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
+              })}
+            ></div>
+          )}
+        </Collapse>
       </div>
       <div className={mainContainerClass}>
         <div className={mainHeaderClass}>

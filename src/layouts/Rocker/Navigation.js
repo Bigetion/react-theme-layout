@@ -49,12 +49,6 @@ function MultiItem(props) {
   const clickProps = Object.assign({}, props);
 
   const isActive = activeMenuId.indexOf(menu_id) >= 0;
-  let showSubMenu = isActive;
-  if (collapsed) {
-    if (level_index === 1) {
-      showSubMenu = true;
-    }
-  }
 
   let isDisableAnimation = false;
   if ([clickedMenuId, lastClickedMenuId].indexOf(menu_id) < 0) {
@@ -68,6 +62,9 @@ function MultiItem(props) {
   ) {
     isDisableAnimation = false;
   }
+
+  const showSubMenu = isActive || (collapsed && level_index === 1);
+
   return (
     <li
       className={classNames('has-sub', isActive && 'active')}
