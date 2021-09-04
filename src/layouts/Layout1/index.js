@@ -68,9 +68,10 @@ export default function Layout(props) {
         <Collapse open={showMenu} disableAnimation={!isMobile}>
           {(collapseProps) => (
             <div
-              {...collapseProps}
-              style={Object.assign(collapseProps.style, {
-                overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
+              {...Object.assign(collapseProps, {
+                style: Object.assign(collapseProps.style, {
+                  overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
+                }),
               })}
             ></div>
           )}
