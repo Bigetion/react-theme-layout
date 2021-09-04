@@ -42,11 +42,10 @@ function Collapse(props) {
 
   const collapseRef = useRef();
 
-  const [componentDidMount, setComponentDidMount] = useState(false);
+  const [openLocal, setOpenLocal] = useState(open);
   useEffect(
     () => {
-      if (!componentDidMount) {
-        setComponentDidMount(true);
+      if (collapseRef.current) {
         collapseRef.current.style.display = open ? '' : 'none';
       }
     },
@@ -56,11 +55,14 @@ function Collapse(props) {
 
   useEffect(
     () => {
-      if (componentDidMount) {
-        if (!disableAnimation) {
-          collapseAnimation(collapseRef.current, open, collapseClass);
-        } else {
-          collapseRef.current.style.display = open ? '' : 'none';
+      if (collapseRef.current) {
+        if (openLocal !== open) {
+          if (!disableAnimation) {
+            collapseAnimation(collapseRef.current, open, collapseClass);
+          } else {
+            collapseRef.current.style.display = open ? '' : 'none';
+          }
+          setOpenLocal(open);
         }
       }
     },
