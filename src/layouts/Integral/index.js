@@ -54,29 +54,6 @@ export default function Layout(props) {
     };
   }, []);
 
-  const renderCollapse = (disableAnimation) => (
-    <Collapse open={showMenu} disableAnimation={disableAnimation}>
-      {(collapseProps) => (
-        <div
-          {...collapseProps}
-          style={Object.assign(collapseProps.style, {
-            overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
-          })}
-        >
-          <Navigation
-            collapsed={!sidebar}
-            pathname={pathname}
-            pathkey="menu_id"
-            menus={menus}
-            onChange={(item) => {
-              history.push(`/${item.menu_id}`);
-            }}
-          />
-        </div>
-      )}
-    </Collapse>
-  );
-
   return (
     <div
       className={classNames(
@@ -98,8 +75,27 @@ export default function Layout(props) {
             <i className="fa fa-bars" />
           </div>
         </header>
-        {!isMobile && renderCollapse(true)}
-        {isMobile && renderCollapse(false)}
+        <Collapse open={showMenu} disableAnimation={!isMobile}>
+          {(collapseProps) => (
+            <div
+              {...Object.assign(collapseProps, {
+                style: Object.assign(collapseProps.style, {
+                  overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
+                }),
+              })}
+            >
+              <Navigation
+                collapsed={!sidebar}
+                pathname={pathname}
+                pathkey="menu_id"
+                menus={menus}
+                onChange={(item) => {
+                  history.push(`/${item.menu_id}`);
+                }}
+              />
+            </div>
+          )}
+        </Collapse>
       </div>
       <div className={mainContainerClass}>
         <div className={mainHeaderClass}>
