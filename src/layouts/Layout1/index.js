@@ -65,16 +65,14 @@ export default function Layout(props) {
             <i className="fa fa-bars" />
           </div>
         </header>
-        <Collapse open={showMenu} disableAnimation={!isMobile}>
-          {(collapseProps) => (
-            <div
-              {...Object.assign(collapseProps, {
-                style: Object.assign(collapseProps.style, {
-                  overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
-                }),
-              })}
-            ></div>
-          )}
+        <Collapse
+          open={showMenu}
+          disableAnimation={!isMobile}
+          style={{
+            overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
+          }}
+        >
+          <div></div>
         </Collapse>
       </div>
       <div className={mainContainerClass}>

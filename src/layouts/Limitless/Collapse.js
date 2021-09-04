@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
-import { cssHash } from 'css-hash';
+import React, { useRef, useLayoutEffect, useState } from 'react';
+import { cssHash, classNames } from 'css-hash';
 import cssAnimation from 'css-animation';
 
 const collapseClass = cssHash(
@@ -8,9 +8,9 @@ const collapseClass = cssHash(
       overflow: hidden;
     }
     .${collapseClass}-active {
-      -webkit-transition: height 200ms ease-out;
-      -o-transition: height 200ms ease-out;
-      transition: height 200ms ease-out;
+      -webkit-transition: height 100ms ease-out;
+      -o-transition: height 100ms ease-out;
+      transition: height 100ms ease-out;
     }
   `,
 );
@@ -38,12 +38,19 @@ function collapseAnimation(node, show, transitionName) {
 }
 
 function Collapse(props) {
-  const { children, open, disableAnimation } = props;
+  const { children, open, disableAnimation, className } = props;
+
+  const nProps = Object.assign({}, props);
+  delete nProps.children;
+  delete nProps.open;
+  delete nProps.disableAnimation;
+  delete nProps.className;
+  delete nProps.ref;
 
   const collapseRef = useRef();
 
   const [openLocal, setOpenLocal] = useState(open);
-  useEffect(
+  useLayoutEffect(
     () => {
       if (collapseRef.current) {
         collapseRef.current.style.display = open ? '' : 'none';
@@ -53,7 +60,7 @@ function Collapse(props) {
     [],
   );
 
-  useEffect(
+  useLayoutEffect(
     () => {
       if (collapseRef.current && openLocal !== open) {
         if (!disableAnimation) {
@@ -68,11 +75,24 @@ function Collapse(props) {
     [open],
   );
 
-  return children({
-    ref: collapseRef,
-    className: collapseClass,
-    style: { display: 'none' },
-  });
+  if (typeof children === 'function') {
+    return children(
+      Object.assign({}, nProps, {
+        ref: collapseRef,
+        className: classNames(collapseClass, className),
+      }),
+    );
+  }
+
+  return (
+    <div
+      {...nProps}
+      ref={collapseRef}
+      className={classNames(collapseClass, className)}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default Collapse;
