@@ -55,15 +55,13 @@ function Collapse(props) {
 
   useEffect(
     () => {
-      if (collapseRef.current) {
-        if (openLocal !== open) {
-          if (!disableAnimation) {
-            collapseAnimation(collapseRef.current, open, collapseClass);
-          } else {
-            collapseRef.current.style.display = open ? '' : 'none';
-          }
-          setOpenLocal(open);
+      if (collapseRef.current && openLocal !== open) {
+        if (!disableAnimation) {
+          collapseAnimation(collapseRef.current, open, collapseClass);
+        } else {
+          collapseRef.current.style.display = open ? '' : 'none';
         }
+        setOpenLocal(open);
       }
     },
     // eslint-disable-next-line
