@@ -63,10 +63,7 @@ function MultiItem(props) {
     isDisableAnimation = false;
   }
 
-  let showSubMenu = isActive;
-  if (collapsed) {
-    showSubMenu = isActive || level_index === 1;
-  }
+  const showSubMenu = isActive || (collapsed && level_index === 1);
 
   return (
     <li
