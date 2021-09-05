@@ -3,11 +3,11 @@ import { cssHash, classNames } from 'css-hash';
 import cssAnimation from 'css-animation';
 
 const collapseClass = cssHash(
-  (collapseClass) => `
-    .${collapseClass} {
+  (className) => `
+    .${className} {
       overflow: hidden;
     }
-    .${collapseClass}-active {
+    .${className}-active {
       -webkit-transition: height 200ms ease-out;
       -o-transition: height 200ms ease-out;
       transition: height 200ms ease-out;
