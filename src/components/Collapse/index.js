@@ -8,9 +8,9 @@ const collapseClass = cssHash(
       overflow: hidden;
     }
     .${collapseClass}-active {
-      -webkit-transition: height 100ms ease-out;
-      -o-transition: height 100ms ease-out;
-      transition: height 100ms ease-out;
+      -webkit-transition: height 200ms ease-out;
+      -o-transition: height 200ms ease-out;
+      transition: height 200ms ease-out;
     }
   `,
 );

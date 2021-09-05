@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
-import Collapse from './Collapse';
+import Collapse from 'components/Collapse';
 
 import {
   pageContainerClass,

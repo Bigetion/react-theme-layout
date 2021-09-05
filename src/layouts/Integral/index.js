@@ -3,7 +3,7 @@ import { classNames } from 'css-hash';
 
 import { useParams, useHistory } from 'react-router-dom';
 
-import Collapse from './Collapse';
+import Collapse from 'components/Collapse';
 
 import {
   pageContainerClass,
