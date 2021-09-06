@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useState } from 'react';
 import { cssHash, classNames } from 'css-hash';
 import cssAnimation from 'css-animation';
 
-const collapseClass = cssHash(
+const myClassName = cssHash(
   (className) => `
     .${className} {
       overflow: hidden;
@@ -15,7 +15,7 @@ const collapseClass = cssHash(
   `,
 );
 
-function collapseAnimation(node, show, transitionName) {
+function toggleAnimation(node, show, transitionName) {
   node.style.display = '';
   let height;
   return cssAnimation(node, transitionName, {
@@ -47,13 +47,13 @@ function Collapse(props) {
   delete nProps.className;
   delete nProps.ref;
 
-  const collapseRef = useRef();
+  const myRef = useRef();
 
   const [openLocal, setOpenLocal] = useState(open);
   useLayoutEffect(
     () => {
-      if (collapseRef.current) {
-        collapseRef.current.style.display = open ? '' : 'none';
+      if (myRef.current) {
+        myRef.current.style.display = open ? '' : 'none';
       }
     },
     // eslint-disable-next-line
@@ -62,11 +62,11 @@ function Collapse(props) {
 
   useLayoutEffect(
     () => {
-      if (collapseRef.current && openLocal !== open) {
+      if (myRef.current && openLocal !== open) {
         if (!disableAnimation) {
-          collapseAnimation(collapseRef.current, open, collapseClass);
+          toggleAnimation(myRef.current, open, myClassName);
         } else {
-          collapseRef.current.style.display = open ? '' : 'none';
+          myRef.current.style.display = open ? '' : 'none';
         }
         setOpenLocal(open);
       }
@@ -76,8 +76,8 @@ function Collapse(props) {
   );
 
   nProps = Object.assign({}, nProps, {
-    ref: collapseRef,
-    className: classNames(collapseClass, className),
+    ref: myRef,
+    className: classNames(myClassName, className),
   });
 
   if (typeof children === 'function') {
