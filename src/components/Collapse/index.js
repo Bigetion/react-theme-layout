@@ -40,7 +40,7 @@ function collapseAnimation(node, show, transitionName) {
 function Collapse(props) {
   const { children, open, disableAnimation, className } = props;
 
-  const nProps = Object.assign({}, props);
+  let nProps = Object.assign({}, props);
   delete nProps.children;
   delete nProps.open;
   delete nProps.disableAnimation;
@@ -75,24 +75,16 @@ function Collapse(props) {
     [open],
   );
 
+  nProps = Object.assign({}, nProps, {
+    ref: collapseRef,
+    className: classNames(collapseClass, className),
+  });
+
   if (typeof children === 'function') {
-    return children(
-      Object.assign({}, nProps, {
-        ref: collapseRef,
-        className: classNames(collapseClass, className),
-      }),
-    );
+    return children(nProps);
   }
 
-  return (
-    <div
-      {...nProps}
-      ref={collapseRef}
-      className={classNames(collapseClass, className)}
-    >
-      {children}
-    </div>
-  );
+  return <div {...nProps}>{children}</div>;
 }
 
 export default Collapse;
