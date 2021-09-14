@@ -3614,10 +3614,10 @@ css-has-pseudo@^0.10.0:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
 
-css-hash@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/css-hash/-/css-hash-1.0.2.tgz#e9310e7d6fc2bfa0d977c620793dfcb7d4ebb7ab"
-  integrity sha512-BcBoNwCApyNQ31K+pSDWEp+58uOA4c19vCxY1OjgElJnlBO6EoYTcNNSn3rDY5tviurlt/Xk+xJE99e8tiutWw==
+css-hash@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/css-hash/-/css-hash-1.0.3.tgz#3547375bf1b7c137d958e2708dbb2fbc75fb96d7"
+  integrity sha512-I0Iy3QJQS/1KyCmyP+8BJAIMdZjsvdyV3LAtHq3fpbtEksN5pcf6McjdiYJ/fzKSwlQjO3OhfBd0+t3pfHWWWw==
 
 css-loader@4.3.0:
   version "4.3.0"
