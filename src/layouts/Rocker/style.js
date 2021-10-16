@@ -331,12 +331,12 @@ export const navigationClass = cssHash(
     ul.${className} li ul li.active:before {
       background-color: ${subLinkLeftPadBgColor};
     }
-    ul.${className} li ul li.has-sub:hover > a:before,
-    ul.${className} li ul li.has-sub > a:focus:before {
+    ul.${className} li ul li.has-sub:hover > a > .collapse-icon,
+    ul.${className} li ul li.has-sub > a:focus > .collapse-icon {
       color: ${subLinkHoverColor};
     }
     ul.${className} li ul li.active > a,
-    ul.${className} li ul li.has-sub.active > a:before {
+    ul.${className} li ul li.has-sub.active > a > .collapse-icon {
       color: ${subLinkActiveColor};
     }
     ul.${className} li ul > li > a {
@@ -351,29 +351,20 @@ export const navigationClass = cssHash(
     ul.${className} li ul > li > ul > li > ul > li > ul > li > a {
       padding-left: 116px;
     }
-    ul.${className} li.has-sub > a:before {
+    ul.${className} li.has-sub > a > .collapse-icon {
       color: ${linkColor};
-      content: "\\f105";
       display: inline-block;
       float: right;
-      font-family: "fontawesome";
       font-size: 15px;
       margin-left: 10px;
       position: relative;
-      -webkit-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
       font-weight: normal;
     }
-    ul.${className} li.active.has-sub > a:before {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
+    ul.${className} li.active.has-sub > a > .collapse-icon {
       color: ${linkActiveColor};
     }
-    ul.${className} li.has-sub > a:hover:before,
-    ul.${className} > li > a:focus:before {
+    ul.${className} li.has-sub > a:hover > .collapse-icon,
+    ul.${className} > li > a:focus > .collapse-icon {
       color: ${linkHoverColor};
     }
     @media screen and (max-width: ${mobileWidth}px) {
