@@ -94,6 +94,11 @@ function MultiItem(props) {
       <a className="has-sub">
         {icon && <i className={icon} />}
         <span>{title}</span>
+        {!(collapsed && level_index === 1) && (
+          <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
+            <i className="fa fa-angle-right collapse-icon" />
+          </Collapse.Icon>
+        )}
       </a>
       {!collapsed && renderCollapse(isActive)}
       {collapsed && renderCollapse(isActive || level_index === 1)}

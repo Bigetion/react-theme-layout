@@ -242,29 +242,14 @@ export const navigationClass = cssHash(
       position: relative;
       padding-right: 36px;
     }
-    .${className} li > .has-sub:after {
-      content: "\\f105";
-      font-family: "fontawesome";
+    .${className} li > .has-sub > .collapse-icon {
       font-size: 16px;
       display: block;
       position: absolute;
       top: 50%;
       margin-top: -8px;
-      right: 20px;
+      right: 5px;
       line-height: 1;
-      -webkit-transform: rotate(0);
-      -ms-transform: rotate(0);
-      -o-transform: rotate(0);
-      transform: rotate(0);
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      -o-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-    }
-    .${className} li.active > .has-sub:after {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
     }
     .${className} li.navigation-divider {
       margin: 10px 0;
@@ -383,10 +368,6 @@ export const navigationClass = cssHash(
       margin-right: 0;
       margin-left: 15px;
     }
-    .${className}-icons-right > li.active > .has-sub:after,
-    .${className}-icons-right > li > a.has-sub:after {
-      content: none;
-    }
     .${className}-bordered > li {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
@@ -475,10 +456,6 @@ export const navigationCollapsedClass = cssHash(
       margin: 2px 0;
       display: block;
       float: none;
-    }
-    .${className} .${navigationClass} > li.active > .has-sub:after,
-    .${className} .${navigationClass} > li > .has-sub:after {
-      content: none;
     }
     .${className} .${navigationClass} > li .has-sub > span {
       border-radius: 0 3px 0 0;
