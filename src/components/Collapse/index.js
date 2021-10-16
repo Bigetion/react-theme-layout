@@ -1,6 +1,7 @@
-import React, { useRef, useLayoutEffect, useState } from 'react';
-import { cssHash, classNames } from 'css-hash';
-import cssAnimation from 'css-animation';
+import React, { useEffect, useRef } from 'react';
+import { cssHash } from 'css-hash';
+
+import CSSTransition from 'components/CSSTransition';
 
 const myClassName = cssHash(
   (className) => `
@@ -8,83 +9,87 @@ const myClassName = cssHash(
       overflow: hidden;
     }
     .${className}-active {
-      -webkit-transition: height 200ms ease-out;
-      -o-transition: height 200ms ease-out;
-      transition: height 200ms ease-out;
+      -webkit-transition: height 100ms ease-out;
+      -o-transition: height 100ms ease-out;
+      transition: height 100ms ease-out;
+    }
+    .${className}-icon {
+      -webkit-transition: transform 100ms ease;
+      -o-transition: transform 100ms ease;
+      transition: transform 100ms ease;
     }
   `,
 );
 
-function toggleAnimation(node, show, transitionName) {
-  node.style.display = '';
+function Collapse(props) {
+  const { children, open, disableAnimation } = props;
+
   let height;
-  return cssAnimation(node, transitionName, {
-    start() {
-      if (!show) {
-        node.style.height = `${node.offsetHeight}px`;
-      } else {
-        height = node.offsetHeight;
-        node.style.height = 0;
-      }
-    },
-    active() {
-      node.style.height = `${show ? height : 0}px`;
-    },
-    end() {
-      node.style.display = show ? '' : 'none';
-      node.style.height = '';
-    },
-  });
+  return (
+    <CSSTransition
+      show={open}
+      disabled={disableAnimation}
+      transitionName={myClassName}
+      animation={{
+        start(node) {
+          if (!open) {
+            node.style.height = `${node.offsetHeight}px`;
+          } else {
+            height = node.offsetHeight;
+            node.style.height = 0;
+          }
+        },
+        active(node) {
+          node.style.height = `${open ? height : 0}px`;
+        },
+        end(node) {
+          node.style.height = '';
+        },
+      }}
+    >
+      {children}
+    </CSSTransition>
+  );
 }
 
-function Collapse(props) {
-  const { children, open, disableAnimation, className } = props;
-
-  let nProps = Object.assign({}, props);
-  delete nProps.children;
-  delete nProps.open;
-  delete nProps.disableAnimation;
-  delete nProps.className;
-  delete nProps.ref;
+function CollapseIcon(props) {
+  const { children, open, disableAnimation, rotate = 90 } = props;
 
   const myRef = useRef();
+  const didMount = useRef();
 
-  const [openLocal, setOpenLocal] = useState(open);
-  useLayoutEffect(
+  useEffect(
     () => {
-      if (myRef.current) {
-        myRef.current.style.display = open ? '' : 'none';
-      }
-    },
-    // eslint-disable-next-line
-    [],
-  );
-
-  useLayoutEffect(
-    () => {
-      if (myRef.current && openLocal !== open) {
-        if (!disableAnimation) {
-          toggleAnimation(myRef.current, open, myClassName);
-        } else {
-          myRef.current.style.display = open ? '' : 'none';
-        }
-        setOpenLocal(open);
+      if (disableAnimation && didMount.current) {
+        myRef.current.style.transform = `rotate(${open ? rotate : 0}deg)`;
       }
     },
     // eslint-disable-next-line
     [open],
   );
 
-  nProps = Object.assign({}, nProps, {
-    ref: myRef,
-    className: classNames(myClassName, className),
-  });
-
-  if (typeof children === 'function') {
-    return children(nProps);
-  }
-
-  return <div {...nProps}>{children}</div>;
+  return (
+    <CSSTransition
+      show={open}
+      unmountOnExit={false}
+      disabled={disableAnimation}
+      transitionName={`${myClassName}-icon`}
+      onDidMount={(node) => {
+        myRef.current = node;
+        didMount.current = true;
+        node.style.transform = `rotate(${open ? rotate : 0}deg)`;
+      }}
+      animation={{
+        start(node) {
+          node.style.transform = `rotate(${open ? rotate : 0}deg)`;
+        },
+      }}
+    >
+      {children}
+    </CSSTransition>
+  );
 }
+
+Collapse.Icon = CollapseIcon;
 
 export default Collapse;

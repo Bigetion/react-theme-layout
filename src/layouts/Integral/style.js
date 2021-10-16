@@ -271,12 +271,12 @@ export const navigationClass = cssHash(
     ul.${className} li ul li.active:before {
       background-color: ${subLinkLeftPadBgColor};
     }
-    ul.${className} li ul li.has-sub:hover > a:before,
+    ul.${className} li ul li.has-sub:hover > a > .collapse-icon,
     ul.${className} li ul li.has-sub > a:focus:before {
       color: ${subLinkHoverColor};
     }
     ul.${className} li ul li.active > a,
-    ul.${className} li ul li.has-sub.active > a:before {
+    ul.${className} li ul li.has-sub.active > a > .collapse-icon {
       color: ${subLinkActiveColor};
     }
     ul.${className} li ul > li > a {
@@ -291,29 +291,20 @@ export const navigationClass = cssHash(
     ul.${className} li ul > li > ul > li > ul > li > ul > li > a {
       padding-left: 116px;
     }
-    ul.${className} li.has-sub > a:before {
+    ul.${className} li.has-sub > a > .collapse-icon {
       color: ${linkColor};
-      content: "\\f105";
       display: inline-block;
       float: right;
-      font-family: "fontawesome";
       font-size: 15px;
       margin-left: 10px;
       position: relative;
-      -webkit-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
       font-weight: normal;
     }
-    ul.${className} li.active.has-sub > a:before {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
+    ul.${className} li.active.has-sub > a > .collapse-icon {
       color: ${linkActiveColor};
     }
-    ul.${className} li.has-sub > a:hover:before,
-    ul.${className} > li > a:focus:before {
+    ul.${className} li.has-sub > a > .collapse-icon:hover,
+    ul.${className} > li > a > .collapse-icon:focus {
       color: ${linkHoverColor};
     }
     @media screen and (max-width: ${mobileWidth}px) {
@@ -413,7 +404,7 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} ul.${navigationClass} li ul > li > ul > li > ul > li > ul > li > a {
       padding-left: 80px;
     }
-    .${className} .${pageSidebarClass} ul.${navigationClass} > li.has-sub > a:before,
+    .${className} .${pageSidebarClass} ul.${navigationClass} > li.has-sub > a > .collapse-icon,
     .${className} .${pageSidebarClass} ul.${navigationClass} li ul li:before,
     .${className} .${pageSidebarClass} ul.${navigationClass} li ul li:after,
     .${className} .${pageSidebarClass} ul.${navigationClass} li ul:before {

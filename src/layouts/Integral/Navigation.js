@@ -65,15 +65,13 @@ function MultiItem(props) {
 
   const renderCollapse = (open) => (
     <Collapse open={open} disableAnimation={open && isDisableAnimation}>
-      {(collapseProps) => (
-        <ul {...collapseProps}>
-          {children.map((item, index) => (
-            <React.Fragment key={index}>
-              <Item {...item} />
-            </React.Fragment>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {children.map((item, index) => (
+          <React.Fragment key={index}>
+            <Item {...item} />
+          </React.Fragment>
+        ))}
+      </ul>
     </Collapse>
   );
 
@@ -88,6 +86,9 @@ function MultiItem(props) {
       <a>
         {icon && <i className={icon} />}
         <span className="title">{title}</span>
+        <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
+          <i className="fa fa-angle-right collapse-icon" />
+        </Collapse.Icon>
       </a>
       {!collapsed && renderCollapse(isActive)}
       {collapsed && renderCollapse(isActive || level_index === 1)}
