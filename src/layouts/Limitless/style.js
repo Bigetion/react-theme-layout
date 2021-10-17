@@ -219,13 +219,13 @@ export const navigationClass = cssHash(
       background-color: ${linkHoverBgColor};
       color: ${linkHoverColor};
     }
-    .${className} li a > i {
+    .${className} li a > .menu-icon {
       float: left;
       top: 0;
       margin-top: 2px;
       margin-right: 15px;
     }
-    .${className} li a > i.pull-right {
+    .${className} li a > .menu-icon.pull-right {
       margin-right: 0;
       margin-left: 15px;
     }
@@ -248,7 +248,7 @@ export const navigationClass = cssHash(
       position: absolute;
       top: 50%;
       margin-top: -8px;
-      right: 5px;
+      right: 20px;
       line-height: 1;
     }
     .${className} li.navigation-divider {
@@ -328,10 +328,10 @@ export const navigationClass = cssHash(
       display: block;
       margin-top: 2px;
     }
-    .${className} .navigation-header > i {
+    .${className} .navigation-header > .header-icon {
       display: none;
     }
-    .${className} .navigation-header > i.pull-right {
+    .${className} .navigation-header > .header-icon.pull-right {
       margin-top: 2px;
     }
     .${className}-bordered li + .navigation-header,
@@ -351,7 +351,7 @@ export const navigationClass = cssHash(
     .${className} .navigation-header a:hover {
       color: ${linkTitleHoverColor};
     }
-    .${className} .navigation-header a i {
+    .${className} .navigation-header a .header-icon {
       float: none;
       margin: 0;
     }
@@ -363,7 +363,7 @@ export const navigationClass = cssHash(
     .${className}-icons-right > li > a.has-sub {
       padding-right: 20px;
     }
-    .${className}-icons-right > li > a > i {
+    .${className}-icons-right > li > a > .menu-icon {
       float: right;
       margin-right: 0;
       margin-left: 15px;
@@ -452,7 +452,7 @@ export const navigationCollapsedClass = cssHash(
       padding-left: 0;
       padding-right: 0;
     }
-    .${className} .${navigationClass} > li > a > i {
+    .${className} .${navigationClass} > li > a > .menu-icon {
       margin: 2px 0;
       display: block;
       float: none;
@@ -499,7 +499,7 @@ export const navigationCollapsedClass = cssHash(
       padding: 0;
       text-align: center;
     }
-    .${className} .${navigationClass} > .navigation-header > i {
+    .${className} .${navigationClass} > .navigation-header > .header-icon {
       display: block;
       top: 0;
       padding: 13px 0;

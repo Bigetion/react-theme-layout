@@ -235,7 +235,7 @@ export const navigationClass = cssHash(
       background-color: ${subLinkBgColor};
       color: ${subLinkColor};
     }
-    ul.${className} li i {
+    ul.${className} li .menu-icon {
       margin-right: 16px;
       font-size: 15px;
     }
