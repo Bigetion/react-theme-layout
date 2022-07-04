@@ -65,15 +65,13 @@ function MultiItem(props) {
 
   const renderCollapse = (open) => (
     <Collapse open={open} disableAnimation={open && isDisableAnimation}>
-      {(collapseProps) => (
-        <ul {...collapseProps}>
-          {children.map((item, index) => (
-            <React.Fragment key={index}>
-              <Item {...item} />
-            </React.Fragment>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {children.map((item, index) => (
+          <React.Fragment key={index}>
+            <Item {...item} />
+          </React.Fragment>
+        ))}
+      </ul>
     </Collapse>
   );
 

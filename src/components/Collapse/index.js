@@ -1,98 +1,98 @@
-import React, { useRef, useLayoutEffect, useState } from 'react';
-import { cssHash, classNames } from 'css-hash';
-import cssAnimation from 'css-animation';
+import React, { useEffect, useRef } from 'react';
+import { cssHash } from 'css-hash';
 
-const collapseClass = cssHash(
-  (collapseClass) => `
-    .${collapseClass} {
+import CSSTransition from 'components/CSSTransition';
+
+const myClassName = cssHash(
+  (className) => `
+    .${className} {
       overflow: hidden;
     }
-    .${collapseClass}-active {
+    .${className}-active {
       -webkit-transition: height 200ms ease-out;
       -o-transition: height 200ms ease-out;
       transition: height 200ms ease-out;
     }
+    .${className}-icon {
+      -webkit-transition: transform 200ms ease;
+      -o-transition: transform 200ms ease;
+      transition: transform 200ms ease;
+    }
   `,
 );
 
-function collapseAnimation(node, show, transitionName) {
-  node.style.display = '';
-  let height;
-  return cssAnimation(node, transitionName, {
-    start() {
-      if (!show) {
-        node.style.height = `${node.offsetHeight}px`;
-      } else {
-        height = node.offsetHeight;
-        node.style.height = 0;
-      }
-    },
-    active() {
-      node.style.height = `${show ? height : 0}px`;
-    },
-    end() {
-      node.style.display = show ? '' : 'none';
-      node.style.height = '';
-    },
-  });
+function Collapse(props) {
+  const { children, open, disableAnimation, unmountOnExit } = props;
+
+  const height = useRef();
+
+  return (
+    <CSSTransition
+      show={open}
+      unmountOnExit={unmountOnExit}
+      disableAnimation={disableAnimation}
+      transitionName={myClassName}
+      animation={{
+        start(node) {
+          if (!open) {
+            node.style.height = `${node.offsetHeight}px`;
+          } else {
+            height.current = node.offsetHeight;
+            node.style.height = 0;
+          }
+        },
+        active(node) {
+          node.style.height = `${open ? height.current : 0}px`;
+        },
+        end(node) {
+          node.style.height = '';
+        },
+      }}
+    >
+      {children}
+    </CSSTransition>
+  );
 }
 
-function Collapse(props) {
-  const { children, open, disableAnimation, className } = props;
+function CollapseIcon(props) {
+  const { children, open, disableAnimation, rotate = 90 } = props;
 
-  const nProps = Object.assign({}, props);
-  delete nProps.children;
-  delete nProps.open;
-  delete nProps.disableAnimation;
-  delete nProps.className;
-  delete nProps.ref;
+  const myRef = useRef();
+  const didMount = useRef();
 
-  const collapseRef = useRef();
-
-  const [openLocal, setOpenLocal] = useState(open);
-  useLayoutEffect(
+  useEffect(
     () => {
-      if (collapseRef.current) {
-        collapseRef.current.style.display = open ? '' : 'none';
-      }
-    },
-    // eslint-disable-next-line
-    [],
-  );
-
-  useLayoutEffect(
-    () => {
-      if (collapseRef.current && openLocal !== open) {
-        if (!disableAnimation) {
-          collapseAnimation(collapseRef.current, open, collapseClass);
-        } else {
-          collapseRef.current.style.display = open ? '' : 'none';
-        }
-        setOpenLocal(open);
+      if (disableAnimation && didMount.current) {
+        myRef.current.style.transform = `rotate(${open ? rotate : 0}deg)`;
       }
     },
     // eslint-disable-next-line
     [open],
   );
 
-  if (typeof children === 'function') {
-    return children(
-      Object.assign({}, nProps, {
-        ref: collapseRef,
-        className: classNames(collapseClass, className),
-      }),
-    );
-  }
-
   return (
-    <div
-      {...nProps}
-      ref={collapseRef}
-      className={classNames(collapseClass, className)}
+    <CSSTransition
+      show={open}
+      unmountOnExit={false}
+      hideOnExit={false}
+      disableAnimation={disableAnimation}
+      transitionName={`${myClassName}-icon`}
+      onDidMount={(node) => {
+        myRef.current = node;
+        didMount.current = true;
+        node.style.transform = `rotate(${open ? rotate : 0}deg)`;
+      }}
+      animation={{
+        start(node) {
+          node.style.transform = `rotate(${open ? rotate : 0}deg)`;
+        },
+      }}
     >
       {children}
-    </div>
+    </CSSTransition>
   );
 }
+
+Collapse.Icon = CollapseIcon;
 
 export default Collapse;

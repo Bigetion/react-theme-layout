@@ -82,15 +82,17 @@ export default function Layout(props) {
             overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
           }}
         >
-          <Navigation
-            collapsed={!sidebar}
-            pathname={pathname}
-            pathkey="menu_id"
-            menus={menus}
-            onChange={(item) => {
-              history.push(`/${item.menu_id}`);
-            }}
-          />
+          <div>
+            <Navigation
+              collapsed={!sidebar}
+              pathname={pathname}
+              pathkey="menu_id"
+              menus={menus}
+              onChange={(item) => {
+                history.push(`/${item.menu_id}`);
+              }}
+            />
+          </div>
         </Collapse>
       </div>
       <div className={mainContainerClass}>
