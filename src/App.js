@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
-import Layout from 'layouts/Rocker';
+import Layout from 'layouts/Midone';
 
-import './base.css';
 import './app.css';
 
 function PageLayout() {
@@ -16,7 +15,6 @@ function PageLayout() {
           justifyContent: 'center',
           alignItems: 'center',
           height: 2048,
-          background: 'rgba(0, 0, 0, 0.1)',
         }}
       >
         Main Content
