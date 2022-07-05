@@ -5,7 +5,14 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import Collapse from 'components/Collapse';
 
-import { appClass, sideNavClass, contentClass, mobileWidth } from './style';
+import {
+  appClass,
+  appContainerClass,
+  sideNavClass,
+  sideNavLogoClass,
+  contentClass,
+  mobileWidth,
+} from './style';
 
 import Navigation from './Navigation';
 
@@ -47,14 +54,13 @@ export default function Layout(props) {
 
   return (
     <div className={classNames(appClass)}>
-      <div className={classNames(`${appClass}-container`)}>
+      <div className={classNames(appContainerClass)}>
         <div className={classNames(sideNavClass)}>
+          <div className={classNames(sideNavLogoClass)}>
+            <h1>Logo</h1>
+          </div>
           <Collapse open={showMenu} disableAnimation={!isMobile}>
-            <div
-              style={{
-                overflow: !isMobile && !sidebar ? 'initial' : 'hidden',
-              }}
-            >
+            <div>
               <Navigation
                 collapsed={!sidebar}
                 pathname={pathname}

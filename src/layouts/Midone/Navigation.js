@@ -8,7 +8,7 @@ import { navigationClass } from './style';
 const NavigationContext = createContext();
 
 function Item(props) {
-  const { icon = '', title = '', children, menu_id, type = '' } = props;
+  const { icon = '', title = '', children, menu_id } = props;
 
   const { onClickMenu = () => {}, activeId } = useContext(NavigationContext);
 
@@ -29,12 +29,9 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && (
-          <div className="menu-icon">
-            <i className={icon} />
-          </div>
-        )}
+        {icon && <i className={classNames('menu-icon', icon)} />}
         <span>{title}</span>
+        <div className="box" />
       </a>
     </li>
   );
@@ -45,6 +42,7 @@ function MultiItem(props) {
 
   const {
     onClickMenu = () => {},
+    activeTopLeveId,
     activeMenuId,
     collapsed,
     clickedMenuId,
@@ -82,7 +80,7 @@ function MultiItem(props) {
 
   return (
     <li
-      className={classNames(isActive && 'active')}
+      className={classNames(activeTopLeveId === menu_id && 'active')}
       onClick={(e) => {
         e.stopPropagation();
         onClickMenu(clickProps, true);
@@ -91,6 +89,7 @@ function MultiItem(props) {
       <a className="has-sub">
         {icon && <i className={`menu-icon ${icon}`} />}
         <span>{title}</span>
+        <div className="box" />
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <i className="fa fa-angle-right collapse-icon" />
@@ -113,7 +112,8 @@ export default function Navigation(props) {
   } = props;
 
   const [activeMenuId, setActiveMenuId] = useState('');
-  const [activeId, setActivePath] = useState('');
+  const [activeId, setActiveId] = useState('');
+  const [activeTopLeveId, setActiveTopLevelId] = useState('');
   const [clickedMenuId, setClickedMenuId] = useState('');
   const [lastClickedMenuId, setLastClickedMenuId] = useState('');
 
@@ -130,7 +130,7 @@ export default function Navigation(props) {
       setLastClickedMenuId(clickedMenuId);
       setClickedMenuId(item.menu_id);
     } else {
-      setActivePath(item.menu_id);
+      setActiveId(item.menu_id);
       setActiveMenuId(item.parent_id);
       if (isClickEvent) {
         onChange(item);
@@ -165,6 +165,13 @@ export default function Navigation(props) {
     () => {
       addMenuIndex('MENU', 1, menus, (item) => {
         if (item[pathkey] === pathname) {
+          const menuIdArray = item.menu_id.split('_');
+          if (menuIdArray.length > 2) {
+            setActiveTopLevelId(menuIdArray.slice(0, 2).join('_'));
+          } else {
+            setActiveId(item.menu_id);
+            setActiveTopLevelId('');
+          }
           onClickMenu(item);
         } else {
           setLastClickedMenuId('');
@@ -184,6 +191,7 @@ export default function Navigation(props) {
         onClickMenu,
         activeMenuId,
         activeId,
+        activeTopLeveId,
         collapsed,
         clickedMenuId,
         lastClickedMenuId,

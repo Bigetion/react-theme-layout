@@ -5,7 +5,8 @@ import generateTailwindCss from 'tailwind-css-generator';
 generateTailwindCss();
 
 const sidebarWidth = 230;
-export const mobileWidth = 767;
+const sidebarLogoColor = '#FFF';
+const sidebarLogoBorderBottom = '1px solid rgba(255, 255, 255, 0.25)';
 
 const appBgColor = '#1C3FAA';
 const contentBgColor = '#F1F5F8';
@@ -27,6 +28,8 @@ const subLinkColor = 'rgba(255, 255, 255, 0.75)';
 const subLinkHoverColor = '#FFF';
 const subLinkActiveColor = '#FFF';
 
+export const mobileWidth = 767;
+
 export const appClass = cssHash(
   (className) => `
     .${className} {
@@ -41,6 +44,14 @@ export const appClass = cssHash(
  `,
 );
 
+export const appContainerClass = cssHash(
+  (className) => `
+    .${className} {
+      display: flex;
+    }
+ `,
+);
+
 export const sideNavClass = cssHash(
   (className) => `
     .${className} {
@@ -48,6 +59,24 @@ export const sideNavClass = cssHash(
       overflow-x: hidden;
       padding-right: 1.25rem;
       padding-bottom: 4rem;
+    }
+    .${className}-logo {
+      width: ${sidebarWidth}px;
+      overflow-x: hidden;
+      padding-right: 1.25rem;
+      padding-bottom: 4rem;
+    }
+  `,
+);
+
+export const sideNavLogoClass = cssHash(
+  (className) => `
+    .${className} {
+      padding: 1rem 1.25rem;
+      padding-bottom: 2rem;
+      color: ${sidebarLogoColor};
+      margin-bottom: 1rem;
+      border-bottom: ${sidebarLogoBorderBottom};
     }
   `,
 );
@@ -140,6 +169,17 @@ export const navigationClass = cssHash(
     .${className} > li.active > a,
     .${className} > li.active > a:focus,
     .${className} > li.active > a:hover {
+      background-color: ${linkActiveBgColor};
+      color: ${linkActiveColor};
+    }
+    .${className} > li.active > a > .box,
+    .${className} > li.active > a > .box:focus,
+    .${className} > li.active > a > .box:hover {
+      position: absolute;
+      top: 0;
+      right: -1.25rem;
+      width: 5rem;
+      height: 100%;
       background-color: ${linkActiveBgColor};
       color: ${linkActiveColor};
     }
