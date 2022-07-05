@@ -219,13 +219,13 @@ export const navigationClass = cssHash(
       background-color: ${linkHoverBgColor};
       color: ${linkHoverColor};
     }
-    .${className} li a > i {
+    .${className} li a > .menu-icon {
       float: left;
       top: 0;
       margin-top: 2px;
       margin-right: 15px;
     }
-    .${className} li a > i.pull-right {
+    .${className} li a > .menu-icon.pull-right {
       margin-right: 0;
       margin-left: 15px;
     }
@@ -242,9 +242,7 @@ export const navigationClass = cssHash(
       position: relative;
       padding-right: 36px;
     }
-    .${className} li > .has-sub:after {
-      content: "\\f105";
-      font-family: "fontawesome";
+    .${className} li > .has-sub > .collapse-icon {
       font-size: 16px;
       display: block;
       position: absolute;
@@ -252,19 +250,6 @@ export const navigationClass = cssHash(
       margin-top: -8px;
       right: 20px;
       line-height: 1;
-      -webkit-transform: rotate(0);
-      -ms-transform: rotate(0);
-      -o-transform: rotate(0);
-      transform: rotate(0);
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      -o-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-    }
-    .${className} li.active > .has-sub:after {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
     }
     .${className} li.navigation-divider {
       margin: 10px 0;
@@ -343,10 +328,10 @@ export const navigationClass = cssHash(
       display: block;
       margin-top: 2px;
     }
-    .${className} .navigation-header > i {
+    .${className} .navigation-header > .header-icon {
       display: none;
     }
-    .${className} .navigation-header > i.pull-right {
+    .${className} .navigation-header > .header-icon.pull-right {
       margin-top: 2px;
     }
     .${className}-bordered li + .navigation-header,
@@ -366,7 +351,7 @@ export const navigationClass = cssHash(
     .${className} .navigation-header a:hover {
       color: ${linkTitleHoverColor};
     }
-    .${className} .navigation-header a i {
+    .${className} .navigation-header a .header-icon {
       float: none;
       margin: 0;
     }
@@ -378,14 +363,10 @@ export const navigationClass = cssHash(
     .${className}-icons-right > li > a.has-sub {
       padding-right: 20px;
     }
-    .${className}-icons-right > li > a > i {
+    .${className}-icons-right > li > a > .menu-icon {
       float: right;
       margin-right: 0;
       margin-left: 15px;
-    }
-    .${className}-icons-right > li.active > .has-sub:after,
-    .${className}-icons-right > li > a.has-sub:after {
-      content: none;
     }
     .${className}-bordered > li {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -471,14 +452,10 @@ export const navigationCollapsedClass = cssHash(
       padding-left: 0;
       padding-right: 0;
     }
-    .${className} .${navigationClass} > li > a > i {
+    .${className} .${navigationClass} > li > a > .menu-icon {
       margin: 2px 0;
       display: block;
       float: none;
-    }
-    .${className} .${navigationClass} > li.active > .has-sub:after,
-    .${className} .${navigationClass} > li > .has-sub:after {
-      content: none;
     }
     .${className} .${navigationClass} > li .has-sub > span {
       border-radius: 0 3px 0 0;
@@ -522,7 +499,7 @@ export const navigationCollapsedClass = cssHash(
       padding: 0;
       text-align: center;
     }
-    .${className} .${navigationClass} > .navigation-header > i {
+    .${className} .${navigationClass} > .navigation-header > .header-icon {
       display: block;
       top: 0;
       padding: 13px 0;

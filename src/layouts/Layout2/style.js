@@ -160,7 +160,6 @@ export const pageContainerClass = cssHash(
       z-index: ${pageContainerZIndex};
       float: left;
       width: 100%;
-      height: calc(100% - ${pageHeaderHeight}px);
       min-height: calc(100% - ${pageHeaderHeight}px);
       padding-top: ${pageHeaderHeight}px;
       box-sizing: content-box;

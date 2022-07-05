@@ -306,7 +306,7 @@ export const navigationClass = cssHash(
       white-space: nowrap;
       position: relative;
     }
-    .${className} > li > a .fa {
+    .${className} > li > a .menu-icon {
       position: absolute;
       left: 0px;
       top: 0px;
@@ -322,7 +322,7 @@ export const navigationClass = cssHash(
       border-left: ${linkActiveBorderLeft};
       border-right: ${linkActiveBorderRight};
     }
-    .${className} > li.active > a .fa {
+    .${className} > li.active > a .menu-icon {
       background-color: ${linkActiveBgColor};
     }
     .${className} > li:hover > a {
@@ -393,10 +393,6 @@ export const navigationClass = cssHash(
     .${className} > li ul li.active > a:after {
       background-color: ${subLinkPadActiveBgColor};
     }
-    .${className} > li ul li.has-sub > a:before {
-      line-height: 45px;
-      height: 45px;
-    }
     .${className} > li > ul > li > a {
       padding: 0px 10px 0px 45px;
     }
@@ -414,24 +410,15 @@ export const navigationClass = cssHash(
     .${className} > li > ul > li > ul > li.active > a {
       padding-left: 85px;
     }
-    .${className} li.has-sub > a:before {
-      content: "\\f105";
+    .${className} li.has-sub > a > .collapse-icon {
       display: inline-block;
       float: right;
-      font-family: "fontawesome";
       font-size: 15px;
       margin-left: 10px;
       position: relative;
-      -webkit-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
       font-weight: normal;
-    }
-    .${className} li.has-sub.active > a:before {
-      -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
+      line-height: 45px;
+      height: 45px;
     }
     .${className} li.has-sub > a {
       padding-right: 30px;
@@ -447,7 +434,7 @@ export const navigationClass = cssHash(
       width: ${pageSidebarMinimizedWidth}px;
       background-color: transparent;
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a .fa {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a .menu-icon {
       width: ${pageSidebarMinimizedWidth}px;
       background-color: ${linkBgColor};
     }
@@ -460,7 +447,7 @@ export const navigationClass = cssHash(
       opacity: 0;
       filter: alpha(opacity = 0 * 100);
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a:hover .fa {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li > a:hover .menu-icon {
       background-color: ${linkHoverBgColor};
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.title {
@@ -554,20 +541,14 @@ export const navigationClass = cssHash(
       border-width: 5px;
       margin-top: -5px;
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.active > a .fa {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.active > a .menu-icon {
       background-color: #293649;
     }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.has-sub > a:before {
+    .${layoutClass}.${pageSidebarMinimizedClass} .${className} > li.has-sub > a > .collapse-icon {
       display: none;
     }
     .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.active > ul {
       display: block;
-    }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.active.has-sub > a:before {
-      content: "\\f104";
-    }
-    .${layoutClass}.${pageSidebarMinimizedClass} .${className} li.has-sub > a:before {
-      content: "\\f105";
     }
     .${layoutClass}.${pageSidebarMinimizedClass}.dev-page-sidebar-right .${className} > li ul {
       left: auto;
@@ -593,7 +574,7 @@ export const navigationClass = cssHash(
       opacity: 0;
       filter: alpha(opacity = 0 * 100);
     }
-    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li > a .fa {
+    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li > a .menu-icon {
       -webkit-opacity: 0;
       -khtml-opacity: 0;
       -moz-opacity: 0;
@@ -615,7 +596,7 @@ export const navigationClass = cssHash(
       opacity: 0;
       filter: alpha(opacity = 0 * 100);
     }
-    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li.has-sub > a:before {
+    .${layoutClass}.${pageSidebarCollapsedClass} .${className} > li.has-sub > a > .collapse-icon {
       display: none;
     }
   `,
