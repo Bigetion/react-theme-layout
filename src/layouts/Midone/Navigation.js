@@ -7,8 +7,26 @@ import { navigationClass } from './style';
 
 const NavigationContext = createContext();
 
+function ItemRoundRadius() {
+  return (
+    <React.Fragment>
+      <div className="box" />
+      <div className="round-before">
+        <div className="round-content">
+          <div className="round-radius" />
+        </div>
+      </div>
+      <div className="round-after">
+        <div className="round-content">
+          <div className="round-radius" />
+        </div>
+      </div>
+    </React.Fragment>
+  );
+}
+
 function Item(props) {
-  const { icon = '', title = '', children, menu_id } = props;
+  const { icon = '', title = '', children, menu_id, level_index } = props;
 
   const { onClickMenu = () => {}, activeId } = useContext(NavigationContext);
 
@@ -31,9 +49,7 @@ function Item(props) {
       <a>
         {icon && <i className={classNames('menu-icon', icon)} />}
         <span>{title}</span>
-        <div className="box" />
-        <div className="round-before" />
-        <div className="round-after" />
+        {isActive && level_index === 1 && <ItemRoundRadius />}
       </a>
     </li>
   );
@@ -91,9 +107,9 @@ function MultiItem(props) {
       <a className="has-sub">
         {icon && <i className={`menu-icon ${icon}`} />}
         <span>{title}</span>
-        <div className="box" />
-        <div className="round-before" />
-        <div className="round-after" />
+        {activeTopLeveId === menu_id && level_index === 1 && (
+          <ItemRoundRadius />
+        )}
         <div />
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>

@@ -77,6 +77,8 @@ export const sideNavLogoClass = cssHash(
       color: ${sidebarLogoColor};
       margin-bottom: 1rem;
       border-bottom: ${sidebarLogoBorderBottom};
+      position: relative;
+      z-index: 9;
     }
   `,
 );
@@ -179,7 +181,6 @@ export const navigationClass = cssHash(
       width: 5rem;
       height: 100%;
       background-color: ${linkActiveBgColor};
-      color: ${linkActiveColor};
     }
     .${className} > li.active > a > .round-before,
     .${className} > li.active > a > .round-after {
@@ -187,13 +188,30 @@ export const navigationClass = cssHash(
       right: -1.25rem;
       width: 30px;
       height: 30px;
-      background-color: ${linkActiveBgColor};
     }
     .${className} > li.active > a > .round-before {
       top: -30px;
     }
     .${className} > li.active > a > .round-after {
       bottom: -30px;
+    }
+    .${className} > li.active > a > .round-before .round-radius,
+    .${className} > li.active > a > .round-after .round-radius {
+      width: 100%;
+      height: 100%;
+      background-color: ${appBgColor};
+    }
+    .${className} > li.active > a > .round-before .round-radius {
+      border-bottom-right-radius: 30px;
+    }
+    .${className} > li.active > a > .round-after .round-radius {
+      border-top-right-radius: 30px;
+    }
+    .${className} > li.active > a > .round-before .round-content,
+    .${className} > li.active > a > .round-after .round-content {
+      width: 100%;
+      height: 100%;
+      background-color: ${linkActiveBgColor};
     }
     .${className} > li.active > a > [class*='text-'] {
       color: ${linkActiveColor};
@@ -205,6 +223,7 @@ export const navigationClass = cssHash(
       background-color: ${subLinkMenuBgColor};
       border-radius: 0.375rem;
       margin-bottom: 0.25rem;
+      position: relative;
     }
     .${className} > li ul li a {
       background-color: ${subLinkBgColor};
