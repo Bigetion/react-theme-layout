@@ -57,7 +57,7 @@ export default function Layout(props) {
       <div className={classNames(appContainerClass)}>
         <div className={classNames(sideNavClass)}>
           <div className={classNames(sideNavLogoClass)}>
-            <h1>Logo</h1>
+            <h1>Midone</h1>
           </div>
           <Collapse open={showMenu} disableAnimation={!isMobile}>
             <div>

@@ -6,7 +6,7 @@ generateTailwindCss();
 
 const sidebarWidth = 230;
 const sidebarLogoColor = '#FFF';
-const sidebarLogoBorderBottom = '1px solid rgba(255, 255, 255, 0.25)';
+const sidebarLogoBorderBottom = '1px solid #2E51BB';
 
 const appBgColor = '#1C3FAA';
 const contentBgColor = '#F1F5F8';
@@ -73,12 +73,13 @@ export const sideNavLogoClass = cssHash(
   (className) => `
     .${className} {
       padding: 1rem 1.25rem;
-      padding-bottom: 2rem;
+      padding-bottom: 1.25rem;
       color: ${sidebarLogoColor};
       margin-bottom: 1rem;
       border-bottom: ${sidebarLogoBorderBottom};
       position: relative;
-      z-index: 9;
+      z-index: 1;
+      font-size: 24px;
     }
   `,
 );
@@ -167,12 +168,14 @@ export const navigationClass = cssHash(
       margin-bottom: 0.25rem;
       padding-left: 1.25rem;
       position: relative;
+      z-index: 1;
     }
     .${className} > li.active > a,
     .${className} > li.active > a:focus,
     .${className} > li.active > a:hover {
       background-color: ${linkActiveBgColor};
       color: ${linkActiveColor};
+      z-index: 0;
     }
     .${className} > li.active > a > .box {
       position: absolute;
