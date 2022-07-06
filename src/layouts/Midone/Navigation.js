@@ -32,6 +32,8 @@ function Item(props) {
         {icon && <i className={classNames('menu-icon', icon)} />}
         <span>{title}</span>
         <div className="box" />
+        <div className="round-before" />
+        <div className="round-after" />
       </a>
     </li>
   );
@@ -90,6 +92,9 @@ function MultiItem(props) {
         {icon && <i className={`menu-icon ${icon}`} />}
         <span>{title}</span>
         <div className="box" />
+        <div className="round-before" />
+        <div className="round-after" />
+        <div />
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <i className="fa fa-angle-right collapse-icon" />
