@@ -9,7 +9,9 @@ import {
   appClass,
   appContainerClass,
   sideNavClass,
+  sideNavHeaderClass,
   sideNavLogoClass,
+  mobileMenuClass,
   contentClass,
   mobileWidth,
 } from './style';
@@ -56,8 +58,18 @@ export default function Layout(props) {
     <div className={classNames(appClass)}>
       <div className={classNames(appContainerClass)}>
         <div className={classNames(sideNavClass)}>
-          <div className={classNames(sideNavLogoClass)}>
-            <h1>Midone</h1>
+          <div className={classNames(sideNavHeaderClass)}>
+            <div className={classNames(sideNavLogoClass)}>
+              <h1>Midone</h1>
+            </div>
+            <div
+              className={classNames(mobileMenuClass)}
+              onClick={() => {
+                setShowMenu(!showMenu);
+              }}
+            >
+              <i className="fa fa-bars" />
+            </div>
           </div>
           <Collapse open={showMenu} disableAnimation={!isMobile}>
             <div>

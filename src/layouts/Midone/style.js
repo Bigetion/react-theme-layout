@@ -38,8 +38,10 @@ export const appClass = cssHash(
       padding-bottom: 1.25rem;
       background-color: ${appBgColor};
     }
-    .${className}-container {
-      display: flex;
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding: 0.75rem;
+      }
     }
  `,
 );
@@ -48,6 +50,12 @@ export const appContainerClass = cssHash(
   (className) => `
     .${className} {
       display: flex;
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        display: block;
+        height: auto;
+      }
     }
  `,
 );
@@ -60,11 +68,27 @@ export const sideNavClass = cssHash(
       padding-right: 1.25rem;
       padding-bottom: 4rem;
     }
-    .${className}-logo {
-      width: ${sidebarWidth}px;
-      overflow-x: hidden;
-      padding-right: 1.25rem;
-      padding-bottom: 4rem;
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 1.25rem;
+      }
+    }
+  `,
+);
+
+export const sideNavHeaderClass = cssHash(
+  (className) => `
+    .${className} {
+      display: flex;
+      align-items: center;
+      color: ${sidebarLogoColor};
+      margin-bottom: 1rem;
+      border-bottom: ${sidebarLogoBorderBottom};
+      position: relative;
+      z-index: 1;
+      font-size: 24px;
     }
   `,
 );
@@ -72,14 +96,24 @@ export const sideNavClass = cssHash(
 export const sideNavLogoClass = cssHash(
   (className) => `
     .${className} {
+      flex: 1;
       padding: 1rem 1.25rem;
       padding-bottom: 1.25rem;
-      color: ${sidebarLogoColor};
-      margin-bottom: 1rem;
-      border-bottom: ${sidebarLogoBorderBottom};
-      position: relative;
-      z-index: 1;
-      font-size: 24px;
+    }
+  `,
+);
+
+export const mobileMenuClass = cssHash(
+  (className) => `
+    .${className} {
+      padding: 20px;
+      cursor: pointer;
+      display: none;
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        display: block;
+      }
     }
   `,
 );
@@ -227,6 +261,7 @@ export const navigationClass = cssHash(
       border-radius: 0.375rem;
       margin-bottom: 0.25rem;
       position: relative;
+      z-index: 1;
     }
     .${className} > li ul li a {
       background-color: ${subLinkBgColor};
@@ -298,6 +333,16 @@ export const navigationClass = cssHash(
       padding-top: 6px;
       padding-bottom: 6px;
       height: 32px;
+    }
+
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} > li.active > a > .box {
+        display: none;
+      }
+      .${className} > li.active > a > .round-before,
+      .${className} > li.active > a > .round-after {
+        display: none;
+      }
     }
   `,
 );
