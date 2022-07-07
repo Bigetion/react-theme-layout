@@ -60,7 +60,7 @@ export default function Layout(props) {
         <div className={classNames(sideNavClass)}>
           <div className={classNames(sideNavHeaderClass)}>
             <div className={classNames(sideNavLogoClass)}>
-              <h1>Midone</h1>
+              <span>Midone</span>
             </div>
             <div
               className={classNames(mobileMenuClass)}

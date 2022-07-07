@@ -1,9 +1,5 @@
 import { cssHash } from 'css-hash';
 
-import generateTailwindCss from 'tailwind-css-generator';
-
-generateTailwindCss();
-
 const sidebarWidth = 230;
 const sidebarLogoColor = '#FFF';
 const sidebarLogoBorderBottom = '1px solid #2E51BB';
