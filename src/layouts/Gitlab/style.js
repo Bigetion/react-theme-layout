@@ -88,16 +88,18 @@ export const layoutPageClass = cssHash(
       bottom: 0;
       left: 0;
       background-color: #000000;
-      opacity: 0.4;
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       z-index: 500;
+      transition: all 0.3s;
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
         padding-left: 0px;
       }
       .${className}.expanded-menu .mobile-menu-overlay {
-        display: block;
+        visibility: visible;
+        opacity: 0.4;
       }
     }
   `,
