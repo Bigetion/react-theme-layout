@@ -7,7 +7,7 @@ import { HiChevronDoubleLeft } from 'react-icons/hi';
 
 import {
   layoutPageClass,
-  navbarClass,
+  headerClass,
   sidebarClass,
   sidebarInnerClass,
   sidebarNavigationClass,
@@ -50,7 +50,7 @@ export default function Layout(props) {
 
   return (
     <div>
-      <div className={classNames(navbarClass)}>
+      <div className={classNames(headerClass)}>
         <div className="header-content">
           <div className="mobile-menu">
             <div

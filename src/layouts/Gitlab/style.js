@@ -3,49 +3,50 @@ import { cssHash } from 'css-hash';
 export const mobileWidth = 767;
 export const collapsedWidth = 1200;
 
-const navbarHeight = 60;
-const navbarBgColor = '#292961';
-const navbarColor = '#FFFFFF';
+const headerHeight = 48;
+const headerBgColor = '#292961';
+const headerColor = '#FFFFFF';
 
 const toggleBarBgColor = '#292961';
 const toggleBarColor = '#FFFFFF';
 const toggleBarHoverBgColor = '#4B4B7E';
 const toggleBarHoverColor = '#FFFFFF';
 
-const sidebarWidth = 220;
+const sidebarWidth = 256;
 const sidebarCollapsedWidth = 60;
 const sidebarBgColor = '#F0F0F0';
 const sidebarColor = '#000000';
+const sidebarBorderRight = '1px solid #E9E9E9';
 
 const sidebarToggleBtnHeight = 48;
 const sidebarToggleBtnBgColor = '#F0F0F0';
 const sidebarToggleBtnColor = '#666666';
-const sidebarToggleBtnHoverBgColor = '#DBDBDB';
+const sidebarToggleBtnHoverBgColor = '#E9E9E9';
 const sidebarToggleBtnHoverColor = '#666666';
-const sidebarToggleBtnBorderTop = '1px solid #DBDBDB';
+const sidebarToggleBtnBorderTop = '1px solid #E9E9E9';
 
-export const navbarClass = cssHash(
+export const headerClass = cssHash(
   (className) => `
     .${className} {
-      padding: 0 10px;
+      padding: 0 16px;
       z-index: 1000;
       margin-bottom: 0;
-      min-height: ${navbarHeight}px;
+      min-height: ${headerHeight}px;
       border: 0;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       border-radius: 0;
-      background-color: ${navbarBgColor};
-      color: ${navbarColor};
+      background-color: ${headerBgColor};
+      color: ${headerColor};
     }
     .${className} .header-content {
       width: 100%;
       display: flex;
       align-items: center;
       position: relative;
-      min-height: ${navbarHeight}px;
+      min-height: ${headerHeight}px;
     }
     .${className} .mobile-menu {
       display: none;
@@ -65,6 +66,9 @@ export const navbarClass = cssHash(
       color: ${toggleBarHoverColor};
     }
     @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding: 0 5px;
+      }
       .${className} .mobile-menu {
         display: block;
       }
@@ -113,11 +117,12 @@ export const sidebarClass = cssHash(
       left: 0;
       z-index: 600;
       width: ${sidebarWidth}px;
-      top: ${navbarHeight}px;
+      top: ${headerHeight}px;
       background-color: ${sidebarBgColor};
       color: ${sidebarColor};
       transition: width 0.3s, left 0.3s;
       transform: translate3d(0, 0, 0);
+      border-right: ${sidebarBorderRight};
     }
     .${layoutPageClass}.collapsed .${className} {
       width: ${sidebarCollapsedWidth}px;
@@ -204,7 +209,7 @@ export const layoutContentClass = cssHash(
     .${className} {
       width: 100%;
       padding-bottom: 100px;
-      margin-top: ${navbarHeight}px;
+      margin-top: ${headerHeight}px;
       transition: padding 0.3s;
     }
   `,
