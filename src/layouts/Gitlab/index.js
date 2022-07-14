@@ -12,6 +12,7 @@ import {
   layoutContentClass,
   sidebarToggleBtnClass,
   mobileWidth,
+  collapsedWidth,
 } from './style';
 
 export default function Layout(props) {
@@ -31,9 +32,7 @@ export default function Layout(props) {
   useEffect(() => {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
-      if (windowWidth <= mobileWidth) {
-        setCollapsed(true);
-      }
+      setCollapsed(windowWidth <= collapsedWidth);
       setIsMobile(windowWidth <= mobileWidth);
     };
     resizeListener();
@@ -45,8 +44,17 @@ export default function Layout(props) {
 
   return (
     <div>
-      <div className={classNames(navbarClass)}></div>
-      <div className={classNames(layoutPageClass)}>
+      <div className={classNames(navbarClass)}>
+        <div className="header-content">
+          <div className="brand-logo">Logo</div>
+        </div>
+      </div>
+      <div
+        className={classNames(
+          layoutPageClass,
+          !isMobile && collapsed && 'collapsed-desktop',
+        )}
+      >
         <div
           className={classNames(
             sidebarClass,

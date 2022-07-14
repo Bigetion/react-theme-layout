@@ -1,6 +1,7 @@
 import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
+export const collapsedWidth = 1200;
 
 const navbarHeight = 60;
 const navbarBgColor = '#292961';
@@ -34,6 +35,18 @@ export const navbarClass = cssHash(
       background-color: ${navbarBgColor};
       color: ${navbarColor};
     }
+    .${className} .header-content {
+      width: 100%;
+      display: flex;
+      position: relative;
+      min-height: ${navbarHeight}px;
+      padding-left: 0;
+    }
+    .${className} .brand-logo {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+    }
   `,
 );
 
@@ -53,6 +66,11 @@ export const sidebarClass = cssHash(
     }
     .${className}.collapsed-desktop {
       width: ${sidebarCollapsedWidth}px;
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        left: -${sidebarWidth}px;
+      }
     }
   `,
 );
@@ -120,6 +138,14 @@ export const layoutPageClass = cssHash(
     .${className} {
       padding-left: ${sidebarWidth}px;
       transition: padding-left 0.3s;
+    }
+    .${className}.collapsed-desktop {
+      padding-left: ${sidebarCollapsedWidth}px;
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding-left: 0px;
+      }
     }
   `,
 );
