@@ -7,6 +7,11 @@ const navbarHeight = 60;
 const navbarBgColor = '#292961';
 const navbarColor = '#FFFFFF';
 
+const toggleBarBgColor = '#292961';
+const toggleBarColor = '#FFFFFF';
+const toggleBarHoverBgColor = '#4B4B7E';
+const toggleBarHoverColor = '#FFFFFF';
+
 const sidebarWidth = 220;
 const sidebarCollapsedWidth = 60;
 const sidebarBgColor = '#F0F0F0';
@@ -22,7 +27,7 @@ const sidebarToggleBtnBorderTop = '1px solid #DBDBDB';
 export const navbarClass = cssHash(
   (className) => `
     .${className} {
-      padding: 0 16px;
+      padding: 0 10px;
       z-index: 1000;
       margin-bottom: 0;
       min-height: ${navbarHeight}px;
@@ -38,14 +43,62 @@ export const navbarClass = cssHash(
     .${className} .header-content {
       width: 100%;
       display: flex;
+      align-items: center;
       position: relative;
       min-height: ${navbarHeight}px;
-      padding-left: 0;
     }
-    .${className} .brand-logo {
+    .${className} .mobile-menu {
+      display: none;
+    }
+    .${className} .mobile-menu .toggle-bar {
       display: flex;
       align-items: center;
-      font-size: 20px;
+      padding: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      background-color: ${toggleBarBgColor};
+      color: ${toggleBarColor};
+      border-radius: 5px;
+    }
+    .${className} .mobile-menu .toggle-bar:hover {
+      background-color: ${toggleBarHoverBgColor};
+      color: ${toggleBarHoverColor};
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} .mobile-menu {
+        display: block;
+      }
+    }
+  `,
+);
+
+export const layoutPageClass = cssHash(
+  (className) => `
+    .${className} {
+      padding-left: ${sidebarWidth}px;
+      transition: padding-left 0.3s;
+    }
+    .${className}.collapsed {
+      padding-left: ${sidebarCollapsedWidth}px;
+    }
+    .${className} .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      opacity: 0.4;
+      display: none;
+      z-index: 500;
+    }
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding-left: 0px;
+      }
+      .${className}.expanded-menu .mobile-menu-overlay {
+        display: block;
+      }
     }
   `,
 );
@@ -64,12 +117,15 @@ export const sidebarClass = cssHash(
       transition: width 0.3s, left 0.3s;
       transform: translate3d(0, 0, 0);
     }
-    .${className}.collapsed-desktop {
+    .${layoutPageClass}.collapsed .${className} {
       width: ${sidebarCollapsedWidth}px;
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
         left: -${sidebarWidth}px;
+      }
+      .${layoutPageClass}.expanded-menu .${className} {
+        left: 0;
       }
     }
   `,
@@ -124,27 +180,18 @@ export const sidebarToggleBtnClass = cssHash(
       background-color: ${sidebarToggleBtnHoverBgColor};
       color: ${sidebarToggleBtnHoverColor};
     }
-    .${sidebarClass}.collapsed-desktop .${className} .collapse-icon {
+    .${layoutPageClass}.collapsed .${sidebarClass} .${className} .collapse-icon {
       transform: rotate(180deg);
     }
-    .${sidebarClass}.collapsed-desktop .${className} .collapse-text {
+    .${layoutPageClass}.collapsed .${sidebarClass} .${className} .collapse-text {
       display: none;
     }
-  `,
-);
-
-export const layoutPageClass = cssHash(
-  (className) => `
-    .${className} {
-      padding-left: ${sidebarWidth}px;
-      transition: padding-left 0.3s;
-    }
-    .${className}.collapsed-desktop {
-      padding-left: ${sidebarCollapsedWidth}px;
-    }
     @media screen and (max-width: ${mobileWidth}px) {
-      .${className} {
-        padding-left: 0px;
+      .${className} .collapse-text {
+        display: none;
+      }
+      .${layoutPageClass}.expanded-menu .${className} .collapse-text {
+        display: block;
       }
     }
   `,
