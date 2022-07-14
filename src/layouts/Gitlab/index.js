@@ -89,9 +89,9 @@ export default function Layout(props) {
             >
               <div className="collapse-icon">
                 {isMobile ? (
-                  <CgClose size={20} />
+                  <CgClose size={16} />
                 ) : (
-                  <HiChevronDoubleLeft size={20} />
+                  <HiChevronDoubleLeft size={16} />
                 )}
               </div>
               <div className="collapse-text">

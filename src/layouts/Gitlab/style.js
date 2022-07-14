@@ -1,7 +1,7 @@
 import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
-export const tabletWidth = 1200;
+export const tabletWidth = 1199;
 
 const headerHeight = 48;
 const headerBgColor = '#292961';
@@ -13,7 +13,7 @@ const toggleBarHoverBgColor = '#4B4B7E';
 const toggleBarHoverColor = '#FFFFFF';
 
 const sidebarWidth = 256;
-const sidebarCollapsedWidth = 60;
+const sidebarCollapsedWidth = 56;
 const sidebarBgColor = '#F0F0F0';
 const sidebarColor = '#000000';
 const sidebarBorderRight = '1px solid #E9E9E9';
