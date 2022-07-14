@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
-import Layout from 'layouts/Midone';
+import Layout from 'layouts/Gitlab';
 
 import './app.css';
 
@@ -14,7 +14,7 @@ function PageLayout() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: 2048,
+          height: 1024,
         }}
       >
         Main Content
