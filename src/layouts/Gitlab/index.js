@@ -14,7 +14,7 @@ import {
   layoutContentClass,
   sidebarToggleBtnClass,
   mobileWidth,
-  collapsedWidth,
+  tabletWidth,
 } from './style';
 
 export default function Layout(props) {
@@ -35,7 +35,7 @@ export default function Layout(props) {
   useEffect(() => {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
-      setCollapsed(windowWidth <= collapsedWidth);
+      setCollapsed(windowWidth <= tabletWidth);
       setIsMobile(windowWidth <= mobileWidth);
       if (windowWidth <= mobileWidth) {
         setShowMenu(false);

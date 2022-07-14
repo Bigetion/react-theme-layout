@@ -1,7 +1,7 @@
 import { cssHash } from 'css-hash';
 
 export const mobileWidth = 767;
-export const collapsedWidth = 1200;
+export const tabletWidth = 1200;
 
 const headerHeight = 48;
 const headerBgColor = '#292961';
@@ -96,6 +96,11 @@ export const layoutPageClass = cssHash(
       opacity: 0;
       z-index: 500;
       transition: all 0.3s;
+    }
+    @media screen and (max-width: ${tabletWidth}px) {
+      .${className} {
+        padding-left: ${sidebarCollapsedWidth}px;
+      }
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
