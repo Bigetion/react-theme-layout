@@ -214,12 +214,22 @@ export const sidebarNavigationClass = cssHash(
     .${className} li > a:hover {
       background-color: #E0E0E5;
     }
+    .${className} li .nav-item-icon {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+    }
+    .${className} li .nav-item-name {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .${className} li ul {
       width: 100%;
       list-style: none;
       overflow-y: hidden;
       width: 150px;
-      margin-left: 0.25rem;
+      margin-left: 0.5rem;
       margin-top: 0;
       padding-left: 0;
       padding-right: 0;

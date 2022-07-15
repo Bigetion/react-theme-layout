@@ -1,5 +1,16 @@
+import {
+  AiOutlineFileProtect,
+  AiOutlineProfile,
+  AiOutlineException,
+} from 'react-icons/ai';
+
+import { BiGitBranch } from 'react-icons/bi';
+
+import { FiEdit } from 'react-icons/fi';
+
 const menus = [
   {
+    icon: <AiOutlineFileProtect size={16} />,
     title: 'Project Information',
     children: [
       { title: 'Activity' },
@@ -8,6 +19,7 @@ const menus = [
     ],
   },
   {
+    icon: <AiOutlineProfile size={16} />,
     title: 'Repository',
     children: [
       { title: 'Files' },
@@ -20,6 +32,7 @@ const menus = [
     ],
   },
   {
+    icon: <AiOutlineException size={16} />,
     title: 'Issues',
     children: [
       { title: 'List' },
@@ -28,8 +41,8 @@ const menus = [
       { title: 'Milestones' },
     ],
   },
-  { title: 'Jira' },
-  { title: 'Merge Requests' },
+  { icon: <FiEdit size={15} />, title: 'Jira' },
+  { icon: <BiGitBranch size={16} />, title: 'Merge Requests' },
 ];
 
 export default menus;

@@ -72,7 +72,9 @@ export default function Layout(props) {
               <TiThMenu size={20} />
             </div>
           </div>
-          <div>Logo</div>
+          <div>
+            <b>Logo</b>
+          </div>
         </div>
       </div>
       <div

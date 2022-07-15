@@ -7,7 +7,18 @@ import { sidebarNavigationClass } from './style';
 
 import menus from './menus';
 
-function Item({ title = '', children = [] }) {
+function ItemLink(props) {
+  const { icon, title = '' } = props;
+  return (
+    <a>
+      {icon && <span className="nav-item-icon">{icon}</span>}
+      <span className="nav-item-name">{title}</span>
+    </a>
+  );
+}
+
+function Item(props) {
+  const { children = [] } = props;
   if (children.length > 0) {
     return (
       <Popper
@@ -19,7 +30,7 @@ function Item({ title = '', children = [] }) {
       >
         {(referenceRef, popperRef, { attributes, open }) => (
           <li ref={referenceRef}>
-            <a>{title}</a>
+            <ItemLink {...props} />
             {open && (
               <ul ref={popperRef} {...attributes.popper}>
                 {children.map((item, index) => (
@@ -36,7 +47,7 @@ function Item({ title = '', children = [] }) {
   }
   return (
     <li>
-      <a>{title}</a>
+      <ItemLink {...props} />
     </li>
   );
 }
