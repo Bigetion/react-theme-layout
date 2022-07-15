@@ -6,17 +6,18 @@ import { TiThMenu } from 'react-icons/ti';
 import { HiChevronDoubleLeft } from 'react-icons/hi';
 
 import {
-  layoutPageClass,
-  layoutPageCollapsedClass,
   headerClass,
   headerContentClass,
   toggleBarContainerClass,
   toggleBarClass,
+  layoutPageClass,
+  layoutPageCollapsedClass,
+  layoutPageExpandedClass,
   sidebarClass,
   sidebarInnerClass,
   sidebarNavigationClass,
-  layoutContentClass,
   sidebarToggleBtnClass,
+  layoutContentClass,
   menuOverlayClass,
   menuOverlayExpandedClass,
   mobileWidth,
@@ -68,14 +69,14 @@ export default function Layout(props) {
               <TiThMenu size={20} />
             </div>
           </div>
-          <div className="brand-logo">Logo</div>
+          <div>Logo</div>
         </div>
       </div>
       <div
         className={classNames(
           layoutPageClass,
           !isMobile && collapsed && layoutPageCollapsedClass,
-          isMobile && expanded && 'expanded',
+          isMobile && expanded && layoutPageExpandedClass,
         )}
       >
         <div className={classNames(sidebarClass)}>

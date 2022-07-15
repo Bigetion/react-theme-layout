@@ -122,6 +122,14 @@ export const layoutPageCollapsedClass = cssHash(
   `,
 );
 
+export const layoutPageExpandedClass = cssHash(
+  (className) => `
+    .${layoutPageClass}.${className} {
+      padding-left: 0px;
+    }
+  `,
+);
+
 export const menuOverlayClass = cssHash(
   (className) => `
     .${className} {
@@ -170,7 +178,7 @@ export const sidebarClass = cssHash(
       .${className} {
         left: -${sidebarWidth}px;
       }
-      .${layoutPageClass}.expanded .${className} {
+      .${layoutPageExpandedClass} .${className} {
         left: 0;
       }
     }
@@ -236,7 +244,7 @@ export const sidebarToggleBtnClass = cssHash(
       .${className} .collapse-text {
         display: none;
       }
-      .${layoutPageClass}.expanded .${className} .collapse-text {
+      .${layoutPageExpandedClass} .${className} .collapse-text {
         display: block;
       }
     }
