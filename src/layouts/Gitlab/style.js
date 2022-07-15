@@ -130,32 +130,6 @@ export const layoutPageExpandedClass = cssHash(
   `,
 );
 
-export const menuOverlayClass = cssHash(
-  (className) => `
-    .${className} {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #000000;
-      z-index: 500;
-      transition: all 0.3s;
-      visibility: hidden;
-      opacity: 0;
-    }
-  `,
-);
-
-export const menuOverlayExpandedClass = cssHash(
-  (className) => `
-    .${menuOverlayClass}.${className} {
-      visibility: visible;
-      opacity: 0.4;
-    }
-  `,
-);
-
 export const sidebarClass = cssHash(
   (className) => `
     .${className} {
@@ -247,6 +221,32 @@ export const sidebarToggleBtnClass = cssHash(
       .${layoutPageExpandedClass} .${className} .collapse-text {
         display: block;
       }
+    }
+  `,
+);
+
+export const menuOverlayClass = cssHash(
+  (className) => `
+    .${className} {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      z-index: 500;
+      transition: all 0.3s;
+      visibility: hidden;
+      opacity: 0;
+    }
+  `,
+);
+
+export const menuOverlayExpandedClass = cssHash(
+  (className) => `
+    .${menuOverlayClass}.${className} {
+      visibility: visible;
+      opacity: 0.4;
     }
   `,
 );
