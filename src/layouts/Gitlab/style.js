@@ -104,18 +104,6 @@ export const layoutPageClass = cssHash(
     .${className}.collapsed {
       padding-left: ${sidebarCollapsedWidth}px;
     }
-    .${className} .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #000000;
-      visibility: hidden;
-      opacity: 0;
-      z-index: 500;
-      transition: all 0.3s;
-    }
     @media screen and (max-width: ${tabletWidth}px) {
       .${className} {
         padding-left: ${sidebarCollapsedWidth}px;
@@ -125,10 +113,32 @@ export const layoutPageClass = cssHash(
       .${className} {
         padding-left: 0px;
       }
-      .${className}.expanded .mobile-menu-overlay {
-        visibility: visible;
-        opacity: 0.4;
-      }
+    }
+  `,
+);
+
+export const menuOverlayClass = cssHash(
+  (className) => `
+    .${className} {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000000;
+      z-index: 500;
+      transition: all 0.3s;
+      visibility: hidden;
+      opacity: 0;
+    }
+  `,
+);
+
+export const menuOverlayExpandedClass = cssHash(
+  (className) => `
+    .${className} {
+      visibility: visible;
+      opacity: 0.4;
     }
   `,
 );

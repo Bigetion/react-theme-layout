@@ -16,6 +16,8 @@ import {
   sidebarNavigationClass,
   layoutContentClass,
   sidebarToggleBtnClass,
+  menuOverlayClass,
+  menuOverlayExpandedClass,
   mobileWidth,
   tabletWidth,
 } from './style';
@@ -105,7 +107,10 @@ export default function Layout(props) {
         </div>
         <div className={classNames(layoutContentClass)}>{children}</div>
         <div
-          className="mobile-menu-overlay"
+          className={classNames(
+            menuOverlayClass,
+            expanded && menuOverlayExpandedClass,
+          )}
           onClick={() => {
             setExpanded(false);
           }}
