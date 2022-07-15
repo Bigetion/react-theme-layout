@@ -24,8 +24,8 @@ export default function Layout(props) {
   const { children } = props;
 
   const [collapsed, setCollapsed] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
 
   const getWindowWidth = () => {
     return (
@@ -41,7 +41,7 @@ export default function Layout(props) {
       setCollapsed(windowWidth <= tabletWidth);
       setIsMobile(windowWidth <= mobileWidth);
       if (windowWidth <= mobileWidth) {
-        setShowMenu(false);
+        setExpanded(false);
       }
     };
     resizeListener();
@@ -59,7 +59,7 @@ export default function Layout(props) {
             <div
               className={classNames(toggleBarClass)}
               onClick={() => {
-                setShowMenu(!showMenu);
+                setExpanded(!expanded);
               }}
             >
               <TiThMenu size={20} />
@@ -72,7 +72,7 @@ export default function Layout(props) {
         className={classNames(
           layoutPageClass,
           !isMobile && collapsed && 'collapsed',
-          isMobile && showMenu && 'expanded-menu',
+          isMobile && expanded && 'expanded',
         )}
       >
         <div className={classNames(sidebarClass)}>
@@ -84,7 +84,7 @@ export default function Layout(props) {
               className={classNames(sidebarToggleBtnClass)}
               onClick={() => {
                 if (isMobile) {
-                  setShowMenu(false);
+                  setExpanded(false);
                 } else {
                   setCollapsed(!collapsed);
                 }
@@ -107,7 +107,7 @@ export default function Layout(props) {
         <div
           className="mobile-menu-overlay"
           onClick={() => {
-            setShowMenu(false);
+            setExpanded(false);
           }}
         />
       </div>

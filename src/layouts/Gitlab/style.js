@@ -125,7 +125,7 @@ export const layoutPageClass = cssHash(
       .${className} {
         padding-left: 0px;
       }
-      .${className}.expanded-menu .mobile-menu-overlay {
+      .${className}.expanded .mobile-menu-overlay {
         visibility: visible;
         opacity: 0.4;
       }
@@ -155,7 +155,7 @@ export const sidebarClass = cssHash(
       .${className} {
         left: -${sidebarWidth}px;
       }
-      .${layoutPageClass}.expanded-menu .${className} {
+      .${layoutPageClass}.expanded .${className} {
         left: 0;
       }
     }
@@ -221,7 +221,7 @@ export const sidebarToggleBtnClass = cssHash(
       .${className} .collapse-text {
         display: none;
       }
-      .${layoutPageClass}.expanded-menu .${className} .collapse-text {
+      .${layoutPageClass}.expanded .${className} .collapse-text {
         display: block;
       }
     }
