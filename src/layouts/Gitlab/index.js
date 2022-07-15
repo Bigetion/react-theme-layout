@@ -17,7 +17,6 @@ import {
   layoutPageExpandedClass,
   sidebarClass,
   sidebarInnerClass,
-  sidebarNavigationClass,
   collapseBtnClass,
   collapseIconClass,
   collapseLabelClass,
@@ -25,6 +24,8 @@ import {
   menuOverlayExpandedClass,
   layoutContentClass,
 } from './style';
+
+import Navigation from './Navigation';
 
 export default function Layout(props) {
   const { children } = props;
@@ -83,9 +84,7 @@ export default function Layout(props) {
       >
         <div className={classNames(sidebarClass)}>
           <div className={classNames(sidebarInnerClass)}>
-            <div className={classNames(sidebarNavigationClass)}>
-              <div style={{ width: '100%', height: 720 }}></div>
-            </div>
+            <Navigation />
             <div
               className={classNames(collapseBtnClass)}
               onClick={() => {
