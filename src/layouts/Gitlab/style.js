@@ -41,17 +41,44 @@ export const headerClass = cssHash(
       background-color: ${headerBgColor};
       color: ${headerColor};
     }
-    .${className} .header-content {
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding: 0 5px;
+      }
+    }
+  `,
+);
+
+export const headerContentClass = cssHash(
+  (className) => `
+    .${className} {
       width: 100%;
       display: flex;
       align-items: center;
       position: relative;
       min-height: ${headerHeight}px;
     }
-    .${className} .mobile-menu {
+  `,
+);
+
+export const toggleBarContainerClass = cssHash(
+  (className) => `
+    .${className} {
       display: none;
     }
-    .${className} .mobile-menu .toggle-bar {
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  `,
+);
+
+export const toggleBarClass = cssHash(
+  (className) => `
+    .${className} {
       display: flex;
       align-items: center;
       padding: 10px;
@@ -61,17 +88,9 @@ export const headerClass = cssHash(
       color: ${toggleBarColor};
       border-radius: 5px;
     }
-    .${className} .mobile-menu .toggle-bar:hover {
+    .${className}:hover {
       background-color: ${toggleBarHoverBgColor};
       color: ${toggleBarHoverColor};
-    }
-    @media screen and (max-width: ${mobileWidth}px) {
-      .${className} {
-        padding: 0 5px;
-      }
-      .${className} .mobile-menu {
-        display: block;
-      }
     }
   `,
 );

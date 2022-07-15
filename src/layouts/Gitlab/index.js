@@ -8,6 +8,9 @@ import { HiChevronDoubleLeft } from 'react-icons/hi';
 import {
   layoutPageClass,
   headerClass,
+  headerContentClass,
+  toggleBarContainerClass,
+  toggleBarClass,
   sidebarClass,
   sidebarInnerClass,
   sidebarNavigationClass,
@@ -51,10 +54,10 @@ export default function Layout(props) {
   return (
     <div>
       <div className={classNames(headerClass)}>
-        <div className="header-content">
-          <div className="mobile-menu">
+        <div className={classNames(headerContentClass)}>
+          <div className={classNames(toggleBarContainerClass)}>
             <div
-              className="toggle-bar"
+              className={classNames(toggleBarClass)}
               onClick={() => {
                 setShowMenu(!showMenu);
               }}
