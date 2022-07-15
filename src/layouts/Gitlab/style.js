@@ -179,7 +179,7 @@ export const sidebarNavigationClass = cssHash(
   `,
 );
 
-export const sidebarToggleBtnClass = cssHash(
+export const collapseBtnClass = cssHash(
   (className) => `
     .${className} {
       transition: width 0.3s;
@@ -194,31 +194,41 @@ export const sidebarToggleBtnClass = cssHash(
       width: 100%;
       cursor: pointer;
     }
-    .${className} .collapse-icon {
-      display: flex;
-      align-items: center;
-      margin-left: 16px;
-    }
-    .${className} .collapse-text {
-      margin-left: 10px;
-      white-space: nowrap;
-      font-size: 12px;
-    }
     .${className}:hover {
       background-color: ${sidebarToggleBtnHoverBgColor};
       color: ${sidebarToggleBtnHoverColor};
     }
-    .${layoutPageCollapsedClass} .${sidebarClass} .${className} .collapse-icon {
+  `,
+);
+
+export const collapseIconClass = cssHash(
+  (className) => `
+    .${className} {
+      display: flex;
+      align-items: center;
+      margin-left: 16px;
+    }
+    .${layoutPageCollapsedClass} .${className} {
       transform: rotate(180deg);
     }
-    .${layoutPageCollapsedClass} .${sidebarClass} .${className} .collapse-text {
+  `,
+);
+
+export const collapseLabelClass = cssHash(
+  (className) => `
+    .${className} {
+      margin-left: 10px;
+      white-space: nowrap;
+      font-size: 12px;
+    }
+    .${layoutPageCollapsedClass} .${className} {
       display: none;
     }
     @media screen and (max-width: ${mobileWidth}px) {
-      .${className} .collapse-text {
+      .${className} {
         display: none;
       }
-      .${layoutPageExpandedClass} .${className} .collapse-text {
+      .${layoutPageExpandedClass} .${className} {
         display: block;
       }
     }

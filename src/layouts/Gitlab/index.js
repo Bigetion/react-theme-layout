@@ -6,6 +6,8 @@ import { TiThMenu } from 'react-icons/ti';
 import { HiChevronDoubleLeft } from 'react-icons/hi';
 
 import {
+  mobileWidth,
+  tabletWidth,
   headerClass,
   headerContentClass,
   toggleBarContainerClass,
@@ -16,12 +18,12 @@ import {
   sidebarClass,
   sidebarInnerClass,
   sidebarNavigationClass,
-  sidebarToggleBtnClass,
-  layoutContentClass,
+  collapseBtnClass,
+  collapseIconClass,
+  collapseLabelClass,
   menuOverlayClass,
   menuOverlayExpandedClass,
-  mobileWidth,
-  tabletWidth,
+  layoutContentClass,
 } from './style';
 
 export default function Layout(props) {
@@ -85,7 +87,7 @@ export default function Layout(props) {
               <div style={{ width: '100%', height: 720 }}></div>
             </div>
             <div
-              className={classNames(sidebarToggleBtnClass)}
+              className={classNames(collapseBtnClass)}
               onClick={() => {
                 if (isMobile) {
                   setExpanded(false);
@@ -94,14 +96,14 @@ export default function Layout(props) {
                 }
               }}
             >
-              <div className="collapse-icon">
+              <div className={classNames(collapseIconClass)}>
                 {isMobile ? (
                   <CgClose size={16} />
                 ) : (
                   <HiChevronDoubleLeft size={16} />
                 )}
               </div>
-              <div className="collapse-text">
+              <div className={collapseLabelClass}>
                 {isMobile ? 'Close sidebar' : 'Collapse sidebar'}
               </div>
             </div>
