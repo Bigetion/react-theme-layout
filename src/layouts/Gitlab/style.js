@@ -101,9 +101,6 @@ export const layoutPageClass = cssHash(
       padding-left: ${sidebarWidth}px;
       transition: padding-left 0.3s;
     }
-    .${className}.collapsed {
-      padding-left: ${sidebarCollapsedWidth}px;
-    }
     @media screen and (max-width: ${tabletWidth}px) {
       .${className} {
         padding-left: ${sidebarCollapsedWidth}px;
@@ -113,6 +110,14 @@ export const layoutPageClass = cssHash(
       .${className} {
         padding-left: 0px;
       }
+    }
+  `,
+);
+
+export const layoutPageCollapsedClass = cssHash(
+  (className) => `
+    .${layoutPageClass}.${className} {
+      padding-left: ${sidebarCollapsedWidth}px;
     }
   `,
 );
@@ -136,7 +141,7 @@ export const menuOverlayClass = cssHash(
 
 export const menuOverlayExpandedClass = cssHash(
   (className) => `
-    .${className} {
+    .${menuOverlayClass}.${className} {
       visibility: visible;
       opacity: 0.4;
     }
@@ -158,7 +163,7 @@ export const sidebarClass = cssHash(
       transform: translate3d(0, 0, 0);
       border-right: ${sidebarBorderRight};
     }
-    .${layoutPageClass}.collapsed .${className} {
+    .${layoutPageCollapsedClass} .${className} {
       width: ${sidebarCollapsedWidth}px;
     }
     @media screen and (max-width: ${mobileWidth}px) {
@@ -221,10 +226,10 @@ export const sidebarToggleBtnClass = cssHash(
       background-color: ${sidebarToggleBtnHoverBgColor};
       color: ${sidebarToggleBtnHoverColor};
     }
-    .${layoutPageClass}.collapsed .${sidebarClass} .${className} .collapse-icon {
+    .${layoutPageCollapsedClass} .${sidebarClass} .${className} .collapse-icon {
       transform: rotate(180deg);
     }
-    .${layoutPageClass}.collapsed .${sidebarClass} .${className} .collapse-text {
+    .${layoutPageCollapsedClass} .${sidebarClass} .${className} .collapse-text {
       display: none;
     }
     @media screen and (max-width: ${mobileWidth}px) {

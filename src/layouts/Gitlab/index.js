@@ -7,6 +7,7 @@ import { HiChevronDoubleLeft } from 'react-icons/hi';
 
 import {
   layoutPageClass,
+  layoutPageCollapsedClass,
   headerClass,
   headerContentClass,
   toggleBarContainerClass,
@@ -73,7 +74,7 @@ export default function Layout(props) {
       <div
         className={classNames(
           layoutPageClass,
-          !isMobile && collapsed && 'collapsed',
+          !isMobile && collapsed && layoutPageCollapsedClass,
           isMobile && expanded && 'expanded',
         )}
       >
