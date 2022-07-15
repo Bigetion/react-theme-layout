@@ -12,11 +12,27 @@ const toggleBarColor = '#FFFFFF';
 const toggleBarHoverBgColor = '#4B4B7E';
 const toggleBarHoverColor = '#FFFFFF';
 
-const sidebarWidth = 220;
+const sidebarWidth = 256;
 const sidebarCollapsedWidth = 56;
 const sidebarBgColor = '#F0F0F0';
 const sidebarColor = '#000000';
 const sidebarBorderRight = '1px solid #E9E9E9';
+
+const menuItemBgColor = '#F0F0F0';
+const menuItemColor = '#000';
+const menuItemHoverBgColor = '#E5E5EA';
+const menuItemHoverColor = '#000';
+const menuItemActiveBgColor = '#E5E5EA';
+const menuItemActiveColor = '#000';
+
+const subItemContainerWidth = 150;
+const subItemContainerBgColor = '#F5F5F5';
+const subItemBgColor = '#F5F5F5';
+const subItemColor = '#000';
+const subItemHoverBgColor = '#E5E5EA';
+const subItemHoverColor = '#000';
+const subItemActiveBgColor = '#E5E5EA';
+const subItemActiveColor = '#000';
 
 const sidebarToggleBtnHeight = 48;
 const sidebarToggleBtnBgColor = '#F0F0F0';
@@ -205,9 +221,16 @@ export const sidebarNavigationClass = cssHash(
       transition: none;
       margin: 1px 4px;
       font-size: 0.875rem;
+      background-color: ${menuItemBgColor};
+      color: ${menuItemColor};
     }
     .${className} li > a:hover {
-      background-color: #E0E0E5;
+      background-color: ${menuItemHoverBgColor};
+      color: ${menuItemHoverColor};
+    }
+    .${className} li.active > a {
+      background-color: ${menuItemActiveBgColor};
+      color: ${menuItemActiveColor};
     }
     .${className} li .nav-item-icon {
       display: flex;
@@ -219,6 +242,9 @@ export const sidebarNavigationClass = cssHash(
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .${layoutPageCollapsedClass} .${className} li .nav-item-name {
+      opacity: 0;
+    }
     .${className} li .sub-menu {
       padding-left: 0.5rem;
     }
@@ -226,13 +252,25 @@ export const sidebarNavigationClass = cssHash(
       width: 100%;
       list-style: none;
       overflow-y: hidden;
-      width: 150px;
+      width: ${subItemContainerWidth}px;
       margin: 0;
-      padding: 0 0.25rem;
-      background-color: #fafafa;
+      padding: 0.25rem 0.1rem;
+      background-color: ${subItemContainerBgColor};
       box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 24%), 0 0 0.125rem rgb(0 0 0 / 24%);
       border-style: none;
       border-radius: 4px;
+    }
+    .${className} li ul li > a {
+      background-color: ${subItemBgColor};
+      color: ${subItemColor};
+    }
+    .${className} li ul li > a:hover {
+      background-color: ${subItemHoverBgColor};
+      color: ${subItemHoverColor};
+    }
+    .${className} li ul li.active > a {
+      background-color: ${subItemActiveBgColor};
+      color: ${subItemActiveColor};
     }
   `,
 );

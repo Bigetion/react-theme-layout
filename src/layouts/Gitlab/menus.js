@@ -4,7 +4,8 @@ import {
   AiOutlineException,
 } from 'react-icons/ai';
 
-import { BiGitBranch } from 'react-icons/bi';
+import { BiGitBranch, BiRocket } from 'react-icons/bi';
+import { BsShieldCheck } from 'react-icons/bs';
 
 import { FiEdit } from 'react-icons/fi';
 
@@ -43,6 +44,25 @@ const menus = [
   },
   { icon: <FiEdit size={15} />, title: 'Jira' },
   { icon: <BiGitBranch size={16} />, title: 'Merge Requests' },
+  {
+    icon: <BiRocket size={16} />,
+    title: 'CI/CD',
+    children: [
+      { title: 'Pipelines' },
+      { title: 'Editor' },
+      { title: 'Jobs' },
+      { title: 'Schedules' },
+    ],
+  },
+  {
+    icon: <BsShieldCheck size={16} />,
+    title: 'Security & Complience',
+    children: [
+      { title: 'Discover' },
+      { title: 'Audit Events' },
+      { title: 'Configuration' },
+    ],
+  },
 ];
 
 export default menus;
