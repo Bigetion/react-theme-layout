@@ -175,8 +175,6 @@ export const sidebarNavigationClass = cssHash(
     .${className} {
       position: relative;
       width: 100%;
-      position: relative;
-      margin: 0px;
       padding: 0px;
       float: left;
       list-style: none;
@@ -198,10 +196,7 @@ export const sidebarNavigationClass = cssHash(
       white-space: nowrap;
     }
     .${className} li > a {
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      padding: 0.5rem 0.75rem;
       display: flex;
       align-items: center;
       border-radius: 0.25rem;
@@ -224,17 +219,16 @@ export const sidebarNavigationClass = cssHash(
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .${className} li .sub-menu {
+      padding-left: 0.5rem;
+    }
     .${className} li ul {
       width: 100%;
       list-style: none;
       overflow-y: hidden;
       width: 150px;
-      margin-left: 0.5rem;
-      margin-top: 0;
-      padding-left: 0;
-      padding-right: 0;
-      padding-bottom: 0.25rem;
-      padding-top: 0.25rem;
+      margin: 0;
+      padding: 0 0.25rem;
       background-color: #fafafa;
       box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 24%), 0 0 0.125rem rgb(0 0 0 / 24%);
       border-style: none;

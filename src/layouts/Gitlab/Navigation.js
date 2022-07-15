@@ -32,13 +32,15 @@ function Item(props) {
           <li ref={referenceRef}>
             <ItemLink {...props} />
             {open && (
-              <ul ref={popperRef} {...attributes.popper}>
-                {children.map((item, index) => (
-                  <li key={index}>
-                    <a>{item.title}</a>
-                  </li>
-                ))}
-              </ul>
+              <div ref={popperRef} {...attributes.popper} className="sub-menu">
+                <ul>
+                  {children.map((item, index) => (
+                    <li key={index}>
+                      <a>{item.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </li>
         )}
