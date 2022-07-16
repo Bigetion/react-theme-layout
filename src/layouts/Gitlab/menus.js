@@ -7,8 +7,6 @@ import {
 import { BiGitBranch, BiRocket } from 'react-icons/bi';
 import { BsShieldCheck } from 'react-icons/bs';
 
-import { FiEdit } from 'react-icons/fi';
-
 const menus = [
   {
     icon: <AiOutlineFileProtect size={16} />,
