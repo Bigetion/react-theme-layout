@@ -41,12 +41,17 @@ function ItemLink(props) {
 }
 
 function MultiItem(props) {
-  const { children = [] } = props;
+  const { title, children = [], showHeader } = props;
 
   const { activeMenuId } = useContext(NavigationContext);
 
   return (
     <ul>
+      {showHeader && (
+        <li>
+          <div className="popup-header">{title}</div>
+        </li>
+      )}
       {children.map((item, index) => {
         const isActiveItem = activeMenuId.indexOf(item.menu_id) >= 0;
         return (
@@ -87,7 +92,7 @@ function Item(props) {
                 {...attributes.popper}
                 className="popup-menu"
               >
-                <MultiItem {...props} />
+                <MultiItem {...props} showHeader={collapsed} />
               </div>
             )}
             {isActiveItem && !collapsed && (

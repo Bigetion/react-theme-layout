@@ -25,7 +25,7 @@ const menuItemHoverColor = '#000';
 const menuItemActiveBgColor = '#E5E5EA';
 const menuItemActiveColor = '#000';
 
-const subItemContainerWidth = 150;
+const subItemContainerWidth = 200;
 const subItemContainerBgColor = '#F5F5F5';
 const subItemBgColor = '#F5F5F5';
 const subItemColor = '#000';
@@ -33,6 +33,8 @@ const subItemHoverBgColor = '#E5E5EA';
 const subItemHoverColor = '#000';
 const subItemActiveBgColor = '#E5E5EA';
 const subItemActiveColor = '#000';
+const subItemHeaderBgColor = '#F0F0F0';
+const subItemHeaderColor = '#000';
 
 const sidebarToggleBtnHeight = 48;
 const sidebarToggleBtnBgColor = '#F0F0F0';
@@ -258,12 +260,27 @@ export const sidebarNavigationClass = cssHash(
     .${className} li .popup-menu {
       padding-left: 0.5rem;
       display: inline-block;
-      min-width: ${subItemContainerWidth}px;
+      width: ${subItemContainerWidth}px;
+    }
+    .${className} li .popup-menu li .popup-header {
+      margin-top: -0.25rem;
+      margin-left: -0.1rem;
+      margin-bottom: 0.2rem;
+      width: calc(100% + 0.2rem);
+      padding: 0.5rem 1rem;
+      cursor: default;
+      pointer-events: none;
+      font-size: 0.75rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      font-weight: 600;
+      background-color: ${subItemHeaderBgColor};
+      color: ${subItemHeaderColor};
     }
     .${className} li ul {
       width: 100%;
       list-style: none;
-      overflow-y: hidden;
+      overflow: hidden;
       margin: 0;
       padding: 0.25rem 0.1rem;
       background-color: ${subItemContainerBgColor};

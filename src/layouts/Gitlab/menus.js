@@ -42,7 +42,6 @@ const menus = [
       { title: 'Milestones' },
     ],
   },
-  { icon: <FiEdit size={15} />, title: 'Jira' },
   { icon: <BiGitBranch size={16} />, title: 'Merge Requests' },
   {
     icon: <BiRocket size={16} />,
