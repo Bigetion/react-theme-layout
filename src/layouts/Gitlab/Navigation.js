@@ -69,7 +69,10 @@ function Item(props) {
 
   const { collapsed, isMobile, activeMenuId } = useContext(NavigationContext);
 
-  const isActiveItem = activeMenuId.indexOf(menu_id) >= 0;
+  let isActiveItem = activeMenuId.indexOf(menu_id) >= 0;
+  if (children.length > 0) {
+    isActiveItem = activeMenuId.indexOf(`${menu_id}_`) >= 0;
+  }
 
   return (
     <Popper
