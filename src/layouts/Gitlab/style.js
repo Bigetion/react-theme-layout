@@ -22,8 +22,6 @@ const menuItemBgColor = '#F0F0F0';
 const menuItemColor = '#000';
 const menuItemHoverBgColor = '#E5E5EA';
 const menuItemHoverColor = '#000';
-const menuItemActiveBgColor = '#E5E5EA';
-const menuItemActiveColor = '#000';
 
 const subItemContainerWidth = 150;
 const subItemContainerBgColor = '#F5F5F5';
@@ -211,6 +209,9 @@ export const sidebarNavigationClass = cssHash(
       cursor: pointer;
       white-space: nowrap;
     }
+    .${className} li a {
+      text-decoration: none;
+    }
     .${className} li > a {
       padding: 0.5rem 0.75rem;
       display: flex;
@@ -229,13 +230,13 @@ export const sidebarNavigationClass = cssHash(
       color: ${menuItemHoverColor};
     }
     .${className} li.active > a {
-      background-color: ${menuItemActiveBgColor};
-      color: ${menuItemActiveColor};
+      font-weight: 600;
     }
     .${className} li .nav-item-icon {
       display: flex;
       align-items: center;
       margin-right: 8px;
+      width: 16px;
     }
     .${className} li .nav-item-name {
       flex: 1;
@@ -245,14 +246,14 @@ export const sidebarNavigationClass = cssHash(
     .${layoutPageCollapsedClass} .${className} li .nav-item-name {
       opacity: 0;
     }
-    .${className} li .sub-menu {
+    .${className} li .popup-menu {
       padding-left: 0.5rem;
+      width: ${subItemContainerWidth}px;
     }
     .${className} li ul {
       width: 100%;
       list-style: none;
       overflow-y: hidden;
-      width: ${subItemContainerWidth}px;
       margin: 0;
       padding: 0.25rem 0.1rem;
       background-color: ${subItemContainerBgColor};
@@ -260,17 +261,27 @@ export const sidebarNavigationClass = cssHash(
       border-style: none;
       border-radius: 4px;
     }
+    .${className} li.active ul {
+      background-color: ${sidebarBgColor};
+      box-shadow: none;
+    }
     .${className} li ul li > a {
       background-color: ${subItemBgColor};
       color: ${subItemColor};
     }
-    .${className} li ul li > a:hover {
+    .${className} li ul li > a:hover,
+    .${className} li.active ul li > a:hover {
       background-color: ${subItemHoverBgColor};
       color: ${subItemHoverColor};
+    }
+    .${className} li.active ul li > a {
+      background-color: ${sidebarBgColor};
+      padding-left: 2.25rem;
     }
     .${className} li ul li.active > a {
       background-color: ${subItemActiveBgColor};
       color: ${subItemActiveColor};
+      font-weight: 600;
     }
   `,
 );

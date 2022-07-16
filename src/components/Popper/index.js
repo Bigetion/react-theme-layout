@@ -101,7 +101,7 @@ function Popper(props) {
     setReferenceElement,
     setPopperElement,
     Object.assign({}, popper, {
-      open: isOpen || isHover || open,
+      open: (hovered ? false : isOpen) || isHover || open,
       attributes,
       referenceElement,
       popperElement,

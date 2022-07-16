@@ -27,6 +27,8 @@ import {
 
 import Navigation from './Navigation';
 
+import menus from './menus';
+
 export default function Layout(props) {
   const { children } = props;
 
@@ -86,7 +88,14 @@ export default function Layout(props) {
       >
         <div className={classNames(sidebarClass)}>
           <div className={classNames(sidebarInnerClass)}>
-            <Navigation />
+            <Navigation
+              menus={menus}
+              collapsed={collapsed}
+              expanded={expanded}
+              isMobile={isMobile}
+              pathName=""
+              pathkey="menu_id"
+            />
             <div
               className={classNames(collapseBtnClass)}
               onClick={() => {
