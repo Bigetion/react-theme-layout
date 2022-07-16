@@ -24,6 +24,8 @@ const menuItemHoverBgColor = '#E5E5EA';
 const menuItemHoverColor = '#000';
 const menuItemActiveBgColor = '#E5E5EA';
 const menuItemActiveColor = '#000';
+const menuItemTooltipBgColor = '#000';
+const menuItemTooltipColor = '#FFF';
 
 const subItemContainerWidth = 200;
 const subItemContainerBgColor = '#F5F5F5';
@@ -75,6 +77,15 @@ export const headerContentClass = cssHash(
       align-items: center;
       position: relative;
       min-height: ${headerHeight}px;
+    }
+  `,
+);
+
+export const brandLogoClass = cssHash(
+  (className) => `
+    .${className} {
+      display: flex;
+      align-items: center;
     }
   `,
 );
@@ -276,6 +287,15 @@ export const sidebarNavigationClass = cssHash(
       font-weight: 600;
       background-color: ${subItemHeaderBgColor};
       color: ${subItemHeaderColor};
+    }
+    .${className} li .popup-menu.popup-tooltip ul {
+      padding-bottom: 0;
+    }
+    .${className} li .popup-menu.popup-tooltip ul li,
+    .${className} li .popup-menu.popup-tooltip .popup-header {
+      margin-bottom: 0;
+      background-color: ${menuItemTooltipBgColor};
+      color: ${menuItemTooltipColor};
     }
     .${className} li ul {
       width: 100%;

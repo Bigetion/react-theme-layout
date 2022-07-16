@@ -4,12 +4,14 @@ import { classNames } from 'css-hash';
 import { CgClose } from 'react-icons/cg';
 import { TiThMenu } from 'react-icons/ti';
 import { HiChevronDoubleLeft } from 'react-icons/hi';
+import { FiGitlab } from 'react-icons/fi';
 
 import {
   mobileWidth,
   tabletWidth,
   headerClass,
   headerContentClass,
+  brandLogoClass,
   toggleBarContainerClass,
   toggleBarClass,
   layoutPageClass,
@@ -74,8 +76,8 @@ export default function Layout(props) {
               <TiThMenu size={20} />
             </div>
           </div>
-          <div>
-            <b>Logo</b>
+          <div className={classNames(brandLogoClass)}>
+            <FiGitlab size={26} />
           </div>
         </div>
       </div>

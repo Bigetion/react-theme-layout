@@ -65,50 +65,61 @@ function MultiItem(props) {
 }
 
 function Item(props) {
-  const { children = [], menu_id } = props;
+  const { title, children = [], menu_id } = props;
 
   const { collapsed, isMobile, activeMenuId } = useContext(NavigationContext);
 
   const isActiveItem = activeMenuId.indexOf(menu_id) >= 0;
 
-  if (children.length > 0) {
-    return (
-      <Popper
-        hovered
-        options={{
-          placement: 'right-start',
-          strategy: 'fixed',
-        }}
-      >
-        {(referenceRef, popperRef, { attributes, open }) => (
-          <li
-            ref={referenceRef}
-            className={classNames(isActiveItem && 'active')}
-          >
-            <ItemLink {...props} />
-            {open && (collapsed || !isActiveItem) && !isMobile && (
-              <div
-                ref={popperRef}
-                {...attributes.popper}
-                className="popup-menu"
-              >
-                <MultiItem {...props} showHeader={collapsed} />
-              </div>
-            )}
-            {isActiveItem && !collapsed && (
-              <div className="sub-menu">
-                <MultiItem {...props} />
-              </div>
-            )}
-          </li>
-        )}
-      </Popper>
-    );
-  }
   return (
-    <li className={classNames(isActiveItem && 'active')}>
-      <ItemLink {...props} />
-    </li>
+    <Popper
+      hovered
+      options={{
+        placement: 'right-start',
+        strategy: 'fixed',
+      }}
+    >
+      {(referenceRef, popperRef, { attributes, open }) => (
+        <li ref={referenceRef} className={classNames(isActiveItem && 'active')}>
+          <ItemLink {...props} />
+          {children.length === 0 && (
+            <React.Fragment>
+              {open && collapsed && (
+                <div
+                  ref={popperRef}
+                  {...attributes.popper}
+                  className="popup-menu popup-tooltip"
+                >
+                  <ul>
+                    <li>
+                      <div className="popup-header">{title}</div>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </React.Fragment>
+          )}
+          {children.length > 0 && (
+            <React.Fragment>
+              {open && (collapsed || !isActiveItem) && !isMobile && (
+                <div
+                  ref={popperRef}
+                  {...attributes.popper}
+                  className="popup-menu"
+                >
+                  <MultiItem {...props} showHeader={collapsed} />
+                </div>
+              )}
+              {isActiveItem && !collapsed && (
+                <div className="sub-menu">
+                  <MultiItem {...props} />
+                </div>
+              )}
+            </React.Fragment>
+          )}
+        </li>
+      )}
+    </Popper>
   );
 }
 
