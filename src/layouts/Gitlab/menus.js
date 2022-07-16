@@ -102,7 +102,7 @@ const menus = [
     ],
   },
   {
-    icon: <AiOutlineAreaChart AiOutlineDeploymentUnitsize={16} />,
+    icon: <AiOutlineAreaChart size={16} />,
     title: 'Analytics',
     children: [
       { title: 'Value Stream' },

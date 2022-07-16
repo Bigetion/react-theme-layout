@@ -87,7 +87,7 @@ function Item(props) {
           <ItemLink {...props} />
           {children.length === 0 && (
             <React.Fragment>
-              {open && collapsed && (
+              {open && collapsed && !isMobile && (
                 <div
                   ref={popperRef}
                   {...attributes.popper}

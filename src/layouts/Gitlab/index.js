@@ -49,10 +49,12 @@ export default function Layout(props) {
   useEffect(() => {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
-      setCollapsed(windowWidth <= tabletWidth);
       setIsMobile(windowWidth <= mobileWidth);
       if (windowWidth <= mobileWidth) {
         setExpanded(false);
+        setCollapsed(false);
+      } else {
+        setCollapsed(windowWidth <= tabletWidth);
       }
     };
     resizeListener();
