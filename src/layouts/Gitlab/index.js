@@ -91,7 +91,6 @@ export default function Layout(props) {
             <Navigation
               menus={menus}
               collapsed={collapsed}
-              expanded={expanded}
               isMobile={isMobile}
               pathName=""
               pathkey="menu_id"

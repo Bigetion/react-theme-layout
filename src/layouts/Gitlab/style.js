@@ -5,23 +5,25 @@ export const tabletWidth = 1199;
 
 const headerHeight = 48;
 const headerBgColor = '#292961';
-const headerColor = '#FFFFFF';
+const headerColor = '#FFF';
 
 const toggleBarBgColor = '#292961';
-const toggleBarColor = '#FFFFFF';
+const toggleBarColor = '#FFF';
 const toggleBarHoverBgColor = '#4B4B7E';
-const toggleBarHoverColor = '#FFFFFF';
+const toggleBarHoverColor = '#FFF';
 
 const sidebarWidth = 256;
 const sidebarCollapsedWidth = 56;
 const sidebarBgColor = '#F0F0F0';
-const sidebarColor = '#000000';
+const sidebarColor = '#000';
 const sidebarBorderRight = '1px solid #E9E9E9';
 
 const menuItemBgColor = '#F0F0F0';
 const menuItemColor = '#000';
 const menuItemHoverBgColor = '#E5E5EA';
 const menuItemHoverColor = '#000';
+const menuItemActiveBgColor = '#E5E5EA';
+const menuItemActiveColor = '#000';
 
 const subItemContainerWidth = 150;
 const subItemContainerBgColor = '#F5F5F5';
@@ -34,9 +36,9 @@ const subItemActiveColor = '#000';
 
 const sidebarToggleBtnHeight = 48;
 const sidebarToggleBtnBgColor = '#F0F0F0';
-const sidebarToggleBtnColor = '#666666';
+const sidebarToggleBtnColor = '#666';
 const sidebarToggleBtnHoverBgColor = '#E9E9E9';
-const sidebarToggleBtnHoverColor = '#666666';
+const sidebarToggleBtnHoverColor = '#666';
 const sidebarToggleBtnBorderTop = '1px solid #E9E9E9';
 
 export const headerClass = cssHash(
@@ -122,7 +124,7 @@ export const layoutPageClass = cssHash(
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
-        padding-left: 0px;
+        padding-left: 0;
       }
     }
   `,
@@ -139,7 +141,7 @@ export const layoutPageCollapsedClass = cssHash(
 export const layoutPageExpandedClass = cssHash(
   (className) => `
     .${layoutPageClass}.${className} {
-      padding-left: 0px;
+      padding-left: 0;
     }
   `,
 );
@@ -189,7 +191,7 @@ export const sidebarNavigationClass = cssHash(
     .${className} {
       position: relative;
       width: 100%;
-      padding: 0px;
+      padding: 0;
       float: left;
       list-style: none;
       margin-bottom: ${sidebarToggleBtnHeight}px;
@@ -232,11 +234,18 @@ export const sidebarNavigationClass = cssHash(
     .${className} li.active > a {
       font-weight: 600;
     }
+    .${layoutPageCollapsedClass} .${className} li.active > a {
+      background-color: ${menuItemActiveBgColor};
+      color: ${menuItemActiveColor};
+    }
     .${className} li .nav-item-icon {
       display: flex;
       align-items: center;
       margin-right: 8px;
       width: 16px;
+    }
+    .${layoutPageCollapsedClass} .${className} li .nav-item-icon {
+      margin-right: 0;
     }
     .${className} li .nav-item-name {
       flex: 1;
@@ -248,7 +257,8 @@ export const sidebarNavigationClass = cssHash(
     }
     .${className} li .popup-menu {
       padding-left: 0.5rem;
-      width: ${subItemContainerWidth}px;
+      display: inline-block;
+      min-width: ${subItemContainerWidth}px;
     }
     .${className} li ul {
       width: 100%;
@@ -261,7 +271,7 @@ export const sidebarNavigationClass = cssHash(
       border-style: none;
       border-radius: 4px;
     }
-    .${className} li.active ul {
+    .${className} li.active .sub-menu ul {
       background-color: ${sidebarBgColor};
       box-shadow: none;
     }
@@ -270,11 +280,11 @@ export const sidebarNavigationClass = cssHash(
       color: ${subItemColor};
     }
     .${className} li ul li > a:hover,
-    .${className} li.active ul li > a:hover {
+    .${className} li.active .sub-menu ul li > a:hover {
       background-color: ${subItemHoverBgColor};
       color: ${subItemHoverColor};
     }
-    .${className} li.active ul li > a {
+    .${className} li.active .sub-menu ul li > a {
       background-color: ${sidebarBgColor};
       padding-left: 2.25rem;
     }
@@ -350,7 +360,7 @@ export const menuOverlayClass = cssHash(
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: #000000;
+      background-color: #000;
       z-index: 500;
       transition: all 0.3s;
       visibility: hidden;

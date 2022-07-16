@@ -62,7 +62,7 @@ function MultiItem(props) {
 function Item(props) {
   const { children = [], menu_id } = props;
 
-  const { activeMenuId } = useContext(NavigationContext);
+  const { collapsed, isMobile, activeMenuId } = useContext(NavigationContext);
 
   const isActiveItem = activeMenuId.indexOf(menu_id) >= 0;
 
@@ -81,7 +81,7 @@ function Item(props) {
             className={classNames(isActiveItem && 'active')}
           >
             <ItemLink {...props} />
-            {open && !isActiveItem && (
+            {open && (collapsed || !isActiveItem) && !isMobile && (
               <div
                 ref={popperRef}
                 {...attributes.popper}
@@ -90,7 +90,11 @@ function Item(props) {
                 <MultiItem {...props} />
               </div>
             )}
-            {isActiveItem && <MultiItem {...props} />}
+            {isActiveItem && !collapsed && (
+              <div className="sub-menu">
+                <MultiItem {...props} />
+              </div>
+            )}
           </li>
         )}
       </Popper>
@@ -127,7 +131,7 @@ const addMenuIndex = (parentId = '', levelIndex, items = [], callback) => {
 };
 
 export default function Navigation(props) {
-  const { menus = [], collapsed, expanded, isMobile, pathkey } = props;
+  const { menus = [], collapsed, isMobile, pathkey } = props;
 
   const { pathname } = useParams();
 
@@ -153,7 +157,7 @@ export default function Navigation(props) {
 
   return (
     <NavigationContext.Provider
-      value={{ collapsed, expanded, isMobile, pathkey, activeMenuId }}
+      value={{ collapsed, isMobile, pathkey, activeMenuId }}
     >
       <ul className={classNames(sidebarNavigationClass)}>
         {menusWithMenuId.map((item, index) => (
