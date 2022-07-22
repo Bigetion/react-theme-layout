@@ -297,6 +297,20 @@ export const sidebarNavigationClass = cssHash(
       background-color: ${menuItemTooltipBgColor};
       color: ${menuItemTooltipColor};
     }
+    .${className} li .popup-menu.popup-tooltip .tooltip-triangle {
+      position: absolute;
+      content: '';
+      display: block;
+      top: 50%;
+      left: 0.25rem;
+      margin-top: -0.25rem;
+      width: 0;
+      height: 0;
+      border-top: 0.25rem solid transparent;
+      border-bottom: 0.25rem solid transparent;
+      border-right: 0.25rem solid ${menuItemTooltipBgColor};
+      border-right-color: var(--black, ${menuItemTooltipBgColor});
+    }
     .${className} li ul {
       width: 100%;
       list-style: none;

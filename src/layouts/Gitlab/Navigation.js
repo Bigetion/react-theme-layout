@@ -93,6 +93,7 @@ function Item(props) {
                   {...attributes.popper}
                   className="popup-menu popup-tooltip"
                 >
+                  <span className="tooltip-triangle" />
                   <ul>
                     <li>
                       <div className="popup-header">{title}</div>
