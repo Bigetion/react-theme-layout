@@ -361,35 +361,6 @@ export const navigationClass = cssHash(
       color: ${subLinkActiveColor};
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
-    .${className}-lg > li > a,
-    .${className}-lg > li > a > .navigation-title {
-      padding-top: 14px;
-      padding-bottom: 14px;
-      height: 48px;
-    }
-    .${className}-lg > li ul li a,
-    .${className}-sm > li > a,
-    .${className}-sm > li > a > .navigation-title {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      height: 40px;
-    }
-    .${className}-sm > li ul li a {
-      padding-top: 6px;
-      padding-bottom: 6px;
-      height: 32px;
-    }
-    .${className}-xs > li > a,
-    .${className}-xs > li > a > .navigation-title {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      height: 36px;
-    }
-    .${className}-xs > li ul li a {
-      padding-top: 6px;
-      padding-bottom: 6px;
-      height: 32px;
-    }
   `,
 );
 
@@ -500,18 +471,6 @@ export const navigationCollapsedClass = cssHash(
     }
     .${className} .${navigationClass} > li > ul > li > ul > li > ul > li > a {
       padding-left: 60px;
-    }
-    
-    @media (min-width: ${mobileWidth}px) {
-      .${className} .${navigationClass}-lg > li > ul {
-        top: 48px;
-      }
-      .${className} .${navigationClass}-sm > li > ul {
-        top: 40px;
-      }
-      .${className} .${navigationClass}-xs > li > ul {
-        top: 36px;
-      }
     }
   `,
 );
