@@ -30,8 +30,7 @@ function Item(props) {
   if (type === 'navigation-header') {
     return (
       <li className="navigation-header">
-        <span className="navigation-title">{title}</span>{' '}
-        {icon && <IconContainer icon={icon} />}
+        <div className="navigation-title">{title}</div>
       </li>
     );
   }
@@ -45,7 +44,10 @@ function Item(props) {
     >
       <a>
         {icon && <IconContainer className="menu-icon" icon={icon} />}
-        <span className="navigation-title">{title}</span>
+        <div className="navigation-title">
+          {icon && <IconContainer className="menu-icon" icon={icon} />}
+          <div>{title}</div>
+        </div>
       </a>
     </li>
   );
@@ -101,7 +103,10 @@ function MultiItem(props) {
     >
       <a className="has-sub">
         {icon && <IconContainer className="menu-icon" icon={icon} />}
-        <span className="navigation-title">{title}</span>
+        <div className="navigation-title">
+          {icon && <IconContainer className="menu-icon" icon={icon} />}
+          <div>{title}</div>
+        </div>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <IconContainer

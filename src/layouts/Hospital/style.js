@@ -274,14 +274,14 @@ export const navigationClass = cssHash(
       color: ${linkHoverColor};
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
-    .${className} li a > .menu-icon {
+    .${className} li a > .menu-icon,
+    .${className} li a > .navigation-title .menu-icon {
       float: left;
       top: 0;
       margin-right: 15px;
     }
-    .${className} li a > .menu-icon.pull-right {
-      margin-right: 0;
-      margin-left: 15px;
+    .${className} li a > .navigation-title .menu-icon {
+      display: none;
     }
     .${className} li.disabled > a,
     .${className} li.disabled > a:focus,
@@ -323,12 +323,6 @@ export const navigationClass = cssHash(
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
     .${className} > li.active > a > [class*='text-'] {
-      color: ${linkActiveColor};
-    }
-    .${className} > li.active > a .badge,
-    .${className} > li.active > a .label {
-      background-color: transparent;
-      border-color: transparent;
       color: ${linkActiveColor};
     }
     .${className} > li ul {
@@ -380,28 +374,17 @@ export const navigationClass = cssHash(
       font-size: 11px;
       line-height: 1.82;
     }
-    .${className} .navigation-header > span {
+    .${className} .navigation-header > .navigation-title {
       display: block;
       margin-top: 2px;
     }
     .${className} .navigation-header > .header-icon {
       display: none;
     }
-    .${className} .navigation-header > .header-icon.pull-right {
-      margin-top: 2px;
-    }
-    .${className}-bordered li + .navigation-header,
-    .${className}-bordered > li + li {
-      margin-top: 0;
-    }
     .${className} .navigation-header,
     .${className} .navigation-header a {
       color: rgba(255, 255, 255, 0.5);
       font-weight: 400;
-    }
-    .multiselect-container > li > a.multiselect-all label,
-    .val-demo > span {
-      font-weight: 500;
     }
     .${className} .navigation-header a:focus,
     .${className} .navigation-header a:hover {
@@ -411,37 +394,15 @@ export const navigationClass = cssHash(
       float: none;
       margin: 0;
     }
-    .${className} .badge,
-    .${className} .label {
-      float: right;
-    }
-    .${className}-icons-right > li > a,
-    .${className}-icons-right > li > a.has-sub {
-      padding-right: 20px;
-    }
-    .${className}-icons-right > li > a > .menu-icon {
-      float: right;
-      margin-right: 0;
-      margin-left: 15px;
-    }
-    .${className}-bordered > li {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .${className}-bordered > li:last-child {
-      border-bottom: 1px solid rgba(255, 255, 255, 0);
-    }
-    .${className}-bordered > li.navigation-header {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
     .${className}-lg > li > a,
-    .${className}-lg > li > a > span {
+    .${className}-lg > li > a > .navigation-title {
       padding-top: 14px;
       padding-bottom: 14px;
       height: 48px;
     }
     .${className}-lg > li ul li a,
     .${className}-sm > li > a,
-    .${className}-sm > li > a > span {
+    .${className}-sm > li > a > .navigation-title {
       padding-top: 10px;
       padding-bottom: 10px;
       height: 40px;
@@ -452,7 +413,7 @@ export const navigationClass = cssHash(
       height: 32px;
     }
     .${className}-xs > li > a,
-    .${className}-xs > li > a > span {
+    .${className}-xs > li > a > .navigation-title {
       padding-top: 8px;
       padding-bottom: 8px;
       height: 36px;
@@ -485,54 +446,41 @@ export const navigationCollapsedClass = cssHash(
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
-    .${className} .${navigationClass} > li > a > span {
+    .${className} .${navigationClass} > li > a > .navigation-title {
       display: none;
       position: absolute;
       top: 0;
       right: -${pageSidebarWidth - 61}px;
       background-color: ${linkSpanBgColor};
       padding: 10px 20px;
-      width: ${pageSidebarWidth - 60}px;
+      width: ${pageSidebarWidth}px;
       text-align: left;
       color: ${linkSpanColor};
       cursor: pointer;
-      border-bottom-right-radius: 6px;
-      border-top-right-radius: 6px;
+      border-radius: 6px;
       height: 40px;
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
-    .${className} .${navigationClass} > li > a > span .badge,
-    .${className} .${navigationClass} > li > a > span .label {
-      background-color: transparent;
-      border-color: transparent;
-      color: ${linkSpanColor};
-      padding-left: 0;
-      padding-right: 0;
+    .${className} .${navigationClass} > li > a.has-sub > .navigation-title {
+      border-bottom-right-radius: 0px;
     }
     .${className} .${navigationClass} > li > a > .menu-icon {
       margin: 0;
       float: none;
     }
-    .${className} .${navigationClass} > li .has-sub > span {
-      border-radius: 0 6px 0 0;
-    }
-    .${className} .${navigationClass} > li.active > ul,
-    .${className} .${navigationClass} > li.disabled:hover > a > span,
-    .${className} .${navigationClass} > li.disabled:hover > ul {
-      display: none !important;
+    .${className} .${navigationClass} li a > .navigation-title .menu-icon {
+      display: block;
     }
     .${className} .${navigationClass} > li:hover > ul {
       display: block !important;
     }
-    .${className} .${navigationClass} > li:hover > a > span {
+    .${className} .${navigationClass} > li:hover > a > .navigation-title {
       display: block;
     }
     .${className} .${navigationClass} > li:hover > a {
       background-color: ${linkHoverBgColor};
       color: ${linkHoverColor};
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-      border-bottom-right-radius: 0px !important;
-      border-top-right-radius: 0px !important;
     }
     .${className} .${navigationClass} > li ul {
       margin-top: 0px;
@@ -541,7 +489,7 @@ export const navigationCollapsedClass = cssHash(
       position: absolute;
       right: -${pageSidebarWidth - 61}px;
       top: 40px;
-      width: ${pageSidebarWidth - 60}px;
+      width: ${pageSidebarWidth - 66}px;
       display: none;
       background-color: ${subLinkBgColor};
       border-right: 1px solid rgba(0, 0, 0, 0.05);
@@ -573,7 +521,7 @@ export const navigationCollapsedClass = cssHash(
       top: 0;
       padding: 13px 0;
     }
-    .${className} .${navigationClass} > .navigation-header > span {
+    .${className} .${navigationClass} > .navigation-header > .navigation-title {
       display: none;
     }
     
