@@ -5,7 +5,7 @@ export const mobileWidth = 767;
 const mainContainerBgColor = 'transparent';
 
 const pageSidebarWidth = 290;
-const pageSidebarBgColor = 'rgba(255, 255, 255, 0.2)';
+const pageSidebarBgColor = 'rgba(255, 255, 255, 0.4)';
 const pageSidebarColor = '#342C56';
 const pageSidebarZIndex = 101;
 const pageSidebarCollapsedWidth = 120;
@@ -25,7 +25,7 @@ const mainHeaderContentPadding = '0 20px 0 20px';
 
 const mainContentPadding = '0px';
 
-const mobileMenuBgHover = 'rgba(255, 255, 255, 0.1)';
+const mobileMenuBgHover = 'rgba(255, 255, 255, 0.7)';
 const mobileMenuHoverColor = 'inherit';
 const collapseMenuBg = 'rgba(0, 0, 0, 0.04)';
 const collapseMenuBgHover = 'rgba(0, 0, 0, 0.1)';
@@ -51,6 +51,15 @@ const subLinkHoverColor = '#342C56';
 const subLinkActiveBgColor = '#FFFFFF';
 const subLinkActiveColor = '#342C56';
 
+const subLinkCollapseBgColor = 'transparent';
+const subLinkCollapseColor = '#342C56';
+
+const subLinkCollapseHoverBgColor = 'tranparent';
+const subLinkCollapseHoverColor = '#FB923C';
+
+const subLinkCollapseActiveBgColor = 'tranparent';
+const subLinkCollapseActiveColor = '#FB923C';
+
 export const gradientBackgroundClass = cssHash(
   (className) => `
     .${className} {
@@ -61,7 +70,7 @@ export const gradientBackgroundClass = cssHash(
       width: 100vw;
       height: 100vh;
       background: rgb(225,232,242);
-      background: linear-gradient(349deg, rgba(225,232,242,1) 0%, rgba(252,226,224,1) 50%, rgba(216,210,252,1) 100%);
+      background: linear-gradient(335deg, rgba(225,232,242,1) 0%, rgba(252,226,224,1) 50%, rgba(216,210,252,1) 100%);
     }
   `,
 );
@@ -256,9 +265,6 @@ export const navigationClass = cssHash(
     .${className} li + li {
       margin-top: 4px;
     }
-    .${className} li + .navigation-header {
-      margin-top: 10px;
-    }
     .${className} li a {
       background-color: ${linkBgColor};
       color: ${linkColor};
@@ -338,17 +344,6 @@ export const navigationClass = cssHash(
       padding: 10px 20px 10px 51px;
       height: 40px;
     }
-    .${className} > li ul .navigation-header {
-      padding-left: 51px;
-    }
-    .${className} > li > ul > li > ul > .navigation-header,
-    .${className} > li > ul > li > ul > li > a {
-      padding-left: 71px;
-    }
-    .${className} > li > ul > li > ul > li > ul .navigation-header,
-    .${className} > li > ul > li > ul > li > ul > li > a {
-      padding-left: 91px;
-    }
     .${className} > li > ul li:first-child {
       padding-top: 0px;
     }
@@ -365,34 +360,6 @@ export const navigationClass = cssHash(
       background-color: ${subLinkActiveBgColor};
       color: ${subLinkActiveColor};
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-    }
-    .${className} .navigation-header {
-      height: 30px;
-      padding: 10px 20px;
-      border-bottom: 0;
-      text-transform: uppercase;
-      font-size: 11px;
-      line-height: 1.82;
-    }
-    .${className} .navigation-header > .navigation-title {
-      display: block;
-      margin-top: 2px;
-    }
-    .${className} .navigation-header > .header-icon {
-      display: none;
-    }
-    .${className} .navigation-header,
-    .${className} .navigation-header a {
-      color: rgba(255, 255, 255, 0.5);
-      font-weight: 400;
-    }
-    .${className} .navigation-header a:focus,
-    .${className} .navigation-header a:hover {
-      color: #fff;
-    }
-    .${className} .navigation-header a .header-icon {
-      float: none;
-      margin: 0;
     }
     .${className}-lg > li > a,
     .${className}-lg > li > a > .navigation-title {
@@ -446,14 +413,18 @@ export const navigationCollapsedClass = cssHash(
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
     }
+    .${className} .${navigationClass} > li > a:focus,
+    .${className} .${navigationClass} > li > a:hover {
+      box-shadow: none;
+    }
     .${className} .${navigationClass} > li > a > .navigation-title {
       display: none;
       position: absolute;
       top: 0;
-      right: -${pageSidebarWidth - 61}px;
+      right: -${pageSidebarWidth - 40 - 60}px;
       background-color: ${linkSpanBgColor};
       padding: 10px 20px;
-      width: ${pageSidebarWidth}px;
+      width: ${pageSidebarWidth - 40}px;
       text-align: left;
       color: ${linkSpanColor};
       cursor: pointer;
@@ -480,7 +451,6 @@ export const navigationCollapsedClass = cssHash(
     .${className} .${navigationClass} > li:hover > a {
       background-color: ${linkHoverBgColor};
       color: ${linkHoverColor};
-      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
     .${className} .${navigationClass} > li ul {
       margin-top: 0px;
@@ -492,12 +462,11 @@ export const navigationCollapsedClass = cssHash(
       width: ${pageSidebarWidth - 66}px;
       display: none;
       background-color: ${subLinkBgColor};
-      border-right: 1px solid rgba(0, 0, 0, 0.05);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      border-left: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 0 0 6px 6px;
-      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
       padding: 0px 4px 4px;
+      background-color: ${linkHoverBgColor};
+      color: ${linkHoverColor};
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
     .${className} .${navigationClass} > li > ul li:first-child {
       padding-top: 4px;
@@ -506,23 +475,31 @@ export const navigationCollapsedClass = cssHash(
       padding-left: 20px;
       padding-right: 20px;
     }
+    .${className} .${navigationClass} > li > ul li a {
+      background-color: ${subLinkCollapseBgColor};
+      color: ${subLinkCollapseColor};
+    }
+    .${className} .${navigationClass} > li > ul li a:hover {
+      background-color: ${subLinkCollapseHoverBgColor};
+      color: ${subLinkCollapseHoverColor};
+    }
+    .${className} .${navigationClass} > li > ul li.active a {
+      background-color: ${subLinkCollapseActiveBgColor};
+      color: ${subLinkCollapseActiveColor};
+    }
+    .${className} .${navigationClass} > li > ul li a,
+    .${className} .${navigationClass} > li > ul li a:focus,
+    .${className} .${navigationClass} > li > ul li a:hover,
+    .${className} .${navigationClass} > li > ul li.active a,
+    .${className} .${navigationClass} > li > ul li.active a:focus,
+    .${className} .${navigationClass} > li > ul li.active a:hover {
+      box-shadow: none;
+    }
     .${className} .${navigationClass} > li > ul > li > ul > li > a {
       padding-left: 30px;
     }
     .${className} .${navigationClass} > li > ul > li > ul > li > ul > li > a {
       padding-left: 60px;
-    }
-    .${className} .${navigationClass} > .navigation-header {
-      padding: 0;
-      text-align: center;
-    }
-    .${className} .${navigationClass} > .navigation-header > .header-icon {
-      display: block;
-      top: 0;
-      padding: 13px 0;
-    }
-    .${className} .${navigationClass} > .navigation-header > .navigation-title {
-      display: none;
     }
     
     @media (min-width: ${mobileWidth}px) {

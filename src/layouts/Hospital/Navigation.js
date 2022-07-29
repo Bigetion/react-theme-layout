@@ -15,7 +15,7 @@ import { navigationClass } from './style';
 const NavigationContext = createContext();
 
 function Item(props) {
-  const { icon, title = '', children, menu_id, type = '' } = props;
+  const { icon, title = '', children, menu_id } = props;
 
   const { onClickMenu = () => {}, activeId } = useContext(NavigationContext);
 
@@ -27,13 +27,6 @@ function Item(props) {
 
   const isActive = activeId === menu_id;
 
-  if (type === 'navigation-header') {
-    return (
-      <li className="navigation-header">
-        <div className="navigation-title">{title}</div>
-      </li>
-    );
-  }
   return (
     <li
       onClick={(e) => {

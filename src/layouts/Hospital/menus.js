@@ -9,54 +9,24 @@ import { BsPeopleFill } from 'react-icons/bs';
 const menus = [
   {
     icon: RiDashboardFill,
-    title: 'Dashboard',
-    path: '/',
+    title: 'Menu 1',
   },
   {
     icon: RiShieldUserFill,
-    title: 'Roles',
-    path: '/roles',
+    title: 'Menu 2',
   },
   {
     icon: BsPeopleFill,
-    title: 'Users',
-    path: '/users',
+    title: 'Menu 3',
   },
   {
     icon: RiFileTextFill,
-    title: 'Content',
-    children: [
-      {
-        title: 'Add New',
-        path: '/content/add',
-      },
-      {
-        title: 'All Content',
-        path: '/content',
-      },
-    ],
+    title: 'Menu 4',
   },
+
   {
     icon: RiCalendarFill,
-    title: 'Posts',
-    children: [
-      {
-        title: 'Add New',
-        path: '/posts/add',
-      },
-      {
-        title: 'All Posts',
-        path: '/posts',
-      },
-      {
-        title: 'Categories',
-        path: '/categories',
-      },
-      {
-        title: 'Tags',
-        path: '/tags',
-      },
-    ],
+    title: 'Menu 5',
   },
 ];
 
