@@ -59,10 +59,7 @@ function MultiItem(props) {
 
   const clickProps = Object.assign({}, props);
 
-  let isActive = activeMenuId.indexOf(menu_id) >= 0;
-  if (level_index === 1) {
-    isActive = activeMenuId === menu_id;
-  }
+  const isActive = activeMenuId.indexOf(menu_id) >= 0;
 
   let isDisableAnimation = false;
   if ([clickedMenuId, lastClickedMenuId].indexOf(menu_id) < 0) {
@@ -156,7 +153,7 @@ export default function Navigation(props) {
 
   const addMenuIndex = (parentId = '', levelIndex, items = [], callback) => {
     return items.map((item, index) => {
-      const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}`;
+      const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}_`;
       const newItem = Object.assign({}, item, {
         parent_id: parentId,
         level_index: levelIndex,
