@@ -284,7 +284,7 @@ export const navigationClass = cssHash(
     .${className} li a > .navigation-title .menu-icon {
       float: left;
       top: 0;
-      margin-right: 15px;
+      margin-right: 10px;
     }
     .${className} li a > .navigation-title .menu-icon {
       display: none;
