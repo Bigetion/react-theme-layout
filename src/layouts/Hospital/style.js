@@ -4,7 +4,7 @@ export const mobileWidth = 767;
 
 const mainContainerBgColor = 'transparent';
 
-const pageSidebarWidth = 290;
+const pageSidebarWidth = 310;
 const pageSidebarBgColor = 'rgba(255, 255, 255, 0.4)';
 const pageSidebarColor = '#342C56';
 const pageSidebarZIndex = 101;
