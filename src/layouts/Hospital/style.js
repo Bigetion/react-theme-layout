@@ -392,10 +392,10 @@ export const navigationCollapsedClass = cssHash(
       display: none;
       position: absolute;
       top: 0;
-      right: -${pageSidebarWidth - 40 - 60}px;
+      right: -${pageSidebarWidth - 60}px;
       background-color: ${linkSpanBgColor};
       padding: 10px 20px;
-      width: ${pageSidebarWidth - 40}px;
+      width: ${pageSidebarWidth}px;
       text-align: left;
       color: ${linkSpanColor};
       cursor: pointer;
@@ -428,7 +428,7 @@ export const navigationCollapsedClass = cssHash(
     }
     .${className} .${navigationClass} > li > ul {
       position: absolute;
-      right: -${pageSidebarWidth - 61}px;
+      right: -${pageSidebarWidth - 60}px;
       top: 40px;
       width: ${pageSidebarWidth - 66}px;
       display: none;

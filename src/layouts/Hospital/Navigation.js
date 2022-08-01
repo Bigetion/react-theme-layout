@@ -204,7 +204,7 @@ export default function Navigation(props) {
     >
       <ul
         className={navigationClass}
-        style={{ marginBottom: collapsed ? 200 : 0 }}
+        style={{ marginBottom: collapsed ? 395 : 0 }}
       >
         {menusWithMenuId.map((item, index) => {
           return (
