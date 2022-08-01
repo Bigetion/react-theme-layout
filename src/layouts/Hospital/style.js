@@ -361,6 +361,9 @@ export const navigationClass = cssHash(
       color: ${subLinkActiveColor};
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
     }
+    .${className} > li > ul > li > ul > li > a {
+      padding-left: 70px;
+    }
   `,
 );
 
@@ -446,15 +449,17 @@ export const navigationCollapsedClass = cssHash(
       padding-left: 20px;
       padding-right: 20px;
     }
-    .${className} .${navigationClass} > li > ul li a {
+    .${className} .${navigationClass} > li > ul > li > a {
       background-color: ${subLinkCollapseBgColor};
       color: ${subLinkCollapseColor};
     }
-    .${className} .${navigationClass} > li > ul li a:hover {
+    .${className} .${navigationClass} > li > ul > li > a:hover,
+    .${className} .${navigationClass} > li > ul > li > ul > li > a:hover {
       background-color: ${subLinkCollapseHoverBgColor};
       color: ${subLinkCollapseHoverColor};
     }
-    .${className} .${navigationClass} > li > ul li.active a {
+    .${className} .${navigationClass} > li > ul > li.active > a,
+    .${className} .${navigationClass} > li > ul > li.active > ul > li.active > a {
       background-color: ${subLinkCollapseActiveBgColor};
       color: ${subLinkCollapseActiveColor};
     }
@@ -467,10 +472,7 @@ export const navigationCollapsedClass = cssHash(
       box-shadow: none;
     }
     .${className} .${navigationClass} > li > ul > li > ul > li > a {
-      padding-left: 30px;
-    }
-    .${className} .${navigationClass} > li > ul > li > ul > li > ul > li > a {
-      padding-left: 60px;
+      padding-left: 40px;
     }
   `,
 );
