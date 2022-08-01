@@ -129,7 +129,7 @@ function Item(props) {
 
 const addMenuIndex = (parentId = '', levelIndex, items = [], callback) => {
   return items.map((item, index) => {
-    const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}`;
+    const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}_`;
     const newItem = Object.assign({}, item, {
       parent_id: parentId,
       level_index: levelIndex,
