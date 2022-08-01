@@ -24,11 +24,7 @@ function IconContainer(props, ref) {
   }
 
   return (
-    <div
-      {...nProps}
-      ref={ref}
-      className={classNames(className, 'flex items-center justify-center')}
-    >
+    <div {...nProps} ref={ref} className={classNames(className)}>
       <props.icon size={iconSize} />
     </div>
   );
