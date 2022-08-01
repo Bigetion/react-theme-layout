@@ -59,7 +59,10 @@ function MultiItem(props) {
 
   const clickProps = Object.assign({}, props);
 
-  const isActive = activeMenuId.indexOf(menu_id) >= 0;
+  let isActive = activeMenuId.indexOf(menu_id) >= 0;
+  if (level_index === 1) {
+    isActive = activeMenuId === menu_id;
+  }
 
   let isDisableAnimation = false;
   if ([clickedMenuId, lastClickedMenuId].indexOf(menu_id) < 0) {
