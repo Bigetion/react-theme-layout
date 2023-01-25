@@ -162,7 +162,6 @@ export const navigationClass = cssHash(
     .${className} li a > .menu-icon {
       float: left;
       top: 0;
-      margin-top: 2px;
       margin-right: 15px;
     }
     .${className} li a > .menu-icon.pull-right {
@@ -191,12 +190,11 @@ export const navigationClass = cssHash(
       color: ${subLinkActiveColor}; 
     }
     .${className} > li > a {
-      height: 40px;
       border-radius: 9999px;
       display: flex;
       align-items: center;
       margin-bottom: 0.25rem;
-      padding-left: 1.25rem;
+      padding: 0.75rem 0 0.75rem 1.25rem;
       position: relative;
       z-index: 1;
     }
@@ -211,7 +209,7 @@ export const navigationClass = cssHash(
       position: absolute;
       top: 0;
       right: -1.25rem;
-      width: 5rem;
+      width: 3.5rem;
       height: 100%;
       background-color: ${linkActiveBgColor};
     }
@@ -263,7 +261,7 @@ export const navigationClass = cssHash(
       background-color: ${subLinkBgColor};
       color: ${subLinkColor};
       padding: 10px 20px 10px 51px;
-      height: 40px;
+      min-height: 40px;
       display: flex;
       align-items: center;
     }
@@ -298,37 +296,6 @@ export const navigationClass = cssHash(
       float: right;
       margin-right: 0;
       margin-left: 15px;
-    }
-    .${className}-lg > li > a,
-    .${className}-lg > li > a > span {
-      padding-top: 14px;
-      padding-bottom: 14px;
-      height: 48px;
-    }
-    .${className}-lg > li ul li a,
-    .${className}-sm > li > a,
-    .${className}-sm > li > a > span {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-    }
-    .${className}-sm > li ul li a {
-      padding-top: 6px;
-      padding-bottom: 6px;
-      height: 32px;
-    }
-    .${className}-xs > li > a,
-    .${className}-xs > li > a > span {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      height: 36px;
-    }
-    .${className}-xs > li ul li a {
-      padding-top: 6px;
-      padding-bottom: 6px;
-      height: 32px;
     }
 
     @media screen and (max-width: ${mobileWidth}px) {
