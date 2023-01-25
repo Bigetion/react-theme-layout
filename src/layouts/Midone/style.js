@@ -187,6 +187,9 @@ export const navigationClass = cssHash(
       position: absolute;
       right: 20px;
     }
+    .${className} li > .has-sub.active {
+      color: ${subLinkActiveColor}; 
+    }
     .${className} > li > a {
       height: 40px;
       border-radius: 9999px;

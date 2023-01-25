@@ -107,7 +107,7 @@ function MultiItem(props) {
         onClickMenu(clickProps, true);
       }}
     >
-      <a className="has-sub">
+      <a className={`has-sub${level_index > 1 && isActive ? ' active' : ''}`}>
         {icon && <FontAwesomeIcon icon={icon} className="menu-icon" />}
         <span>{title}</span>
         {activeTopLeveId === menu_id && level_index === 1 && (
