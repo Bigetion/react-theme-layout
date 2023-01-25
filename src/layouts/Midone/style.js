@@ -13,7 +13,7 @@ const linkActiveBgColor = '#F1F5F8';
 
 const linkColor = '#FFF';
 const linkHoverColor = '#FFF';
-const linkActiveColor = '#000';
+const linkActiveColor = '#B45309';
 
 const subLinkMenuBgColor = '#1A389F';
 const subLinkBgColor = '#1A389F';
@@ -22,7 +22,7 @@ const subLinkActiveBgColor = '#1A389F';
 
 const subLinkColor = 'rgba(255, 255, 255, 0.75)';
 const subLinkHoverColor = '#FFF';
-const subLinkActiveColor = '#FFF';
+const subLinkActiveColor = '#FCD34D';
 
 export const mobileWidth = 767;
 
