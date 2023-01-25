@@ -144,6 +144,7 @@ export const navigationClass = cssHash(
     }
     .${className} li {
       position: relative;
+      font-weight: 500;
     }
     .${className} li a {
       background-color: ${linkBgColor};
@@ -151,7 +152,7 @@ export const navigationClass = cssHash(
       display: block;
       text-decoration: none;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 14px;;
     }
     .${className} li a:focus,
     .${className} li a:hover {
@@ -182,16 +183,12 @@ export const navigationClass = cssHash(
       padding-right: 36px;
     }
     .${className} li > .has-sub > .collapse-icon {
-      font-size: 16px;
       display: block;
       position: absolute;
-      top: 50%;
-      margin-top: -8px;
       right: 20px;
-      line-height: 1;
     }
     .${className} > li > a {
-      height: 50px;
+      height: 40px;
       border-radius: 9999px;
       display: flex;
       align-items: center;
@@ -263,7 +260,7 @@ export const navigationClass = cssHash(
       background-color: ${subLinkBgColor};
       color: ${subLinkColor};
       padding: 10px 20px 10px 51px;
-      height: 50px;
+      height: 40px;
       display: flex;
       align-items: center;
     }
@@ -310,7 +307,7 @@ export const navigationClass = cssHash(
     .${className}-sm > li > a > span {
       padding-top: 10px;
       padding-bottom: 10px;
-      height: 50px;
+      height: 40px;
       display: flex;
       align-items: center;
     }

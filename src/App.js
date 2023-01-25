@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
-import Layout from 'layouts/Hospital';
+import Layout from 'layouts/Midone';
 
 import './app.css';
 

@@ -3,6 +3,9 @@ import { classNames } from 'css-hash';
 
 import { useParams, useHistory } from 'react-router-dom';
 
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Collapse from 'components/Collapse';
 
 import {
@@ -60,7 +63,7 @@ export default function Layout(props) {
         <div className={classNames(sideNavClass)}>
           <div className={classNames(sideNavHeaderClass)}>
             <div className={classNames(sideNavLogoClass)}>
-              <span>Midone</span>
+              <span>AAR</span>
             </div>
             <div
               className={classNames(mobileMenuClass)}
@@ -68,7 +71,7 @@ export default function Layout(props) {
                 setShowMenu(!showMenu);
               }}
             >
-              <i className="fa fa-bars" />
+              <FontAwesomeIcon icon={faBars} />
             </div>
           </div>
           <Collapse open={showMenu} disableAnimation={!isMobile}>

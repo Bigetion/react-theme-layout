@@ -1,7 +1,9 @@
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+
 const menus = [
-  { icon: 'fa fa-circle', title: 'Menu 1' },
+  { icon: faCircle, title: 'Menu 1' },
   {
-    icon: 'fa fa-circle',
+    icon: faCircle,
     title: 'Menu 2',
     children: [
       { title: 'Menu 2.1' },
@@ -13,7 +15,7 @@ const menus = [
     ],
   },
   {
-    icon: 'fa fa-circle',
+    icon: faCircle,
     title: 'Menu 3',
     children: [
       { title: 'Menu 3.1' },

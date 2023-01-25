@@ -1,6 +1,9 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
 
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Collapse from 'components/Collapse';
 
 import { navigationClass } from './style';
@@ -10,6 +13,7 @@ const NavigationContext = createContext();
 function ItemRoundRadius() {
   return (
     <React.Fragment>
+      <div className="box" />
       <div className="round-before">
         <div className="round-content">
           <div className="round-radius" />
@@ -46,10 +50,9 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && <i className={classNames('menu-icon', icon)} />}
+        {icon && <FontAwesomeIcon icon={icon} className="menu-icon" />}
         <span>{title}</span>
         {isActive && level_index === 1 && <ItemRoundRadius />}
-        <div className="box" />
       </a>
     </li>
   );
@@ -105,15 +108,17 @@ function MultiItem(props) {
       }}
     >
       <a className="has-sub">
-        {icon && <i className={`menu-icon ${icon}`} />}
+        {icon && <FontAwesomeIcon icon={icon} className="menu-icon" />}
         <span>{title}</span>
         {activeTopLeveId === menu_id && level_index === 1 && (
           <ItemRoundRadius />
         )}
-        <div className="box" />
+        <div />
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
-            <i className="fa fa-angle-right collapse-icon" />
+            <div className="collapse-icon">
+              <FontAwesomeIcon icon={faChevronRight} size="sm" />
+            </div>
           </Collapse.Icon>
         )}
       </a>
@@ -161,7 +166,7 @@ export default function Navigation(props) {
 
   const addMenuIndex = (parentId = '', levelIndex, items = [], callback) => {
     return items.map((item, index) => {
-      const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}_`;
+      const menu_id = `${parentId ? `${parentId}_` : ''}${index + 1}`;
       const newItem = Object.assign({}, item, {
         parent_id: parentId,
         level_index: levelIndex,
