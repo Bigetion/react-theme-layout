@@ -341,8 +341,9 @@ export const navigationClass = cssHash(
       margin-top: 4px;
     }
     .${className} > li ul li a {
-      padding: 10px 20px 10px 51px;
+      padding: 10px 20px 10px 31px;
       height: 40px;
+      margin-left: 20px;
     }
     .${className} > li > ul li:first-child {
       padding-top: 0px;
