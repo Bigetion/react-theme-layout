@@ -3645,10 +3645,10 @@ css-has-pseudo@^0.10.0:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
 
-css-hash@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/css-hash/-/css-hash-1.0.3.tgz#3547375bf1b7c137d958e2708dbb2fbc75fb96d7"
-  integrity sha512-I0Iy3QJQS/1KyCmyP+8BJAIMdZjsvdyV3LAtHq3fpbtEksN5pcf6McjdiYJ/fzKSwlQjO3OhfBd0+t3pfHWWWw==
+css-hash@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/css-hash/-/css-hash-1.0.6.tgz#5846119d98f74268d4ddaa920a87fae82d6b8ae1"
+  integrity sha512-MEURiM1Es79XPvvZ1okBBOPZG5JXn+9JBw5hiYwC2Sn4dtH2MZYCmQxcSNkx9q5yq9UvoUfYm9voPl9KxmQB/g==
 
 css-loader@4.3.0:
   version "4.3.0"
@@ -9050,10 +9050,10 @@ react-feather@^2.0.9:
   dependencies:
     prop-types "^15.7.2"
 
-react-icons@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
-  integrity sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==
+react-icons@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.4.0.tgz#443000f6e5123ee1b21ea8c0a716f6e7797f7416"
+  integrity sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==
 
 react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -10439,10 +10439,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwind-css-generator@^2.0.0-alpha.15:
-  version "2.0.0-alpha.15"
-  resolved "https://registry.yarnpkg.com/tailwind-css-generator/-/tailwind-css-generator-2.0.0-alpha.15.tgz#6cd8bc57253a3cdb77a4db0d18ba3e22bf9f5d70"
-  integrity sha512-3LK15VThmMQn5sAe/S+WMx9l1PAR6gc9NZV4PM03kqB5v0ISFdE5hTwOsAkVpLr7kJjuoKwrao3yGLzD0JVvpg==
+tailwind-css-generator@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/tailwind-css-generator/-/tailwind-css-generator-3.1.2.tgz#8791164ff8f6ea8fb17b663858c13398ae262dca"
+  integrity sha512-58o2oYrHpVoM1bedslHRT51L8M9HhURbLe+M8DeNKC9LMQ0t1MEZABMId9oZeAVft8C4wLr6ymDbX/cz9Kyo1Q==
 
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
