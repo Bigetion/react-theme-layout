@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
+import { HiOutlineChevronRight } from 'react-icons/hi';
 
 import Collapse from 'components/Collapse';
 
@@ -8,7 +9,7 @@ import { navigationClass } from './style';
 const NavigationContext = createContext();
 
 function Item(props) {
-  const { icon = '', title = '', children, menu_id } = props;
+  const { icon, title = '', children, menu_id } = props;
 
   const { onClickMenu = () => {}, activeId } = useContext(NavigationContext);
 
@@ -28,7 +29,7 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && <i className={`menu-icon ${icon}`} />}
+        {icon && <props.icon className="menu-icon" />}
         <span className="title">{title}</span>
       </a>
     </li>
@@ -84,11 +85,13 @@ function MultiItem(props) {
       }}
     >
       <a>
-        {icon && <i className={`menu-icon ${icon}`} />}
+        {icon && <props.icon className="menu-icon" />}
         <span className="title">{title}</span>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
-            <i className="fa fa-angle-right collapse-icon" />
+            <i className="collapse-icon">
+              <HiOutlineChevronRight />
+            </i>
           </Collapse.Icon>
         )}
       </a>

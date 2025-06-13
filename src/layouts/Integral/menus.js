@@ -1,7 +1,9 @@
+import { FaCircle } from 'react-icons/fa';
+
 const menus = [
-  { icon: 'fa fa-circle', title: 'Menu 1' },
+  { icon: FaCircle, title: 'Menu 1' },
   {
-    icon: 'fa fa-circle',
+    icon: FaCircle,
     title: 'Menu 2',
     children: [
       { title: 'Menu 2.1' },
@@ -13,7 +15,7 @@ const menus = [
     ],
   },
   {
-    icon: 'fa fa-circle',
+    icon: FaCircle,
     title: 'Menu 3',
     children: [
       { title: 'Menu 3.1' },

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
+import { TiThMenu } from 'react-icons/ti';
 
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -72,7 +73,7 @@ export default function Layout(props) {
               setShowMenu(!showMenu);
             }}
           >
-            <i className="fa fa-bars" />
+            <TiThMenu size={20} />
           </div>
         </header>
         <Collapse open={showMenu} disableAnimation={!isMobile}>
@@ -101,7 +102,7 @@ export default function Layout(props) {
               toggleSidebar(!sidebar);
             }}
           >
-            <i className="fa fa-bars" />
+            <TiThMenu size={20} />
           </div>
           <div className={`${mainHeaderClass}-content`}></div>
         </div>

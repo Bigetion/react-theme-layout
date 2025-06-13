@@ -206,6 +206,7 @@ export const navigationClass = cssHash(
       display: block;
       padding: 15px 20px;
       text-decoration: none;
+      height: 15px;
     }
     ul.${className} > li > a:hover,
     ul.${className} > li > a:focus {
@@ -234,6 +235,7 @@ export const navigationClass = cssHash(
     ul.${className} ul > li > a {
       background-color: ${subLinkBgColor};
       color: ${subLinkColor};
+      height: 15px;
     }
     ul.${className} li .menu-icon {
       margin-right: 16px;
@@ -346,6 +348,7 @@ export const sidebarCollapsedClass = cssHash(
       -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-sizing: content-box;
+      height: 15px;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
       left: 240px;
