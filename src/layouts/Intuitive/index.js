@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
 
+import { TiThMenu } from 'react-icons/ti';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { PiDotsThreeOutlineVerticalFill } from 'react-icons/pi';
+
 import { useParams, useHistory } from 'react-router-dom';
 
 import {
@@ -53,15 +57,19 @@ export default function Layout(props) {
     >
       <div className={pageHeaderClass}>
         <div className={pageHeaderLogoClass}>
-          <span>APP LOGO</span>
-          <span
+          <div>APP LOGO</div>
+          <div
             className={`${pageHeaderLogoClass}-collapse-menu`}
             onClick={() => {
               setShowMenu(!showMenu);
             }}
           >
-            <i className={`fa fa-${showMenu ? 'bars' : 'ellipsis-v'}`} />
-          </span>
+            {showMenu ? (
+              <TiThMenu size={20} style={{ display: 'block' }} />
+            ) : (
+              <BsThreeDotsVertical size={20} />
+            )}
+          </div>
         </div>
         <ul className={classNames(pageHeaderMenuClass, 'pull-right')}></ul>
       </div>

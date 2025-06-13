@@ -150,6 +150,9 @@ export const pageHeaderLogoClass = cssHash(
       text-decoration: none;
       right: -${pageHeaderHeight}px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .${layoutClass} .${pageHeaderClass} .${className} .${className}-collapse-menu:hover {
       background: ${pageHeaderCollapsedMenuBgHover};
