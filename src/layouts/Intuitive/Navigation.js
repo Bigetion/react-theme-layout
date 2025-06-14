@@ -35,7 +35,7 @@ function Item(props) {
       <a>
         {icon && (
           <i className="menu-icon">
-            <props.icon />
+            <props.icon size={18} />
           </i>
         )}
         <span>{title}</span>
@@ -95,10 +95,10 @@ function MultiItem(props) {
       <a>
         {icon && (
           <i className="menu-icon">
-            <props.icon />
+            <props.icon size={18} />
           </i>
         )}
-        <span>{title}</span>
+        <span className='title'>{title}</span>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <i className="collapse-icon">

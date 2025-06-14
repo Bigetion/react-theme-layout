@@ -296,8 +296,8 @@ export const navigationClass = cssHash(
       cursor: pointer;
     }
     .${className} > li > a {
-      display: block;
-      float: left;
+      display: flex;
+      align-items: center;
       width: 100%;
       background-color: ${linkBgColor};
       color: ${linkColor};
@@ -305,19 +305,20 @@ export const navigationClass = cssHash(
       font-weight: 500;
       line-height: 45px;
       text-decoration: none;
-      padding-left: 45px;
+      padding-left: 15px;
       white-space: nowrap;
       position: relative;
     }
+    .${className} > li > a .title {
+      flex: 1;
+    }
     .${className} > li > a .menu-icon {
-      position: absolute;
-      left: 0px;
-      top: 0px;
       width: 45px;
       line-height: 45px;
-      text-align: center;
+      text-align: left;
       font-size: 14px;
       color: ${linkIconColor};
+      display: inline-flex;
     }
     .${className} > li.active > a {
       background-color: ${linkActiveBgColor};
@@ -353,8 +354,8 @@ export const navigationClass = cssHash(
       position: relative;
     }
     .${className} > li ul li a {
-      display: block;
-      float: left;
+      display: flex;
+      align-items: center;
       width: 100%;
       line-height: 45px;
       font-size: 13px;
@@ -367,6 +368,9 @@ export const navigationClass = cssHash(
       -ms-transition: all 200ms ease;
       -o-transition: all 200ms ease;
       transition: all 200ms ease;
+    }
+    .${className} > li ul li a span {
+      flex: 1;
     }
     .${className} > li ul li a:after {
       content: " ";
@@ -414,14 +418,11 @@ export const navigationClass = cssHash(
       padding-left: 85px;
     }
     .${className} li.has-sub > a > .collapse-icon {
-      display: inline-block;
-      float: right;
+      display: inline-flex;
       font-size: 15px;
       margin-left: 10px;
       position: relative;
       font-weight: normal;
-      line-height: 45px;
-      height: 45px;
     }
     .${className} li.has-sub > a {
       padding-right: 30px;

@@ -1,9 +1,9 @@
-import { FaCircle } from 'react-icons/fa';
+import { LuSquareMenu } from 'react-icons/lu';
 
 const menus = [
-  { icon: FaCircle, title: 'Menu 1' },
+  { icon: LuSquareMenu, title: 'Menu 1' },
   {
-    icon: FaCircle,
+    icon: LuSquareMenu,
     title: 'Menu 2',
     children: [
       { title: 'Menu 2.1' },
@@ -15,7 +15,7 @@ const menus = [
     ],
   },
   {
-    icon: FaCircle,
+    icon: LuSquareMenu,
     title: 'Menu 3',
     children: [
       { title: 'Menu 3.1' },
