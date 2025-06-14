@@ -98,7 +98,7 @@ function MultiItem(props) {
             <props.icon size={18} />
           </i>
         )}
-        <span className='title'>{title}</span>
+        <span className="title">{title}</span>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <i className="collapse-icon">

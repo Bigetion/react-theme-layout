@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
+import { HiOutlineChevronRight } from 'react-icons/hi';
 
 import Collapse from 'components/Collapse';
 
@@ -23,7 +24,8 @@ function Item(props) {
   if (type === 'navigation-header') {
     return (
       <li className="navigation-header">
-        <span>{title}</span> {icon && <i className={icon} title={title} />}
+        <span>{title}</span>
+        {icon && <i className={icon} title={title} />}
       </li>
     );
   }
@@ -36,7 +38,11 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && <i className={`menu-icon ${icon}`} />}
+        {icon && (
+          <i className="menu-icon">
+            <props.icon size={18} />
+          </i>
+        )}
         <span>{title}</span>
       </a>
     </li>
@@ -92,11 +98,17 @@ function MultiItem(props) {
       }}
     >
       <a className="has-sub">
-        {icon && <i className={`menu-icon ${icon}`} />}
+        {icon && (
+          <i className="menu-icon">
+            <props.icon size={18} />
+          </i>
+        )}
         <span>{title}</span>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
-            <i className="fa fa-angle-right collapse-icon" />
+            <i className="collapse-icon">
+              <HiOutlineChevronRight size={20} />
+            </i>
           </Collapse.Icon>
         )}
       </a>

@@ -222,8 +222,8 @@ export const navigationClass = cssHash(
     .${className} li a > .menu-icon {
       float: left;
       top: 0;
-      margin-top: 2px;
       margin-right: 15px;
+      display: inline-flex;
     }
     .${className} li a > .menu-icon.pull-right {
       margin-right: 0;
@@ -241,15 +241,12 @@ export const navigationClass = cssHash(
     .${className} li > .has-sub {
       position: relative;
       padding-right: 36px;
+      display: flex;
+      align-items: center;
     }
     .${className} li > .has-sub > .collapse-icon {
       font-size: 16px;
-      display: block;
-      position: absolute;
-      top: 50%;
-      margin-top: -8px;
-      right: 20px;
-      line-height: 1;
+      display: inline-flex;
     }
     .${className} li.navigation-divider {
       margin: 10px 0;
@@ -343,10 +340,6 @@ export const navigationClass = cssHash(
       color: ${linkTitleColor};
       font-weight: 400;
     }
-    .multiselect-container > li > a.multiselect-all label,
-    .val-demo > span {
-      font-weight: 500;
-    }
     .${className} .navigation-header a:focus,
     .${className} .navigation-header a:hover {
       color: ${linkTitleHoverColor};
@@ -367,6 +360,7 @@ export const navigationClass = cssHash(
       float: right;
       margin-right: 0;
       margin-left: 15px;
+      display: inline-flex;
     }
     .${className}-bordered > li {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -381,6 +375,10 @@ export const navigationClass = cssHash(
       -moz-box-shadow: none;
       -webkit-box-shadow: none;
       box-shadow: none;
+    }
+    .${className} > li > a > span,
+    .${className} > li > ul > li > a > span {
+      flex: 1;
     }
     .${className}-lg > li > a,
     .${className}-lg > li > a > span {
