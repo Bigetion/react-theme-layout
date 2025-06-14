@@ -3,8 +3,7 @@ import { classNames } from 'css-hash';
 
 import { useParams, useHistory } from 'react-router-dom';
 
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TiThMenu } from 'react-icons/ti';
 
 import Collapse from 'components/Collapse';
 
@@ -71,7 +70,7 @@ export default function Layout(props) {
                 setShowMenu(!showMenu);
               }}
             >
-              <FontAwesomeIcon icon={faBars} />
+              <TiThMenu size={20} />
             </div>
           </div>
           <Collapse open={showMenu} disableAnimation={!isMobile}>

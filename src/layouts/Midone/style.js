@@ -160,6 +160,7 @@ export const navigationClass = cssHash(
       color: ${linkHoverColor};
     }
     .${className} li a > .menu-icon {
+      display: inline-flex;
       float: left;
       top: 0;
       margin-right: 15px;
@@ -182,7 +183,7 @@ export const navigationClass = cssHash(
       padding-right: 36px;
     }
     .${className} li > .has-sub > .collapse-icon {
-      display: block;
+      display: inline-flex;
       position: absolute;
       right: 20px;
     }
@@ -293,6 +294,7 @@ export const navigationClass = cssHash(
       padding-right: 20px;
     }
     .${className}-icons-right > li > a > .menu-icon {
+      display: inline-flex;
       float: right;
       margin-right: 0;
       margin-left: 15px;

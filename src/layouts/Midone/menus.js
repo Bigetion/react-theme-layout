@@ -1,9 +1,9 @@
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { LuSquareMenu } from 'react-icons/lu';
 
 const menus = [
-  { icon: faCircle, title: 'Menu 1' },
+  { icon: LuSquareMenu, title: 'Menu 1' },
   {
-    icon: faCircle,
+    icon: LuSquareMenu,
     title: 'Menu 2',
     children: [
       { title: 'Menu 2.1' },
@@ -15,7 +15,7 @@ const menus = [
     ],
   },
   {
-    icon: faCircle,
+    icon: LuSquareMenu,
     title: 'Menu 3',
     children: [
       { title: 'Menu 3.1' },

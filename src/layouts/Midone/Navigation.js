@@ -1,8 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
 
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LuChevronRight } from 'react-icons/lu';
 
 import Collapse from 'components/Collapse';
 
@@ -50,7 +49,11 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && <FontAwesomeIcon icon={icon} className="menu-icon" />}
+        {icon && (
+          <i className="menu-icon">
+            <props.icon size={18} />
+          </i>
+        )}
         <span>{title}</span>
         {isActive && level_index === 1 && <ItemRoundRadius />}
       </a>
@@ -108,7 +111,11 @@ function MultiItem(props) {
       }}
     >
       <a className={`has-sub${level_index > 1 && isActive ? ' active' : ''}`}>
-        {icon && <FontAwesomeIcon icon={icon} className="menu-icon" />}
+        {icon && (
+          <i className="menu-icon">
+            <props.icon size={18} />
+          </i>
+        )}
         <span>{title}</span>
         {activeTopLeveId === menu_id && level_index === 1 && (
           <ItemRoundRadius />
@@ -117,7 +124,7 @@ function MultiItem(props) {
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <div className="collapse-icon">
-              <FontAwesomeIcon icon={faChevronRight} size="sm" />
+              <LuChevronRight size={18} />
             </div>
           </Collapse.Icon>
         )}
