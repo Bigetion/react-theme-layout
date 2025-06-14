@@ -203,10 +203,14 @@ export const navigationClass = cssHash(
     ul.${className} li a {
       background-color: ${linkBgColor};
       color: ${linkColor};
-      display: block;
+      display: flex;
+      align-items: center;
       padding: 15px 20px;
       text-decoration: none;
       height: 15px;
+    }
+    ul.${className} li a span.title {
+      flex: 1;
     }
     ul.${className} > li > a:hover,
     ul.${className} > li > a:focus {
@@ -295,7 +299,7 @@ export const navigationClass = cssHash(
     }
     ul.${className} li.has-sub > a > .collapse-icon {
       color: ${linkColor};
-      display: inline-block;
+      display: inline-flex;
       float: right;
       font-size: 15px;
       margin-left: 10px;
@@ -329,6 +333,9 @@ export const sidebarCollapsedClass = cssHash(
     }
     .${className} .${siteHeaderClass}-content {
       display: none;
+    }
+    .${className} .${pageSidebarClass} ul.${navigationClass} li a {
+      display: block;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
       background-color: ${linkSpanBgColor};

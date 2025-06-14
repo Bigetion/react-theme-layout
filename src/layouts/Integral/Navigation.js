@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { classNames } from 'css-hash';
-import { HiOutlineChevronRight } from 'react-icons/hi';
+import { LuChevronRight } from 'react-icons/lu';
 
 import Collapse from 'components/Collapse';
 
@@ -29,7 +29,7 @@ function Item(props) {
       className={classNames(isActive && 'active')}
     >
       <a>
-        {icon && <props.icon className="menu-icon" />}
+        {icon && <props.icon size={18} className="menu-icon" />}
         <span className="title">{title}</span>
       </a>
     </li>
@@ -85,12 +85,12 @@ function MultiItem(props) {
       }}
     >
       <a>
-        {icon && <props.icon className="menu-icon" />}
+        {icon && <props.icon size={18} className="menu-icon" />}
         <span className="title">{title}</span>
         {!(collapsed && level_index === 1) && (
           <Collapse.Icon open={isActive} disableAnimation={isDisableAnimation}>
             <i className="collapse-icon">
-              <HiOutlineChevronRight />
+              <LuChevronRight />
             </i>
           </Collapse.Icon>
         )}
