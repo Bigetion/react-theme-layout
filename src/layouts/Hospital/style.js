@@ -304,7 +304,7 @@ export const navigationClass = cssHash(
     }
     .${className} li > .has-sub > .collapse-icon {
       font-size: 16px;
-      display: block;
+      display: inline-flex;
       position: absolute;
       top: 50%;
       margin-top: -9px;
