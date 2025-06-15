@@ -14,7 +14,7 @@ import {
   mainContainerClass,
   pageSidebarClass,
   siteHeaderClass,
-  mobileWidth,
+  theme,
 } from './style';
 
 import Navigation from './Navigation';
@@ -42,11 +42,11 @@ export default function Layout(props) {
   useEffect(() => {
     const resizeListener = () => {
       const windowWidth = getWindowWidth();
-      if (windowWidth <= mobileWidth) {
+      if (windowWidth <= theme.mobileWidth) {
         toggleSidebar(true);
       }
-      setIsMobile(windowWidth <= mobileWidth);
-      setShowMenu(windowWidth > mobileWidth);
+      setIsMobile(windowWidth <= theme.mobileWidth);
+      setShowMenu(windowWidth > theme.mobileWidth);
     };
     resizeListener();
     window.addEventListener('resize', resizeListener);

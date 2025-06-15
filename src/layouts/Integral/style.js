@@ -1,55 +1,71 @@
 import { cssHash } from 'css-hash';
 
-export const mobileWidth = 767;
+export const theme = {
+  mobileWidth: 767,
 
-const mainContainerBgColor = '#FFFFFF';
+  layout: {
+    bg: '#FFFFFF',
+  },
 
-const pageSidebarWidth = 280;
-const pageSidebarBgColor = '#2C365A';
-const pageSidebarZIndex = 101;
-const pageSidebarCollapsedWidth = 60;
+  sidebar: {
+    width: 280,
+    collapsedWidth: 60,
+    bg: '#2C365A',
+    zIndex: 101,
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.25)',
+  },
 
-const siteHeaderHeight = 60;
-const siteHeaderBgColor = '#2C365A';
-const siteHeaderColor = '#FFFFFF';
-const siteHeaderBorderBottom = '1px solid #252F54';
-const siteHeaderContentPadding = '0 20px';
-const siteHeaderZIndex = 101;
+  siteHeader: {
+    height: 60,
+    bg: '#2C365A',
+    color: '#FFFFFF',
+    borderBottom: '1px solid #252F54',
+    contentPadding: '0 20px',
+    zIndex: 101,
+  },
 
-const mainHeaderHeight = 60;
-const mainHeaderBorderBottom = 'solid 1px #E3E1E1';
-const mainHeaderContentPadding = '0 20px';
+  mainHeader: {
+    height: 60,
+    borderBottom: 'solid 1px #E3E1E1',
+    contentPadding: '0 20px',
+  },
 
-const mainContentPadding = '0px';
+  content: {
+    padding: '0px',
+  },
 
-const mobileMenuBgHover = '#212B4F';
-const collapseMenuBgHover = '#F8F8F8';
+  menu: {
+    mobileHoverBg: '#212B4F',
+    collapseHoverBg: '#F8F8F8',
+  },
 
-const linkBgColor = '#2C365A';
-const linkHoverBgColor = '#424C70';
-const linkActiveBgColor = '#424C70';
-const linkSpanBgColor = '#424C70';
+  navLink: {
+    bg: '#2C365A',
+    hoverBg: '#424C70',
+    activeBg: '#424C70',
+    spanBg: '#424C70',
+    color: '#FFFFFF',
+    hoverColor: '#FFFFFF',
+    activeColor: '#FFFFFF',
+    spanColor: '#FFFFFF',
+    activeBorderLeft: '3px solid #FFFFFF',
+    activeBorderRight: 'none',
+    borderBottom: '0px solid #252F54',
+  },
 
-const linkColor = '#FFFFFF';
-const linkHoverColor = '#FFFFFF';
-const linkActiveColor = '#FFFFFF';
-const linkSpanColor = '#FFFFFF';
-
-const subLinkMenuBgColor = '#212B4F';
-const subLinkBgColor = '#212B4F';
-const subLinkHoverBgColor = '#212B4F';
-const subLinkActiveBgColor = '#212B4F';
-
-const subLinkColor = '#E5E4EA';
-const subLinkHoverColor = '#FFC502';
-const subLinkActiveColor = '#FFC502';
-
-const linkActiveBorderLeft = '3px solid #FFFFFF';
-const linkActiveBorderRight = 'none';
-const linkBorderBottom = '0px solid #252F54';
-const subLinkItemBorderTop = '1px solid #252F54';
-const subLinkLeftPadBgColor = '#FFC502';
-const subLinkLeftPadWidth = 3;
+  subLink: {
+    menuBg: '#212B4F',
+    bg: '#212B4F',
+    hoverBg: '#212B4F',
+    activeBg: '#212B4F',
+    color: '#E5E4EA',
+    hoverColor: '#FFC502',
+    activeColor: '#FFC502',
+    borderTop: '1px solid #252F54',
+    leftPadBg: '#FFC502',
+    leftPadWidth: 3,
+  },
+};
 
 export const pageContainerClass = cssHash(
   (className) => `
@@ -60,7 +76,7 @@ export const pageContainerClass = cssHash(
       display: table;
       table-layout: fixed;
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
         display: block;
         height: auto;
@@ -72,13 +88,13 @@ export const pageContainerClass = cssHash(
 export const mainContainerClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${mainContainerBgColor};
+      background-color: ${theme.layout.bg};
       position: relative;
       display: table-cell;
       width: 100%;
       vertical-align: top;
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
         display: block;
         height: auto;
@@ -90,18 +106,18 @@ export const mainContainerClass = cssHash(
 export const pageSidebarClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${pageSidebarBgColor};
+      background-color: ${theme.sidebar.bg};
       display: table-cell;
       height: 100%;
       position: relative;
       vertical-align: top;
-      width: ${pageSidebarWidth}px;
-      z-index: ${pageSidebarZIndex};
-      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      width: ${theme.sidebar.width}px;
+      z-index: ${theme.sidebar.zIndex};
+      -moz-box-shadow: ${theme.sidebar.boxShadow};
+      -webkit-box-shadow: ${theme.sidebar.boxShadow};
+      box-shadow: ${theme.sidebar.boxShadow};
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
         display: block;
         width: 100%;
@@ -114,15 +130,15 @@ export const pageSidebarClass = cssHash(
 export const siteHeaderClass = cssHash(
   (className) => `
     .${className} {
-      background-color: ${siteHeaderBgColor};
-      color: ${siteHeaderColor};
+      background-color: ${theme.siteHeader.bg};
+      color: ${theme.siteHeader.color};
       overflow: hidden;
       position: relative;
-      z-index: ${siteHeaderZIndex};
+      z-index: ${theme.siteHeader.zIndex};
       display: flex;
       justify-content: space-between;
-      border-bottom: ${siteHeaderBorderBottom};
-      height: ${siteHeaderHeight}px;
+      border-bottom: ${theme.siteHeader.borderBottom};
+      height: ${theme.siteHeader.height}px;
     }
     .${className}-mobile-menu {
       padding: 20px;
@@ -130,19 +146,19 @@ export const siteHeaderClass = cssHash(
       display: none;
     }
     .${className}-content {
-      padding: ${siteHeaderContentPadding};
+      padding: ${theme.siteHeader.contentPadding};
       display: flex;
       align-items: center;
       width: 100%;
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className}-mobile-menu {
         display: flex;
         justify-content: center;
         align-items: center;
       }
       .${className}-mobile-menu:hover {
-        background-color: ${mobileMenuBgHover};
+        background-color: ${theme.menu.mobileHoverBg};
       }
     }
   `,
@@ -153,8 +169,8 @@ export const mainHeaderClass = cssHash(
     .${className} {
       display: flex;
       justify-content: space-between;
-      border-bottom: ${mainHeaderBorderBottom};
-      height: ${mainHeaderHeight}px;
+      border-bottom: ${theme.mainHeader.borderBottom};
+      height: ${theme.mainHeader.height}px;
     }
     .${className}-collapse-menu {
       display: flex;
@@ -164,12 +180,12 @@ export const mainHeaderClass = cssHash(
       cursor: pointer;
     }
     .${className}-collapse-menu:hover {
-      background-color: ${collapseMenuBgHover};
+      background-color: ${theme.menu.collapseHoverBg};
     }
     .${className}-content {
-      padding: ${mainHeaderContentPadding};
+      padding: ${theme.mainHeader.contentPadding};
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className}-collapse-menu {
         display: none;
       }
@@ -180,7 +196,7 @@ export const mainHeaderClass = cssHash(
 export const mainContentClass = cssHash(
   (className) => `
     .${className} {
-      padding: ${mainContentPadding};
+      padding: ${theme.content.padding};
     }
   `,
 );
@@ -198,11 +214,11 @@ export const navigationClass = cssHash(
       cursor: pointer;
     }
     ul.${className} > li {
-      border-bottom: ${linkBorderBottom};
+      border-bottom: ${theme.navLink.borderBottom};
     }
     ul.${className} li a {
-      background-color: ${linkBgColor};
-      color: ${linkColor};
+      background-color: ${theme.navLink.bg};
+      color: ${theme.navLink.color};
       display: flex;
       align-items: center;
       padding: 15px 20px;
@@ -214,31 +230,31 @@ export const navigationClass = cssHash(
     }
     ul.${className} > li > a:hover,
     ul.${className} > li > a:focus {
-      background-color: ${linkHoverBgColor};
-      color: ${linkHoverColor};
+      background-color: ${theme.navLink.hoverBg};
+      color: ${theme.navLink.hoverColor};
     }
     ul.${className} > li.active > a {
-      background-color: ${linkActiveBgColor};
-      color: ${linkActiveColor};
-      border-left: ${linkActiveBorderLeft};
-      border-right: ${linkActiveBorderRight};
+      background-color: ${theme.navLink.activeBg};
+      color: ${theme.navLink.color};
+      border-left: ${theme.navLink.activeBorderLeft};
+      border-right: ${theme.navLink.activeBorderRight};
     }
     ul.${className} > li:hover > a {
-      color: ${linkHoverColor};
+      color: ${theme.navLink.hoverColor};
     }
     ul.${className} ul > li > a:hover,
     ul.${className} ul > li > a:focus {
-      background-color: ${subLinkHoverBgColor};
-      color: ${subLinkHoverColor};
+      background-color: ${theme.subLink.hoverBg};
+      color: ${theme.subLink.hoverColor};
     }
     ul.${className} ul > li.active > a,
     ul.${className} ul > li.has-sub.active > a {
-      background-color: ${subLinkActiveBgColor};
-      color: ${subLinkActiveColor};
+      background-color: ${theme.subLink.activeBg};
+      color: ${theme.subLink.activeColor};
     }
     ul.${className} ul > li > a {
-      background-color: ${subLinkBgColor};
-      color: ${subLinkColor};
+      background-color: ${theme.subLink.bg};
+      color: ${theme.subLink.color};
       height: 15px;
     }
     ul.${className} li .menu-icon {
@@ -251,11 +267,11 @@ export const navigationClass = cssHash(
       padding: 0;
       position: relative;
       z-index: 1;
-      background-color: ${subLinkMenuBgColor};
+      background-color: ${theme.subLink.menuBg};
       overflow: hidden;
     }
     ul.${className} li ul li {
-      border-top: ${subLinkItemBorderTop};
+      border-top: ${theme.subLink.borderTop};
     }
     ul.${className} > li > ul > li:before {
       background-color: transparent;
@@ -265,25 +281,25 @@ export const navigationClass = cssHash(
       left: 30px;
       position: absolute;
       top: 13px;
-      width: ${subLinkLeftPadWidth}px;
+      width: ${theme.subLink.leftPadWidth}px;
       z-index: 2;
     }
     ul.${className} li ul li.active span.title {
       font-weight: 500;
     }
     ul.${className} li ul li:hover:before {
-      background-color: ${subLinkLeftPadBgColor};
+      background-color: ${theme.subLink.leftPadBg};
     }
     ul.${className} li ul li.active:before {
-      background-color: ${subLinkLeftPadBgColor};
+      background-color: ${theme.subLink.leftPadBg};
     }
     ul.${className} li ul li.has-sub:hover > a > .collapse-icon,
     ul.${className} li ul li.has-sub > a:focus:before {
-      color: ${subLinkHoverColor};
+      color: ${theme.subLink.hoverColor};
     }
     ul.${className} li ul li.active > a,
     ul.${className} li ul li.has-sub.active > a > .collapse-icon {
-      color: ${subLinkActiveColor};
+      color: ${theme.subLink.activeColor};
     }
     ul.${className} li ul > li > a {
       padding-left: 56px;
@@ -298,7 +314,7 @@ export const navigationClass = cssHash(
       padding-left: 116px;
     }
     ul.${className} li.has-sub > a > .collapse-icon {
-      color: ${linkColor};
+      color: ${theme.navLink.color};
       display: inline-flex;
       float: right;
       font-size: 15px;
@@ -307,13 +323,13 @@ export const navigationClass = cssHash(
       font-weight: normal;
     }
     ul.${className} li.active.has-sub > a > .collapse-icon {
-      color: ${linkActiveColor};
+      color: ${theme.navLink.activeColor};
     }
     ul.${className} li.has-sub > a > .collapse-icon:hover,
     ul.${className} > li > a > .collapse-icon:focus {
-      color: ${linkHoverColor};
+      color: ${theme.navLink.hoverColor};
     }
-    @media screen and (max-width: ${mobileWidth}px) {
+    @media screen and (max-width: ${theme.mobileWidth}px) {
       ul.${className} {
         margin-bottom: 0;
         border: 0 none;
@@ -329,7 +345,7 @@ export const navigationClass = cssHash(
 export const sidebarCollapsedClass = cssHash(
   (className) => `
     .${className} .${pageSidebarClass} {
-      width: ${pageSidebarCollapsedWidth}px;
+      width: ${theme.sidebar.collapsedWidth}px;
     }
     .${className} .${siteHeaderClass}-content {
       display: none;
@@ -338,10 +354,10 @@ export const sidebarCollapsedClass = cssHash(
       display: block;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
-      background-color: ${linkSpanBgColor};
-      color: ${linkSpanColor};
+      background-color: ${theme.navLink.spanBg};
+      color: ${theme.navLink.spanColor};
       display: block;
-      left: ${pageSidebarCollapsedWidth}px;
+      left: ${theme.sidebar.collapsedWidth}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
@@ -350,7 +366,7 @@ export const sidebarCollapsedClass = cssHash(
       top: 0;
       z-index: 2;
       visibility: hidden;
-      width: ${pageSidebarWidth - pageSidebarCollapsedWidth - 20}px;
+      width: ${theme.sidebar.width - theme.sidebar.collapsedWidth - 20}px;
       -moz-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
@@ -368,8 +384,8 @@ export const sidebarCollapsedClass = cssHash(
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a {
-      background-color: ${linkSpanBgColor};
-      color: ${linkSpanColor};
+      background-color: ${theme.navLink.spanBg};
+      color: ${theme.navLink.spanColor};
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > a > span.title,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > a > span.title,
@@ -382,7 +398,7 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} .${navigationClass} > li > ul {
       display: block;
       height: 0;
-      left: ${pageSidebarCollapsedWidth}px;
+      left: ${theme.sidebar.collapsedWidth}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
