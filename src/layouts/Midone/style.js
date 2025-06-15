@@ -2,7 +2,7 @@ import { cssHash } from 'css-hash';
 
 const sidebarWidth = 230;
 const sidebarLogoColor = '#FFF';
-const sidebarLogoBorderBottom = '1px solid #2E51BB';
+const sidebarLogoBorderBottom = '1px dashed #2E51BB';
 
 const appBgColor = '#1C3FAA';
 const contentBgColor = '#F1F5F8';
@@ -29,9 +29,7 @@ export const mobileWidth = 767;
 export const appClass = cssHash(
   (className) => `
     .${className} {
-      padding: 0.75rem 2rem;
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
+      padding: 1.25rem;
       background-color: ${appBgColor};
     }
     @media screen and (max-width: ${mobileWidth}px) {
@@ -85,6 +83,13 @@ export const sideNavHeaderClass = cssHash(
       position: relative;
       z-index: 1;
       font-size: 24px;
+      padding-bottom: 5px;
+    }
+      
+    @media screen and (max-width: ${mobileWidth}px) {
+      .${className} {
+        padding-bottom: 5px;
+      }
     }
   `,
 );
@@ -105,6 +110,10 @@ export const mobileMenuClass = cssHash(
       padding: 20px;
       cursor: pointer;
       display: none;
+      border-radius: 1rem;
+    }
+    .${className}:hover {
+      background: #1A389F;
     }
     @media screen and (max-width: ${mobileWidth}px) {
       .${className} {
@@ -253,7 +262,7 @@ export const navigationClass = cssHash(
       margin: 0;
       padding: 0;
       background-color: ${subLinkMenuBgColor};
-      border-radius: 0.375rem;
+      border-radius: 1rem;
       margin-bottom: 0.25rem;
       position: relative;
       z-index: 1;
