@@ -253,7 +253,8 @@ export const navigationClass = cssHash(
     ul.${className} li a {
       background-color: ${linkBgColor};
       color: ${linkColor};
-      display: block;
+      display: flex;
+      align-items: center;
       padding: 15px 20px;
       text-decoration: none;
     }
@@ -288,6 +289,7 @@ export const navigationClass = cssHash(
     ul.${className} li .menu-icon {
       margin-right: 16px;
       font-size: 15px;
+      display: inline-flex;
     }
     ul.${className} li ul {
       list-style: outside none none;
@@ -311,6 +313,9 @@ export const navigationClass = cssHash(
       top: 13px;
       width: ${subLinkLeftPadWidth}px;
       z-index: 2;
+    }
+    ul.${className} > li > a > span {
+      
     }
     ul.${className} li ul li.active span.title {
       font-weight: 500;
@@ -343,7 +348,7 @@ export const navigationClass = cssHash(
     }
     ul.${className} li.has-sub > a > .collapse-icon {
       color: ${linkColor};
-      display: inline-block;
+      display: inline-flex;
       float: right;
       font-size: 15px;
       margin-left: 10px;

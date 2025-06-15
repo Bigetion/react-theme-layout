@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
+import { TiThMenu } from 'react-icons/ti';
+import { CgClose } from 'react-icons/cg';
 
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -70,7 +72,7 @@ export default function Layout(props) {
                 setShowMenu(false);
               }}
             >
-              <i className="fa fa-close" />
+              <CgClose size={20} />
             </div>
           )}
         </div>
@@ -102,7 +104,7 @@ export default function Layout(props) {
               }
             }}
           >
-            <i className="fa fa-fw fa-ellipsis-v" />
+            <TiThMenu size={20} />
           </div>
         </div>
       </div>

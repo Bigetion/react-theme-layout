@@ -1,7 +1,9 @@
+import { LuSquareMenu } from 'react-icons/lu';
+
 const menus = [
-  { icon: 'fa fa-circle', title: 'Menu 1' },
+  { icon: LuSquareMenu, title: 'Menu 1' },
   {
-    icon: 'fa fa-circle',
+    icon: LuSquareMenu,
     title: 'Menu 2',
     children: [
       { title: 'Menu 2.1' },
@@ -13,7 +15,7 @@ const menus = [
     ],
   },
   {
-    icon: 'fa fa-circle',
+    icon: LuSquareMenu,
     title: 'Menu 3',
     children: [
       { title: 'Menu 3.1' },
