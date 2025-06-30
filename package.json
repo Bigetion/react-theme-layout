@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "tailwind-css-generator": "^3.1.2",
-    "tailwind-to-style": "^2.3.1",
+    "tailwind-to-style": "^2.6.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -1,7 +1,6 @@
-import { cssHash } from 'css-hash';
 import { twsx } from 'tailwind-to-style';
 
-const cssString = twsx({
+twsx({
   '.app-wrapper': 'bg-white antialiased',
 
   '.topbar':
@@ -39,8 +38,4 @@ const cssString = twsx({
   '.nav-list li .nav-link':
     'text-slate-700 border-l pl-3 -ml-px transition duration-200 ease-in-out relative block border-transparent hover:border-slate-400',
   '.nav-link .link-label': 'relative',
-});
-
-cssHash(() => {
-  return cssString;
 });
