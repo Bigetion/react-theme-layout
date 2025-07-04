@@ -2,6 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import generateInlineStyle from 'tailwind-css-generator';
+
+generateInlineStyle();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
