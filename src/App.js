@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -26,10 +26,10 @@ function PageLayout() {
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path={'/'} component={PageLayout} exact />
-        <Route path={'/:pathname'} component={PageLayout} exact />
-      </Switch>
+      <Routes>
+        <Route path={'/'} element={<PageLayout />} />
+        <Route path={'/:pathname'} element={<PageLayout />} />
+      </Routes>
     </Router>
   );
 }
