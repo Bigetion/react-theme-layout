@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { classNames } from 'css-hash';
 
 import Popper from 'components/Popper';
@@ -11,7 +11,7 @@ const NavigationContext = createContext();
 function ItemLink(props) {
   const { icon, title = '', children, level_index } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { pathkey } = useContext(NavigationContext);
 
@@ -21,7 +21,7 @@ function ItemLink(props) {
   }
 
   const onClick = () => {
-    history.push(path);
+    navigate(path);
   };
 
   if (level_index > 1) {

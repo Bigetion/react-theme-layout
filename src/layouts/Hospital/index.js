@@ -3,7 +3,7 @@ import { TiThMenu } from 'react-icons/ti';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { classNames } from 'css-hash';
 
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import Collapse from 'components/Collapse';
 import IconContainer from 'components/IconContainer';
@@ -31,7 +31,7 @@ import menus from './menus';
 export default function Layout(props) {
   const { children } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { pathname } = useParams();
 
   const [sidebar, toggleSidebar] = useState(true);
@@ -103,7 +103,7 @@ export default function Layout(props) {
                 pathkey="menu_id"
                 menus={menus}
                 onChange={(item) => {
-                  history.push(`/${item.menu_id}`);
+                  navigate(`/${item.menu_id}`);
                 }}
               />
             </div>

@@ -5,7 +5,7 @@ import { TiThMenu } from 'react-icons/ti';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { PiDotsThreeOutlineVerticalFill } from 'react-icons/pi';
 
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import {
   layoutClass,
@@ -26,7 +26,7 @@ import menus from './menus';
 export default function Layout(props) {
   const { children } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { pathname } = useParams();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -80,7 +80,7 @@ export default function Layout(props) {
             pathkey="menu_id"
             menus={menus}
             onChange={(item) => {
-              history.push(`/${item.menu_id}`);
+              navigate(`/${item.menu_id}`);
             }}
           />
         </div>

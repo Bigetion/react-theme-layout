@@ -3,7 +3,7 @@ import { classNames } from 'css-hash';
 import { TiThMenu } from 'react-icons/ti';
 import { CgClose } from 'react-icons/cg';
 
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import {
   pageContainerClass,
@@ -21,7 +21,7 @@ import menus from './menus';
 export default function Layout(props) {
   const { children } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { pathname } = useParams();
 
   const [sidebar, toggleSidebar] = useState(true);
@@ -86,7 +86,7 @@ export default function Layout(props) {
                 if (isMobile && showMenu) {
                   setShowMenu(false);
                 }
-                history.push(`/${item.menu_id}`);
+                navigate(`/${item.menu_id}`);
               }}
             />
           </div>
