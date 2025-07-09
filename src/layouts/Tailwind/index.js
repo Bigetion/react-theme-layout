@@ -38,9 +38,8 @@ export default function Layout(props) {
   const { width } = getSize();
   const [isMobile, setIsmobile] = useState(width < mobileWidth);
   const [showSidebar, setShowSidebar] = useState(width > mobileWidth);
-  const [sidebarScrollTop, setSidebarScrollTop] = useState(
-    lastSidebarScrollTop,
-  );
+  const [sidebarScrollTop, setSidebarScrollTop] =
+    useState(lastSidebarScrollTop);
 
   useEffect(
     () => {

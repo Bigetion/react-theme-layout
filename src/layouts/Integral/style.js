@@ -1,5 +1,15 @@
 import { cssHash } from 'css-hash';
 
+// Add global CSS for html, body, #root
+const globalStyle = document.createElement('style');
+globalStyle.innerHTML = `
+  html, body, #root {
+    height: 100%;
+    box-sizing: border-box;
+  }
+`;
+document.head.appendChild(globalStyle);
+
 export const theme = {
   mobileWidth: 767,
 
@@ -48,7 +58,7 @@ export const theme = {
     hoverColor: '#FFFFFF',
     activeColor: '#FFFFFF',
     spanColor: '#FFFFFF',
-    activeBorderLeft: '3px solid #FFFFFF',
+    activeBorderLeft: 'none',
     activeBorderRight: 'none',
     borderBottom: '0px solid #252F54',
   },
@@ -70,11 +80,12 @@ export const theme = {
 export const pageContainerClass = cssHash(
   (className) => `
     .${className} {
-      height: 100%;
+      height: 100vh;
       width: 100%;
       position: relative;
       display: table;
       table-layout: fixed;
+      box-sizing: border-box;
     }
     @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
@@ -93,6 +104,10 @@ export const mainContainerClass = cssHash(
       display: table-cell;
       width: 100%;
       vertical-align: top;
+      box-sizing: border-box;
+      height: 100vh;
+      /* Tambahan untuk pastikan konten di atas */
+      vertical-align: top !important;
     }
     @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
@@ -108,14 +123,17 @@ export const pageSidebarClass = cssHash(
     .${className} {
       background-color: ${theme.sidebar.bg};
       display: table-cell;
-      height: 100%;
+      height: 100vh;
       position: relative;
       vertical-align: top;
+      box-sizing: border-box;
       width: ${theme.sidebar.width}px;
       z-index: ${theme.sidebar.zIndex};
       -moz-box-shadow: ${theme.sidebar.boxShadow};
       -webkit-box-shadow: ${theme.sidebar.boxShadow};
       box-shadow: ${theme.sidebar.boxShadow};
+      /* Tambahan untuk pastikan sidebar di atas */
+      vertical-align: top !important;
     }
     @media screen and (max-width: ${theme.mobileWidth}px) {
       .${className} {
@@ -223,7 +241,8 @@ export const navigationClass = cssHash(
       align-items: center;
       padding: 15px 20px;
       text-decoration: none;
-      height: 15px;
+      height: 46px;
+      max-height: 46px;
     }
     ul.${className} li a span.title {
       flex: 1;
@@ -255,7 +274,7 @@ export const navigationClass = cssHash(
     ul.${className} ul > li > a {
       background-color: ${theme.subLink.bg};
       color: ${theme.subLink.color};
-      height: 15px;
+      height: px;
     }
     ul.${className} li .menu-icon {
       margin-right: 16px;
@@ -356,12 +375,13 @@ export const sidebarCollapsedClass = cssHash(
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.title {
       background-color: ${theme.navLink.spanBg};
       color: ${theme.navLink.spanColor};
-      display: block;
+      display: flex;
+      align-items: center;
       left: ${theme.sidebar.collapsedWidth}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
-      padding: 15px 20px;
+      padding: 0px 20px;
       position: absolute;
       top: 0;
       z-index: 2;
@@ -371,10 +391,11 @@ export const sidebarCollapsedClass = cssHash(
       -webkit-box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.25);
       box-sizing: content-box;
-      height: 15px;
+      height: 46px;
+      max-height: 46px;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li > a > span.label {
-      left: 240px;
+      left: ${theme.sidebar.width - 40}px;
       zoom: 1;
       opacity: 0;
       filter: alpha(opacity=0);
@@ -405,7 +426,7 @@ export const sidebarCollapsedClass = cssHash(
       position: absolute;
       top: auto;
       visibility: hidden;
-      width: 240px;
+      width: ${theme.sidebar.width - 40}px;
     }
     .${className} .${pageSidebarClass} .${navigationClass} > li.has-sub:hover > ul,
     .${className} .${pageSidebarClass} .${navigationClass} > li:hover > ul {
