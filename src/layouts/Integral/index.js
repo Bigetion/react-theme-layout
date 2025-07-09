@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { classNames } from 'css-hash';
-import { TiThMenu } from 'react-icons/ti';
+import { CgMenu } from 'react-icons/cg';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -73,7 +73,7 @@ export default function Layout(props) {
               setShowMenu(!showMenu);
             }}
           >
-            <TiThMenu size={20} />
+            <CgMenu size={20} />
           </div>
         </header>
         <Collapse open={showMenu} disableAnimation={!isMobile}>
@@ -102,7 +102,7 @@ export default function Layout(props) {
               toggleSidebar(!sidebar);
             }}
           >
-            <TiThMenu size={20} />
+            <CgMenu size={20} />
           </div>
           <div className={`${mainHeaderClass}-content`}></div>
         </div>

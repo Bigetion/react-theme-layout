@@ -194,7 +194,8 @@ export const mainHeaderClass = cssHash(
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      width: 60px;
+      height: 100%;
       cursor: pointer;
     }
     .${className}-collapse-menu:hover {
