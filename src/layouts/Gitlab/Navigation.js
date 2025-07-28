@@ -20,6 +20,8 @@ function ItemLink(props) {
     path = children[0][pathkey];
   }
 
+  path = `/${path}`;
+
   const onClick = () => {
     navigate(path);
   };
